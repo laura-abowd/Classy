@@ -33,6 +33,7 @@ class DeviseCreateTeachers < ActiveRecord::Migration[5.2]
       # t.datetime :locked_at
 
 
+      t.references :grade, foreign_key: true
       t.timestamps null: false
     end
 
