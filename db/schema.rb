@@ -16,12 +16,12 @@ ActiveRecord::Schema.define(version: 2019_11_18_075423) do
   enable_extension "plpgsql"
 
   create_table "classroom_enrollments", force: :cascade do |t|
-    t.bigint "teacher_id"
+    t.bigint "classroom_id"
     t.bigint "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["classroom_id"], name: "index_classroom_enrollments_on_classroom_id"
     t.index ["student_id"], name: "index_classroom_enrollments_on_student_id"
-    t.index ["teacher_id"], name: "index_classroom_enrollments_on_teacher_id"
   end
 
   create_table "classrooms", force: :cascade do |t|
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_075423) do
     t.boolean "gifted_talented"
     t.boolean "special_education"
     t.boolean "medical_alert"
+    t.string "next_teacher_lock"
     t.text "notes"
     t.bigint "grade_id"
     t.datetime "created_at", null: false
@@ -72,6 +73,9 @@ ActiveRecord::Schema.define(version: 2019_11_18_075423) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "schoolID"
+    t.string "first_name"
+    t.string "last_name"
     t.bigint "grade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -80,8 +84,8 @@ ActiveRecord::Schema.define(version: 2019_11_18_075423) do
     t.index ["reset_password_token"], name: "index_teachers_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "classroom_enrollments", "classrooms"
   add_foreign_key "classroom_enrollments", "students"
-  add_foreign_key "classroom_enrollments", "teachers"
   add_foreign_key "classrooms", "grades"
   add_foreign_key "classrooms", "teachers"
   add_foreign_key "do_not_places", "students", column: "student_one_id"

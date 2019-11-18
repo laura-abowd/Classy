@@ -10,6 +10,7 @@ class CreateStudents < ActiveRecord::Migration[5.2]
       t.boolean :gifted_talented
       t.boolean :special_education
       t.boolean :medical_alert
+      t.string :next_teacher_lock
       t.text :notes
       t.references :grade, foreign_key: true
 

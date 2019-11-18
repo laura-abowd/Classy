@@ -4,5 +4,14 @@ class Teacher < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :classrooms
+  belongs_to :grade
+
+  # has_many :classrooms
+  # validates :first_name,  presence: true
+  # validates :schoolID,     uniqueness: true
+
+
 end
+
+
+
