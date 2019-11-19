@@ -4,13 +4,14 @@
 <!-- STUDENT CARD  -->
 <div class="container m-auto-">
 <br>
+  <% @students.each  do |student| %>
   <div class="student-card">
     <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2700102/cute_monster_3_rgb_dribbbler.jpg" />
-    <p>#124215</p>
+    <p>#<%= student.schoolID %></p>
       <div class="student">
-        <p>Jessica Jones
-        <br>11.11.2011
-        <br>Female</p>
+        <p><%= student.first_name %> <%= @student.last_name  %>
+        <br><%= student.birthday %>
+        <br> <%= student.gender.capitalize %> </p>
       </div>
     <div class="mb-3 d-flex">
       <div class="checkbox">
@@ -35,6 +36,7 @@
         <div class="yellow-btn"><a href="#">Notes</a></div>
       </div>
   </div>
+  <% end %>
 
 <div class="student-card">
   <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2701195/cute_monster_6_rgb_dribbbler.jpg" />
