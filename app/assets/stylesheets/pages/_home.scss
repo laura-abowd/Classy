@@ -32,4 +32,7 @@ body {
   background-color: $classy-yellow;
 }
 
-
+.card-img-top img {
+  max-width: 115px;
+  padding-top: 10px;
+}
