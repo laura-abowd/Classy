@@ -9,6 +9,11 @@
   flex-grow: 0;
 }
 
+.nav-item {
+  display: inline;
+  list-style:none;
+}
+
 .fas {
   font-size: 30px;
   position: relative;
