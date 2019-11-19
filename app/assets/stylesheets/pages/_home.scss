@@ -1,21 +1,35 @@
 // Specific CSS for your home-page
 
-.banner {
-  background-image: url();
-  background-size: cover;
-  height: 50%;
+// .banner {
+//   background-image: url();
+//   background-size: cover;
+//   // background-color: pink;
+// }
+
+// .banner p {
+//   font-size: 31.25px;
+// }
+
+//bootstrap class for banner
+
+body {
+  background-color: white;
 }
 
-.banner h1 {
+.jumbotron-fluid {
+  background-color: white;
+  padding-left: 48px;
+}
+
+.container-fluid h1 {
   font-size: 100px;
+  font-weight: bold;
 }
 
-.banner p {
-  font-size: 31.25px;
-}
-
-.sub-banner {
+.mt-3 {
   width: 100%;
-  height: 500px;
-  background-color: rgb(244, 191, 0);
+  // height: 500px;
+  background-color: $classy-yellow;
 }
+
+

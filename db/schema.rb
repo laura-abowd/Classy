@@ -60,7 +60,6 @@ ActiveRecord::Schema.define(version: 2019_11_19_024257) do
     t.boolean "gifted_talented"
     t.boolean "special_education"
     t.boolean "medical_alert"
-    t.string "next_teacher_lock"
     t.text "notes"
     t.bigint "grade_id"
     t.datetime "created_at", null: false
