@@ -5,11 +5,21 @@ class PagesController < ApplicationController
 
 # NS I'm using this sort method to house the algorithm for now
 
+
 def sorttest
 
 
 
 end
+
+  def sorttest
+    doug = Teacher.find_by(first_name: 'Doug')
+    secondgrade = Grade.find_by(level: 2)
+    10.times do Classroom.create!(teacher: doug, grade: secondgrade)
+    end
+    raise
+  end
+
 
 def group_students_by_grade
     #put all students in the same grade together
@@ -17,18 +27,13 @@ def group_students_by_grade
   end
 
   def creating_classes
-    10.times do Classroom.create!(grade: 2)
-    end
+
   end
 
 
 
 
 
-
-#create five classrooms
-
-#start assigning
 
 
 
