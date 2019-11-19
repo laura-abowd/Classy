@@ -1,0 +1,155 @@
+/* Plain yellow button */
+
+.yellowButton {
+  background-color:#F4BF00;
+  border:2px solid #F4BF00;
+  display:inline-block;
+  cursor:pointer;
+  color: white;
+  font-family:Comfortaa;
+  font-size:20px;
+  font-weight:light;
+  padding:16px 40px;
+  text-decoration:none;
+  border-radius: 4px;
+}
+.yellowButton:hover {
+  background-color:#F4BF00;
+  border:2px solid #F4BF00;
+  color: white;
+}
+.yellowButton:active {
+  position:relative;
+  border:2px solid #CEA100;
+  color: white;
+  background-color:#CEA100;
+}
+
+/* Plain blue button */
+
+.blueButton {
+  background-color:#0F5EC7;
+  border:2px solid #0F5EC7;
+  display:inline-block;
+  cursor:pointer;
+  color: white;
+  font-family:Comfortaa;
+  font-size:20px;
+  font-weight:light;
+  padding:16px 40px;
+  text-decoration:none;
+  border-radius: 4px;
+}
+.blueButton:hover {
+  background-color:#0F5EC7;
+  border:2px solid #0F5EC7;
+  color: white;
+}
+.blueButton:active {
+  position:relative;
+  border:2px solid #013579;
+  color: white;
+  background-color:#013579;
+}
+
+/* Outline yellow button */
+
+.outlineYellowButton {
+  background-color:white;
+  border:2px solid #F4BF00;
+  color: #F4BF00;
+  display:inline-block;
+  cursor:pointer;
+  font-family:Comfortaa;
+  font-size:20px;
+  font-weight:light;
+  padding:16px 40px;
+  text-decoration:none;
+  border-radius: 4px;
+}
+.outlineYellowButton:hover {
+  background-color:white;
+  border:2px solid #F4BF00;
+  color: #F4BF00;
+}
+.outlineYellowButton:active {
+  position:relative;
+  border:2px solid #CEA100;
+  color: #CEA100;
+  background-color:white;
+}
+
+/* Outline blue button */
+
+.outlineBlueButton {
+  background-color:white;
+  border:2px solid #0F5EC7;
+  color: #0F5EC7;
+  display:inline-block;
+  cursor:pointer;
+  font-family:Comfortaa;
+  font-size:20px;
+  font-weight:light;
+  padding:16px 40px;
+  text-decoration:none;
+  border-radius: 4px;
+}
+.outlineBlueButton:hover {
+  background-color:white;
+ border:2px solid #0F5EC7;
+  color: #0F5EC7;
+}
+.outlineBlueButton:active {
+  position:relative;
+  border:2px solid #013579;
+  color: #013579;
+  background-color:white;
+}
+
+/* Hover effect plain yellow button */
+/* Smaller, no border. Linaer radient */
+
+.specialYellowButton {
+  background-color:#F4BF00;
+  background:linear-gradient(to bottom, #F4BF00 5%, #DEAE00 100%);
+  display:inline-block;
+  cursor:pointer;
+  color: white;
+  font-family:Comfortaa;
+  font-size:20px;
+  font-weight:light;
+  padding:16px 40px;
+  text-decoration:none;
+  border-radius: 4px;
+}
+.specialYellowButton:hover {
+  background-color:#F4BF00;
+  background:linear-gradient(to bottom, #DEAE00 5%, #F4BF00 100%);
+  color: white;
+}
+.specialYellowButton:active {
+  background:linear-gradient(to bottom, #F4BF00 5%, #DEAE00 100%);
+}
+
+/* Hover effect Plain blue button */
+.specialBlueButton {
+  background-color:#0F5EC7;
+  background:linear-gradient(to bottom, #0F5EC7 5%, #0D4DA3 100%);
+  display:inline-block;
+  cursor:pointer;
+  color: white;
+  font-family:Comfortaa;
+  font-size:20px;
+  font-weight:light;
+  padding:16px 40px;
+  text-decoration:none;
+  border-radius: 4px;
+}
+.specialBlueButton:hover {
+  background-color:#0F5EC7;
+background:linear-gradient(to bottom, #0D4DA3 5%, #0F5EC7 100%);
+  color: white;
+}
+.specialBlueButton:active {
+  background:linear-gradient(to bottom, #0F5EC7 5%, #0D4DA3 100%);
+}
