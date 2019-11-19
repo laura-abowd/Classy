@@ -5,6 +5,12 @@
   box-shadow: 0 5px 10px -3px rgba(0,0,0,0.3);
 }
 
+img {
+    max-width:15%;
+    height:auto;
+}
+
+
 .navbar-classy .navbar-collapse {
   flex-grow: 0;
 }
