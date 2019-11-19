@@ -1,6 +1,50 @@
 <h1>Students#index</h1>
 <p>Find me in app/views/students/index.html.erb</p>
 
-<%= @hello %>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <%= link_to "home", "/", class: "btn btn-primary" %>
+
+<br>
+
+<%# you can loop through @students to display all %>
+
+<%# first name  %>
+<% @student.first_name %>
+
+<%# last name  %>
+<% @student.last_name %>
+
+<%# birthday  %>
+<% @student.birthday %>
+
+<%# photo url  %>
+<% @student.photo %>
+
+<%# gender  %>
+<% @student.gender %>
+
+<%# esl? %>
+<% @student.esl %>
+
+<%# gifted talented?  %>
+<% @student.gifted_talented %>
+
+<%# special ed? %>
+<% @student.special_education %>
+
+<%# medical alert?  %>
+<% @student.medical_alert %>
+

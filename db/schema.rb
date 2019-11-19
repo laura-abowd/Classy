@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_075423) do
     t.string "last_name"
     t.string "birthday"
     t.string "gender"
+    t.string "photo"
     t.boolean "esl"
     t.boolean "gifted_talented"
     t.boolean "special_education"

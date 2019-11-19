@@ -6,6 +6,7 @@ class CreateStudents < ActiveRecord::Migration[5.2]
       t.string :last_name
       t.string :birthday
       t.string :gender
+      t.string :photo
       t.boolean :esl
       t.boolean :gifted_talented
       t.boolean :special_education
