@@ -9,11 +9,8 @@ class PagesController < ApplicationController
 
 # NS I'm using this sort method to house the algorithm for now
 
-  # def sorttest
 
-  # end
-
-  def group_students_by_grade
+def group_students_by_grade
     #put all students in the same grade together
     @students = Grade.find_by(level: 1).students
   end
@@ -52,13 +49,6 @@ class PagesController < ApplicationController
 
 
   end
-
-
-
-
-
-
-
 
 
 
