@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_18_075423) do
+ActiveRecord::Schema.define(version: 2019_11_19_024257) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,12 +60,20 @@ ActiveRecord::Schema.define(version: 2019_11_18_075423) do
     t.boolean "gifted_talented"
     t.boolean "special_education"
     t.boolean "medical_alert"
-    t.string "next_teacher_lock"
     t.text "notes"
     t.bigint "grade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["grade_id"], name: "index_students_on_grade_id"
+  end
+
+  create_table "teacher_locks", force: :cascade do |t|
+    t.bigint "teacher_id"
+    t.bigint "student_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["student_id"], name: "index_teacher_locks_on_student_id"
+    t.index ["teacher_id"], name: "index_teacher_locks_on_teacher_id"
   end
 
   create_table "teachers", force: :cascade do |t|
@@ -92,5 +100,7 @@ ActiveRecord::Schema.define(version: 2019_11_18_075423) do
   add_foreign_key "do_not_places", "students", column: "student_one_id"
   add_foreign_key "do_not_places", "students", column: "student_two_id"
   add_foreign_key "students", "grades"
+  add_foreign_key "teacher_locks", "students"
+  add_foreign_key "teacher_locks", "teachers"
   add_foreign_key "teachers", "grades"
 end
