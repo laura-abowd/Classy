@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+
   before_action :authenticate_teacher!
 
   before_action :configure_permitted_parameters, if: :devise_controller?
@@ -10,5 +11,6 @@ class ApplicationController < ActionController::Base
     # For additional in app/views/devise/registrations/edit.html.erb
     devise_parameter_sanitizer.permit(:account_update, keys: [:email])
   end
+
 
 end

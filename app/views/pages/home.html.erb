@@ -1,23 +1,62 @@
-<%= link_to "students", "/students", class: "special-blue-btn" %>
-<%= link_to "classrooms", "/classrooms", class: "btn btn-danger" %>
+<!--
+<div class="container"> -->
+<!-- <div class="container-fluid">
 
-
-<div class="container mt-5">
-  <div class="banner">
-    <h1>Classy</h1>
-    <p>Helping teachers manage their <br> class lists more effectively.</p>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container banner">
+    <h1 class="display-4">Classy</h1>
+    <p class="lead">Helping teachers manage their class lists more effectively. </p>
   </div>
-</div>
+</div> -->
+<header class="jumbotron jumbotron-fluid">
+    <div class="container-fluid text-left">
+        <h1 class="display-3">Classy</h1>
+        <div class="tagline">
+            <p class="lead pb-2">Manage class lists more effectively </p>
+        </div>
+        <p><a href="#" class="blue-btn" role="button">Get started</a></p>
+    </div>
+</header>
+<div class="container-fluid">
+    <div class="sub-banner mt-3 text-center">
+        <h3 class="mt-3 ">What if teachers could focus on what matters most?</h3>
+        <p> Manage your class with Classy.</p>
+        <div class="row justify-content-center">
+            <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Save Time</h5>
+                        <p class="card-text">Create your class lists in less time than ever before.</p>
+                    </div>
+                </div>
+            </div>
+              <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Reduces Complexity</h5>
+                        <p class="card-text">Create your class lists in less time than ever before.</p>
+                    </div>
+                </div>
+            </div>
+               <div class="col-sm-3">
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Simplifies the Process</h5>
+                        <p class="card-text">Create your class lists in less time than ever before.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>
 
 
-<div class="sub-banner mt-3">
-  <h1 class="mt-3">Say something!</h1>
-</div>
 
-
-
-
-<%= @hello %>
-
-
-
+    <%= link_to "students", "/students", class: "special-blue-btn" %>
+    <%= link_to "classrooms", "/classrooms", class: "btn btn-danger" %>
+    <%= @hello %>
+    <!-- </div> -->
+    <!-- </div> -->
