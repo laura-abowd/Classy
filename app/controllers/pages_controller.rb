@@ -5,13 +5,13 @@ class PagesController < ApplicationController
 
 # NS I'm using this sort method to house the algorithm for now
 
-  def sorttest
+def sorttest
 
 
 
-  end
+end
 
-  def group_students_by_grade
+def group_students_by_grade
     #put all students in the same grade together
     @students = Grade.find_by(level: 1).students
   end
