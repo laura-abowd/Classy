@@ -1,29 +1,27 @@
 /* Plain yellow button */
 
 .yellow-btn {
-  background-color: #F4BF00;
-  border: 2px solid #F4BF00;
+  background-color: $classy-yellow;
   display: inline-block;
   cursor: pointer;
-  color: white;
+  color: $classy-gray;
   font-family: Comfortaa;
   font-size:  16px;
   font-weight: light;
   padding: 4px 22px;
   text-decoration:none;
-  border-radius: 4px;
+  border-radius: 2px;
+  transition: 0.3s;
 }
 .yellow-btn:hover {
   text-decoration: none;
-  background-color: #F4BF00;
-  border: 2px solid #F4BF00;
-  color: white;
+  background-color: rgb(206, 161, 0);
+  color: $classy-gray;
 }
 .yellow-btn:active {
   position: relative;
-  border: 2px solid #CEA100;
-  color: white;
-  background-color: #CEA100;
+  color: $classy-gray;
+  background-color: rgb(206, 161, 0);
 }
 
 /* Plain blue button */
