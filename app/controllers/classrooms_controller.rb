@@ -4,7 +4,8 @@ class ClassroomsController < ApplicationController
   end
 
   def index
-    @hello = 'hello world'
+    @class = Classroom.first
+    @classrooms = Classroom.all
   end
 
   def update
