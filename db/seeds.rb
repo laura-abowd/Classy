@@ -14,12 +14,13 @@ Teacher.delete_all
 Grade.delete_all
 
 Grade.create!(level: 1)
-Grade.create!(level: 2)
+second = Grade.create!(level: 2)
 Grade.create!(level: 3)
 Grade.create!(level: 4)
 grades = Grade.all
 
 doug = Teacher.create!(first_name: "Doug", email: 'douglewagon@gmail.com', password: 'password', grade: grades.sample)
+hold = Teacher.create!(first_name: "hold", email: 'holdlewagon@gmail.com', password: 'password', grade: second)
 trouni = Teacher.create!(first_name: "Trouni", email: 'trounilewagon@gmail.com', password: 'password', grade: grades.sample)
 yann = Teacher.create!(first_name: "Yann", email: 'yannlewagon@gmail.com', password: 'password', grade: grades.sample)
 james = Teacher.create!(first_name: "James", email: 'jameslewagon@gmail.com', password: 'password', grade: grades.sample)
