@@ -2,11 +2,11 @@
 
 .student-card {
 position: relative;
-display: flex;
-justify-content: space-around;
+// display: flex
+// justify-content: space-around;
 overflow: hidden;
 width: 1080px;
-height: 90px;
+// height: 90px;
 padding: 10px;
 margin: 20px 5px 5px 5px;
 align-items: center;
@@ -15,12 +15,12 @@ transition: height 0.3s, box-shadow 0.3s;
   p {
     font-family: Comfortaa;
     font-size: 12.08px;
-    margin-top: 20px;
+    margin: 0;
   }
 }
 
 .student-card:hover {
-  height: 95px;
+  // height: 95px;
   box-shadow: 5px 10px 15px 0px rgba(182, 210, 246,0.45);
 }
 
