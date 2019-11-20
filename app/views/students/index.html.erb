@@ -1,82 +1,61 @@
 <!-- STUDENT CARD  -->
 <div class="container m-auto">
-  <% @students.each  do |student| %>
-  <div class="student-card">
+    <% @students.each  do |student| %>
+      <div class="student-card">
+        <div class="top-row d-flex text-center">
+          <div class="student-info d-flex flex-grow-1 ml-3 mt-2">
+            <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2700102/cute_monster_3_rgb_dribbbler.jpg" />
+            <div class="student ml-3">
+              <p>#<%= student.schoolID %></p>
+              <p><%= student.first_name %><%= @student.last_name %></p>
+              <p><%= student.birthday %></p>
+              <p><%= student.gender.capitalize %></p>
+            </div>
+            </div>
+          <div class="special-icons flex-grow-1">
+            <%= simple_form_for @student do |f| %>
+              <%= f.error_notification %>
+                <div class="d-flex">
+                  <%= f.input :esl, label: false %>
+                  <%= f.input :gifted_talented, label: false %>
+                  <%= f.input :special_education, label: false %>
+                  <%= f.input :medical_alert, label: false %>
+                </div>
+              <%#= f.input :notes %>
+            <% end %>
+          </div>
+          </div>
+            <div class="assign-teacher flex-grow-1">
+              <%= simple_form_for @teacher_lock do |f| %>
+                <%= f.error_notification %>
+                <%= f.association :teacher, label: false %>
+              <% end %>
+            </div>
+            <div class="bottom-row d-flex w-100">
+              <div class="notes w-30 m-3">
+                <%= simple_form_for @student do |f| %>
+                  <%= f.error_notification %>
+                  <%= f.input :notes, input_html: {class: "h-100 w-100"}, label: false, placeholder: "Notes" %>
+                <% end %>
+              </div>
+            </div>
+              <%= simple_form_for @do_not_place do |f| %>
+                <div class="do-not-place">
+                    <%= f.error_notification %>
+                    <%= f.association :student_two, label: false, collection: student.grade.students.map { |student| [student.first_name, student.id] } %>
+                  <% end %>
+                  <!-- <div class="dnp-display border w-100 h-100">
+                    <%# student.do_not_places.each do |dnp| %>
+                      <p class="dnp badge badge-danger">
+                      <%#= dnp.first_name %>
+                      </p>
+                    <%# end %>
+                  </div> -->
+                </div>
+              <% end %>
 
-    <div class="top-row d-flex">
-      <div class="student-info d-flex flex-grow-1">
-        <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2700102/cute_monster_3_rgb_dribbbler.jpg" />
-        <div class="student">
-          <p>#<%= student.schoolID %></p>
-          <p><%= student.first_name %> <%= @student.last_name  %></p>
-          <p><%= student.birthday %></p>
-          <p><%= student.gender.capitalize %></p>
-        </div>
-
-      </div>
-
-      <div class="special-icons flex-grow-1">
-        <%= simple_form_for @student do |f| %>
-        <%= f.error_notification %>
-        <div class="d-flex">
-          <%= f.input :esl, label: false %>
-          <%= f.input :gifted_talented, label: false %>
-          <%= f.input :special_education, label: false %>
-          <%= f.input :medical_alert, label: false %>
-        </div>
-        <%#= f.input :notes %>
-        <% end %>
-      </div>
-
-      <div class="assign-teacher flex-grow-1">
-        <%= simple_form_for @teacher_lock do |f| %>
-        <%= f.error_notification %>
-        <%= f.association :teacher, label: false %>
-        <% end %>
-      </div>
-
-    </div>
-
-
-
-<div class="bottom-row d-flex w-100">
-  <div class="notes w-50 m-3">
-      <%= simple_form_for @student do |f| %>
-        <%= f.error_notification %>
-        <%= f.input :notes, input_html: {class: "h-100 w-100"}, label: false, placeholder: "Notes" %>
-      <% end %>
-  </div>
-  <div class="do-not-place">
-    <%= simple_form_for @do_not_place do |f| %>
-    <%= f.error_notification %>
-    <%= f.association :student_two, label: false, collection: student.grade.students.map { |student| [student.first_name, student.id] } %>
-    <% end %>
-    <div class="dnp-display border w-100 h-100">
-      <%# student.do_not_places.each do |dnp| %>
-        <!-- <p class="dnp badge badge-danger"> --><%#= dnp.first_name %></p>
-      <%# end %>
-    </div>
-  </div>
-</div>
-</div>
-<% end %>
-
-    <!-- /STUDENT CARD  -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <%= link_to "home", "/", class: "btn btn-primary" %>
-
-    <br>
+        <!-- /STUDENT CARD  -->
+        <%= link_to "home", "/", class: "btn btn-primary" %>
+        <br>
 
 
