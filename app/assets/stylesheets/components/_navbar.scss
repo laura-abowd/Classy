@@ -1,5 +1,5 @@
 .navbar-classy {
-
+  display: flex;
   justify-content: space-between;
   background: white;
   box-shadow: 0 5px 10px -3px rgba(0,0,0,0.3);
@@ -17,7 +17,7 @@ img {
 
 .nav-item {
   display: inline;
-  list-style:none;
+  list-style: none;
 }
 
 .fas {
