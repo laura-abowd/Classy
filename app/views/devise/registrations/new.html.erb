@@ -18,10 +18,16 @@
     <%= f.input :teacher_name,
             required: true,
             input_html: { autocomplete: "new-password" } %>
+    <%= f.association :grade,
+        required: true,
+        collection: Grade.all.map {|grade| [grade.level, grade.id]},
+        input_html: { autocomplete: "grade" } %>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
 <% end %>
+
+<%= resource.errors.full_messages if resource.errors %>
 
 <%= render "devise/shared/links" %>
