@@ -1,5 +1,3 @@
-
-
 <!-- STUDENT CARD  -->
 <div class="container m-auto">
   <% @students.each  do |student| %>
@@ -55,7 +53,7 @@
     <% end %>
     <div class="dnp-display border w-100 h-100">
       <%# student.do_not_places.each do |dnp| %>
-<!--         <p class="dnp badge badge-danger"><%#= dnp.first_name %></p> -->
+        <!-- <p class="dnp badge badge-danger"> --><%#= dnp.first_name %></p>
       <%# end %>
     </div>
   </div>
@@ -80,34 +78,5 @@
     <%= link_to "home", "/", class: "btn btn-primary" %>
 
     <br>
-
-    <%# you can loop through @students to display all %>
-
-    <%# first name  %>
-    <% @student.first_name %>
-
-    <%# last name  %>
-    <% @student.last_name %>
-
-    <%# birthday  %>
-    <% @student.birthday %>
-
-    <%# photo url  %>
-    <% @student.photo %>
-
-    <%# gender  %>
-    <% @student.gender %>
-
-    <%# esl? %>
-    <% @student.esl %>
-
-    <%# gifted talented?  %>
-    <% @student.gifted_talented %>
-
-    <%# special ed? %>
-    <% @student.special_education %>
-
-    <%# medical alert?  %>
-    <% @student.medical_alert %>
 
 
