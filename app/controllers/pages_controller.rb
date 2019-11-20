@@ -7,24 +7,24 @@ class PagesController < ApplicationController
   end
 
 
-def group_students_by_grade
-    #put all students in the same grade together
-    @students = Grade.find_by(level: 1).students
-  end
+# def group_students_by_grade
+#     #put all students in the same grade together
+#     @students = Grade.find_by(level: 1).students
+#   end
 
-  def creating_classes
-    # create fives classes and place them in variables
-    hold = Teacher.find_by(first_name: 'hold')
-    secondgrade = Grade.find_by(level: 2)
-    5.times do Classroom.create!(teacher: hold, grade: secondgrade)
-    end
-    classone = Classroom.all[-1]
-    classtwo = Classroom.all[-2]
-    classthree = Classroom.all[-3]
-    classfour = Classroom.all[-4]
-    classfive = Classroom.all[-5]
+#   def creating_classes
+#     # create fives classes and place them in variables
+#     hold = Teacher.find_by(first_name: 'hold')
+#     secondgrade = Grade.find_by(level: 2)
+#     5.times do Classroom.create!(teacher: hold, grade: secondgrade)
+#     end
+#     classone = Classroom.all[-1]
+#     classtwo = Classroom.all[-2]
+#     classthree = Classroom.all[-3]
+#     classfour = Classroom.all[-4]
+#     classfive = Classroom.all[-5]
 
-  end
+#   end
 
 
 
