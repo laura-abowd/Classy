@@ -6,11 +6,14 @@ class Teacher < ApplicationRecord
 
   belongs_to :grade
 
+
   # has_many :classrooms
   # validates :first_name,  presence: true
   # validates :schoolID,     uniqueness: true
 
-
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
 
 

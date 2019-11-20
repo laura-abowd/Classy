@@ -15,23 +15,19 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :first_name,
-    required: true,
-    autofocus: true,
-    input_html: { autocomplete: "first_name" }%>
-    <%= f.input :last_name,
-    required: true,
-    autofocus: true,
-    input_html: { autocomplete: "description" }%>
-    <%= f.input :schoolID,
-    required: true,
-    autofocus: true,
-    input_html: { autocomplete: "description" }%>
-  </div>
+    <%= f.input :teacher_name,
+            required: true,
+            input_html: { autocomplete: "new-password" } %>
+    <%= f.association :grade,
+        required: true,
+        collection: Grade.all.map {|grade| [grade.level, grade.id]},
+        input_html: { autocomplete: "grade" } %>
 
   <div class="form-actions">
     <%= f.button :submit, "Sign up" %>
   </div>
 <% end %>
+
+<%= resource.errors.full_messages if resource.errors %>
 
 <%= render "devise/shared/links" %>
