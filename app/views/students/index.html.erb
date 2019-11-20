@@ -1,5 +1,3 @@
-<h1>Students#index</h1>
-<p>Find me in app/views/students/index.html.erb</p>
 
 <!-- STUDENT CARD  -->
 <div class="container m-auto-">
@@ -13,7 +11,14 @@
         <br><%= student.birthday %>
         <br> <%= student.gender.capitalize %> </p>
       </div>
-    <div class="mb-3 d-flex">
+   <!--    <div class="checkbox">
+      <%= check_box("tag", tag.id, {checked: false}, class: "checkbox") %>
+      <label for="checkbox"></label>
+      <%= check_box("tag", tag.id, {checked: false}, class: "aa") %>
+      <%= check_box("tag", tag.id, {checked: false}, class: "aa") %>
+      <%= check_box("tag", tag.id, {checked: false}, class: "aa") %>
+    </div>
+ -->    <div class="mb-3 d-flex">
       <div class="checkbox">
         <input type="checkbox" id="checkbox_1">
         <label for="checkbox_1"></label>
