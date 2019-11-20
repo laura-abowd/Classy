@@ -1,191 +1,113 @@
 
 
 <!-- STUDENT CARD  -->
-<div class="container m-auto-">
-<br>
+<div class="container m-auto">
   <% @students.each  do |student| %>
   <div class="student-card">
-    <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2700102/cute_monster_3_rgb_dribbbler.jpg" />
-    <p>#<%= student.schoolID %></p>
-      <div class="student">
-        <p><%= student.first_name %> <%= @student.last_name  %>
-        <br><%= student.birthday %>
-        <br> <%= student.gender.capitalize %> </p>
-      </div>
-   <!--    <div class="checkbox">
-      <%= check_box("tag", tag.id, {checked: false}, class: "checkbox") %>
-      <label for="checkbox"></label>
-      <%= check_box("tag", tag.id, {checked: false}, class: "aa") %>
-      <%= check_box("tag", tag.id, {checked: false}, class: "aa") %>
-      <%= check_box("tag", tag.id, {checked: false}, class: "aa") %>
-    </div>
- -->    <div class="mb-3 d-flex">
-      <div class="checkbox">
-        <input type="checkbox" id="checkbox_1">
-        <label for="checkbox_1"></label>
-        <input type="checkbox" id="checkbox_2">
-        <label for="checkbox_2"></label>
-        <input type="checkbox" id="checkbox_3">
-        <label for="checkbox_3"></label>
-        <input type="checkbox" id="checkbox_4">
-        <label for="checkbox_4"></label>
-      </div>
-    </div>
-      <div class="mt-4">
-        <form>
-          <div class="form-group">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-           </div>
-        </form>
-      </div>
-      <div class="mt-2">
-        <div class="yellow-btn"><a href="#">Notes</a></div>
-      </div>
-  </div>
-  <% end %>
 
-<div class="header" id="myHeader">
-
-
-    <button class="yellow-btn">
-      Submit class for sorting.
-    </button>
-    <ul>
-      <!-- add icon image to text within li, display flex  -->
-      <li><i class="fas fa-notes-medical"></i>Medical Alert</li>
-      <li><i class="fas fa-globe-americas"></i>ESL</li>
-      <li>Gifted & Talented </li>
-      <li>Special Education</li>
-      <li><i class="far fa-times-circle"></i>Do Not Place With</li>
-    </ul>
-</div>
-<!-- STUDENT CARD  -->
-<div class="container m-auto-">
-    <br>
-    <% @students.each  do |student| %>
-    <div class="student-card">
+    <div class="top-row d-flex">
+      <div class="student-info d-flex flex-grow-1">
         <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2700102/cute_monster_3_rgb_dribbbler.jpg" />
-        <p>#
-            <%= student.schoolID %>
-        </p>
         <div class="student">
-            <p>
-                <%= student.first_name %>
-                <%= @student.last_name  %>
-                <br>
-                <%= student.birthday %>
-                <br>
-                <%= student.gender.capitalize %>
-            </p>
+          <p>#<%= student.schoolID %></p>
+          <p><%= student.first_name %> <%= @student.last_name  %></p>
+          <p><%= student.birthday %></p>
+          <p><%= student.gender.capitalize %></p>
         </div>
-        <!-- assign values to checkboxes & pass boolean value to strong params -->
-        <div class="mb-3 d-flex">
-            <div class="checkbox">
-                <input type="checkbox" id="checkbox_1">
-                <label for="checkbox_1"></label>
-                <input type="checkbox" id="checkbox_2">
-                <label for="checkbox_2"></label>
-                <input type="checkbox" id="checkbox_3">
-                <label for="checkbox_3"></label>
-                <input type="checkbox" id="checkbox_4">
-                <label for="checkbox_4"></label>
-            </div>
+
+      </div>
+
+      <div class="special-icons flex-grow-1">
+        <%= simple_form_for @student do |f| %>
+        <%= f.error_notification %>
+        <div class="d-flex">
+          <%= f.input :esl, label: false %>
+          <%= f.input :gifted_talented, label: false %>
+          <%= f.input :special_education, label: false %>
+          <%= f.input :medical_alert, label: false %>
         </div>
-        <div class="mt-4">
-            <form>
-                <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-            </form>
-        </div>
-        <div class="mt-2">
-            <div class="yellow-btn"><a href="#">Notes</a></div>
-        </div>
+        <%#= f.input :notes %>
+        <% end %>
+      </div>
+
+      <div class="assign-teacher flex-grow-1">
+        <%= simple_form_for @teacher_lock do |f| %>
+        <%= f.error_notification %>
+        <%= f.association :teacher, label: false %>
+        <% end %>
+      </div>
+
     </div>
+
+
+
+<div class="bottom-row d-flex w-100">
+  <div class="notes w-50 m-3">
+      <%= simple_form_for @student do |f| %>
+        <%= f.error_notification %>
+        <%= f.input :notes, input_html: {class: "h-100 w-100"}, label: false, placeholder: "Notes" %>
+      <% end %>
+  </div>
+  <div class="do-not-place">
+    <%= simple_form_for @do_not_place do |f| %>
+    <%= f.error_notification %>
+    <%= f.association :student_two, label: false, collection: student.grade.students.map { |student| [student.first_name, student.id] } %>
     <% end %>
-    <div class="student-card">
-        <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2701195/cute_monster_6_rgb_dribbbler.jpg" />
-        <p>#124215</p>
-        <div class="student">
-            <p>Jessica Jones
-                <br>11.11.2011
-                <br>Male</p>
-        </div>
-        <div class="mb-3">
-            <div class="checkbox">
-                <input type="checkbox" id="checkbox_1">
-                <label for="checkbox_1"></label>
-                <input type="checkbox" id="checkbox_2">
-                <label for="checkbox_2"></label>
-                <input type="checkbox" id="checkbox_3">
-                <label for="checkbox_3"></label>
-                <input type="checkbox" id="checkbox_4">
-                <label for="checkbox_4"></label>
-            </div>
-        </div>
-        <div class="mt-4">
-            <form>
-                <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-            </form>
-        </div>
-        <div class="mt-2">
-            <div class="yellow-btn">Notes</div>
-        </div>
+    <div class="dnp-display border w-100 h-100">
+      <%# student.do_not_places.each do |dnp| %>
+<!--         <p class="dnp badge badge-danger"><%#= dnp.first_name %></p> -->
+      <%# end %>
     </div>
-    <div class="student-card">
-        <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2700837/cute_monster_5_dribbbler.jpg" />
-        <p>#124215</p>
-        <div class="student">
-            <p>Jessica Jones
-                <br>11.11.2011
-                <br>Female</p>
-        </div>
-        <div class="mb-3">
-            <div class="checkbox">
-                <input type="checkbox" id="checkbox_5">
-                <label for="checkbox_5"></label>
-                <input type="checkbox" id="checkbox_6">
-                <label for="checkbox_6"></label>
-                <input type="checkbox" id="checkbox_7">
-                <label for="checkbox_7"></label>
-                <input type="checkbox" id="checkbox_8">
-                <label for="checkbox_8"></label>
-            </div>
-        </div>
-        <div class="mt-4">
-            <form>
-                <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                </div>
-            </form>
-        </div>
-        <div class="mt-2">
-            <div class="yellow-btn">Notes</div>
-        </div>
-    </div>
-    <br>
+  </div>
 </div>
-<!-- /STUDENT CARD  -->
-<%= link_to "home", "/", class: "btn btn-primary" %>
-<br>
-<%# you can loop through @students to display all %>
-<%# first name  %>
-<% @student.first_name %>
-<%# last name  %>
-<% @student.last_name %>
-<%# birthday  %>
-<% @student.birthday %>
-<%# photo url  %>
-<% @student.photo %>
-<%# gender  %>
-<% @student.gender %>
-<%# esl? %>
-<% @student.esl %>
-<%# gifted talented?  %>
-<% @student.gifted_talented %>
-<%# special ed? %>
-<% @student.special_education %>
-<%# medical alert?  %>
-<% @student.medical_alert %>
+</div>
+<% end %>
+
+    <!-- /STUDENT CARD  -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <%= link_to "home", "/", class: "btn btn-primary" %>
+
+    <br>
+
+    <%# you can loop through @students to display all %>
+
+    <%# first name  %>
+    <% @student.first_name %>
+
+    <%# last name  %>
+    <% @student.last_name %>
+
+    <%# birthday  %>
+    <% @student.birthday %>
+
+    <%# photo url  %>
+    <% @student.photo %>
+
+    <%# gender  %>
+    <% @student.gender %>
+
+    <%# esl? %>
+    <% @student.esl %>
+
+    <%# gifted talented?  %>
+    <% @student.gifted_talented %>
+
+    <%# special ed? %>
+    <% @student.special_education %>
+
+    <%# medical alert?  %>
+    <% @student.medical_alert %>
+
+
