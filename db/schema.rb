@@ -53,19 +53,20 @@ ActiveRecord::Schema.define(version: 2019_11_19_024257) do
     t.integer "schoolID"
     t.string "first_name"
     t.string "last_name"
-    t.string "birthday"
+    t.date "birthday"
     t.string "gender"
     t.string "photo"
-    t.boolean "esl"
-    t.boolean "gifted_talented"
-    t.boolean "special_education"
-    t.boolean "medical_alert"
-    t.string "next_teacher_lock"
-    t.text "notes"
+    t.boolean "esl", default: false
+    t.boolean "gifted_talented", default: false
+    t.boolean "special_education", default: false
+    t.boolean "medical_alert", default: false
+    t.text "notes", default: ""
     t.bigint "grade_id"
+    t.bigint "teacher_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["grade_id"], name: "index_students_on_grade_id"
+    t.index ["teacher_id"], name: "index_students_on_teacher_id"
   end
 
   create_table "teacher_locks", force: :cascade do |t|
@@ -83,9 +84,8 @@ ActiveRecord::Schema.define(version: 2019_11_19_024257) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "schoolID"
-    t.string "first_name"
-    t.string "last_name"
+    t.string "teacher_name"
+    t.integer "current_grade"
     t.bigint "grade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_024257) do
   add_foreign_key "do_not_places", "students", column: "student_one_id"
   add_foreign_key "do_not_places", "students", column: "student_two_id"
   add_foreign_key "students", "grades"
+  add_foreign_key "students", "teachers"
   add_foreign_key "teacher_locks", "students"
   add_foreign_key "teacher_locks", "teachers"
   add_foreign_key "teachers", "grades"
