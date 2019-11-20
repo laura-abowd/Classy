@@ -1,154 +1,137 @@
-<h1>Students#index</h1>
-<p>Find me in app/views/students/index.html.erb</p>
 
+<div class="header" id="myHeader">
+
+    <button class="yellow-btn">
+      Submit class for sorting.
+    </button>
+</div>
 <!-- STUDENT CARD  -->
 <div class="container m-auto-">
-<br>
-  <% @students.each  do |student| %>
-  <div class="student-card">
-    <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2700102/cute_monster_3_rgb_dribbbler.jpg" />
-    <p>#<%= student.schoolID %></p>
-      <div class="student">
-        <p><%= student.first_name %> <%= @student.last_name  %>
-        <br><%= student.birthday %>
-        <br> <%= student.gender.capitalize %> </p>
-      </div>
-    <div class="mb-3 d-flex">
-      <div class="checkbox">
-        <input type="checkbox" id="checkbox_1">
-        <label for="checkbox_1"></label>
-        <input type="checkbox" id="checkbox_2">
-        <label for="checkbox_2"></label>
-        <input type="checkbox" id="checkbox_3">
-        <label for="checkbox_3"></label>
-        <input type="checkbox" id="checkbox_4">
-        <label for="checkbox_4"></label>
-      </div>
-    </div>
-      <div class="mt-4">
-        <form>
-          <div class="form-group">
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-           </div>
-        </form>
-      </div>
-      <div class="mt-2">
-        <div class="yellow-btn"><a href="#">Notes</a></div>
-      </div>
-  </div>
-  <% end %>
-
-<div class="student-card">
-  <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2701195/cute_monster_6_rgb_dribbbler.jpg" />
-  <p>#124215</p>
-  <div class="student">
-    <p>Jessica Jones
-    <br>11.11.2011
-    <br>Male</p>
-  </div>
-  <div class="mb-3">
-   <div class="checkbox">
-      <input type="checkbox" id="checkbox_1">
-      <label for="checkbox_1"></label>
-      <input type="checkbox" id="checkbox_2">
-      <label for="checkbox_2"></label>
-      <input type="checkbox" id="checkbox_3">
-      <label for="checkbox_3"></label>
-      <input type="checkbox" id="checkbox_4">
-      <label for="checkbox_4"></label>
-    </div>
-  </div>
-    <div class="mt-4">
-      <form>
-      <div class="form-group">
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-      </div>
-    </form>
-  </div>
-  <div class="mt-2">
-    <div class="yellow-btn">Notes</div>
-  </div>
-</div>
-
-
-<div class="student-card">
-  <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2700837/cute_monster_5_dribbbler.jpg" />
-  <p>#124215</p>
-    <div class="student">
-      <p>Jessica Jones
-      <br>11.11.2011
-      <br>Female</p>
-    </div>
-    <div class="mb-3">
-     <div class="checkbox">
-        <input type="checkbox" id="checkbox_5">
-        <label for="checkbox_5"></label>
-        <input type="checkbox" id="checkbox_6">
-        <label for="checkbox_6"></label>
-        <input type="checkbox" id="checkbox_7">
-        <label for="checkbox_7"></label>
-        <input type="checkbox" id="checkbox_8">
-        <label for="checkbox_8"></label>
-      </div>
-    </div>
-    <div class="mt-4">
-      <form>
-        <div class="form-group">
-          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <br>
+    <% @students.each  do |student| %>
+    <div class="student-card">
+        <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2700102/cute_monster_3_rgb_dribbbler.jpg" />
+        <p>#
+            <%= student.schoolID %>
+        </p>
+        <div class="student">
+            <p>
+                <%= student.first_name %>
+                <%= @student.last_name  %>
+                <br>
+                <%= student.birthday %>
+                <br>
+                <%= student.gender.capitalize %>
+            </p>
         </div>
-      </form>
+        <!-- assign values to checkboxes & pass boolean value to strong params -->
+        <div class="mb-3 d-flex">
+            <div class="checkbox">
+                <input type="checkbox" id="checkbox_1">
+                <label for="checkbox_1"></label>
+                <input type="checkbox" id="checkbox_2">
+                <label for="checkbox_2"></label>
+                <input type="checkbox" id="checkbox_3">
+                <label for="checkbox_3"></label>
+                <input type="checkbox" id="checkbox_4">
+                <label for="checkbox_4"></label>
+            </div>
+        </div>
+        <div class="mt-4">
+            <form>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+            </form>
+        </div>
+        <div class="mt-2">
+            <div class="yellow-btn"><a href="#">Notes</a></div>
+        </div>
     </div>
-    <div class="mt-2">
-      <div class="yellow-btn">Notes</div>
+    <% end %>
+    <div class="student-card">
+        <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2701195/cute_monster_6_rgb_dribbbler.jpg" />
+        <p>#124215</p>
+        <div class="student">
+            <p>Jessica Jones
+                <br>11.11.2011
+                <br>Male</p>
+        </div>
+        <div class="mb-3">
+            <div class="checkbox">
+                <input type="checkbox" id="checkbox_1">
+                <label for="checkbox_1"></label>
+                <input type="checkbox" id="checkbox_2">
+                <label for="checkbox_2"></label>
+                <input type="checkbox" id="checkbox_3">
+                <label for="checkbox_3"></label>
+                <input type="checkbox" id="checkbox_4">
+                <label for="checkbox_4"></label>
+            </div>
+        </div>
+        <div class="mt-4">
+            <form>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+            </form>
+        </div>
+        <div class="mt-2">
+            <div class="yellow-btn">Notes</div>
+        </div>
     </div>
-  </div>
-  <br>
+    <div class="student-card">
+        <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2700837/cute_monster_5_dribbbler.jpg" />
+        <p>#124215</p>
+        <div class="student">
+            <p>Jessica Jones
+                <br>11.11.2011
+                <br>Female</p>
+        </div>
+        <div class="mb-3">
+            <div class="checkbox">
+                <input type="checkbox" id="checkbox_5">
+                <label for="checkbox_5"></label>
+                <input type="checkbox" id="checkbox_6">
+                <label for="checkbox_6"></label>
+                <input type="checkbox" id="checkbox_7">
+                <label for="checkbox_7"></label>
+                <input type="checkbox" id="checkbox_8">
+                <label for="checkbox_8"></label>
+            </div>
+        </div>
+        <div class="mt-4">
+            <form>
+                <div class="form-group">
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+            </form>
+        </div>
+        <div class="mt-2">
+            <div class="yellow-btn">Notes</div>
+        </div>
+    </div>
+    <br>
 </div>
-
 <!-- /STUDENT CARD  -->
-
-
-
-
-
-
-
-
-
-
-
-
-
 <%= link_to "home", "/", class: "btn btn-primary" %>
-
 <br>
-
 <%# you can loop through @students to display all %>
-
 <%# first name  %>
 <% @student.first_name %>
-
 <%# last name  %>
 <% @student.last_name %>
-
 <%# birthday  %>
 <% @student.birthday %>
-
 <%# photo url  %>
 <% @student.photo %>
-
 <%# gender  %>
 <% @student.gender %>
-
 <%# esl? %>
 <% @student.esl %>
-
 <%# gifted talented?  %>
 <% @student.gifted_talented %>
-
 <%# special ed? %>
 <% @student.special_education %>
-
 <%# medical alert?  %>
 <% @student.medical_alert %>
-
