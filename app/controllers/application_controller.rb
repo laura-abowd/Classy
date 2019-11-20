@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:email])
   end
 
+  def after_sign_in_path_for(resource)
+  stored_location_for(resource) || students_path
+  end
+
 
   # before_action :authenticate_teacher!
   # include Pundit
