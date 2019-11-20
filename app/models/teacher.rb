@@ -5,7 +5,7 @@ class Teacher < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :grade
-  has_many :students
+
 
   # has_many :classrooms
   # validates :first_name,  presence: true
