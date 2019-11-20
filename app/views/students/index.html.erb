@@ -1,5 +1,51 @@
 
+
+<!-- STUDENT CARD  -->
+<div class="container m-auto-">
+<br>
+  <% @students.each  do |student| %>
+  <div class="student-card">
+    <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2700102/cute_monster_3_rgb_dribbbler.jpg" />
+    <p>#<%= student.schoolID %></p>
+      <div class="student">
+        <p><%= student.first_name %> <%= @student.last_name  %>
+        <br><%= student.birthday %>
+        <br> <%= student.gender.capitalize %> </p>
+      </div>
+   <!--    <div class="checkbox">
+      <%= check_box("tag", tag.id, {checked: false}, class: "checkbox") %>
+      <label for="checkbox"></label>
+      <%= check_box("tag", tag.id, {checked: false}, class: "aa") %>
+      <%= check_box("tag", tag.id, {checked: false}, class: "aa") %>
+      <%= check_box("tag", tag.id, {checked: false}, class: "aa") %>
+    </div>
+ -->    <div class="mb-3 d-flex">
+      <div class="checkbox">
+        <input type="checkbox" id="checkbox_1">
+        <label for="checkbox_1"></label>
+        <input type="checkbox" id="checkbox_2">
+        <label for="checkbox_2"></label>
+        <input type="checkbox" id="checkbox_3">
+        <label for="checkbox_3"></label>
+        <input type="checkbox" id="checkbox_4">
+        <label for="checkbox_4"></label>
+      </div>
+    </div>
+      <div class="mt-4">
+        <form>
+          <div class="form-group">
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+           </div>
+        </form>
+      </div>
+      <div class="mt-2">
+        <div class="yellow-btn"><a href="#">Notes</a></div>
+      </div>
+  </div>
+  <% end %>
+
 <div class="header" id="myHeader">
+
 
     <button class="yellow-btn">
       Submit class for sorting.
