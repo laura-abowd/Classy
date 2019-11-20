@@ -14,10 +14,9 @@ class DeviseCreateTeachers < ActiveRecord::Migration[5.2]
       ## Rememberable
       t.datetime :remember_created_at
 
+      t.string :teacher_name
 
-      t.integer :schoolID
-      t.string :first_name
-      t.string :last_name
+
 
 
       ## Trackable

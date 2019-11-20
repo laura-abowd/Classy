@@ -6,6 +6,7 @@ class Teacher < ApplicationRecord
 
   belongs_to :grade
 
+
   # has_many :classrooms
   # validates :first_name,  presence: true
   # validates :schoolID,     uniqueness: true

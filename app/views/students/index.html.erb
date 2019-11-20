@@ -1,10 +1,10 @@
-<h1>Students#index</h1>
-<p>Find me in app/views/students/index.html.erb</p>
+
 
 <!-- STUDENT CARD  -->
 <div class="container m-auto">
   <% @students.each  do |student| %>
   <div class="student-card">
+
     <div class="top-row d-flex">
       <div class="student-info d-flex flex-grow-1">
         <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2700102/cute_monster_3_rgb_dribbbler.jpg" />
@@ -14,6 +14,7 @@
           <p><%= student.birthday %></p>
           <p><%= student.gender.capitalize %></p>
         </div>
+
       </div>
 
       <div class="special-icons flex-grow-1">
@@ -35,6 +36,7 @@
         <%= f.association :teacher, label: false %>
         <% end %>
       </div>
+
     </div>
 
 
@@ -107,4 +109,5 @@
 
     <%# medical alert?  %>
     <% @student.medical_alert %>
+
 
