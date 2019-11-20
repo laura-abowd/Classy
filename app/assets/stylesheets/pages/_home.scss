@@ -1,38 +1,45 @@
-// Specific CSS for your home-page
 
-// .banner {
-//   background-image: url();
-//   background-size: cover;
-//   // background-color: pink;
+// body {
+//   background-color: #f7f8fa;
 // }
 
-// .banner p {
-//   font-size: 31.25px;
-// }
-
-//bootstrap class for banner
-
-body {
-  background-color: white;
+.classy-banner {
+  margin-bottom: 0;
+  padding: 50px 100px 0px 100px;
 }
 
-.jumbotron-fluid {
-  background-color: white;
-  padding-left: 48px;
-}
-
-.container-fluid h1 {
+.classy-banner h1 {
   font-size: 100px;
-  font-weight: bold;
+  font-weight: bolder;
 }
 
-.mt-3 {
+.classy-sub-banner {
   width: 100%;
-  // height: 500px;
   background-color: $classy-yellow;
 }
 
-.card-img-top img {
-  max-width: 115px;
-  padding-top: 10px;
+.classy-sub-banner h3 {
+  padding-top: 45px;
 }
+
+.classy-sub-banner p {
+  padding-bottom: 15px;
+}
+
+#container-sub-banner {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+.classy-card-img {
+  padding-top: 20px;
+}
+
+.classy-card-img img {
+  max-width: 115px;
+}
+
+#row-cards {
+ padding-bottom: 50px;
+}
+
