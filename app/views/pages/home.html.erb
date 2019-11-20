@@ -1,60 +1,57 @@
-
-<header class="jumbotron jumbotron-fluid">
-  <div class="container-fluid text-left">
-    <h1 class="display-3">Classy</h1>
-    <div class="tagline">
-      <p class="lead pb-2">Manage class lists more effectively </p>
+<header style="background:transparent !important" class="classy-banner jumbotron jumbotron-fluid">
+    <div style="display: flex;">
+        <div class="container-fluid text-left">
+            <div class="tagline">
+                <h1 class="display-3">Classy</h1>
+                <p class="lead pb-2">Manage class lists more effectively </p>
+                <p><a href="#" class="blue-btn" role="button">Get started</a></p>
+            </div>
+        </div>
+        <div class="container-fluid text-right"><img src="assets/HeroImage.jpg" class="img-fluid" alt="hero image"></div>
     </div>
-    <p><a href="#" class="blue-btn" role="button">Get started</a></p>
-  </div>
 </header>
-<div class="container-fluid">
-  <div class="sub-banner mt-3 text-center">
-    <h3 class="mt-3 ">What if teachers could focus on what matters most?</h3>
-    <p> Manage your class with Classy.</p>
-    <div class="row justify-content-center">
-      <div class="col-sm-3">
-        <div class="card" style="width: 25rem;">
-          <a class="card-img-top" alt="Card image cap">
-            <%= image_tag("hourglass.png") %>
-          </a>
-          <div class="card-body">
-            <h5 class="card-title">Save Time</h5>
-            <p class="card-text">Create your class lists in less time than ever before.</p>
-          </div>
+<div id="container-sub-banner" class="container-fluid">
+    <div class="sub-banner classy-sub-banner mt-3 text-center">
+        <h3>What if teachers could focus on what matters most?</h3>
+        <p> Manage your class with Classy.</p>
+        <div id="row-cards" class="row justify-content-center">
+            <div class="col-sm-3">
+                <div class="card  h-100">
+                    <a class="classy-card-img card-img-top" alt="Card image cap">
+                        <%= image_tag("hourglass.png") %>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Saves Time</h5>
+                        <p class="card-text">Create your class lists in less time than ever before.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card h-100">
+                    <a class=" classy-card-img card-img-top" alt="Card image cap">
+                        <%= image_tag("game-controller.png") %>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Reduces Complexity</h5>
+                        <p class="card-text">Classy sorts students for you.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card h-100">
+                    <a class="classy-card-img card-img-top" alt="Card image cap">
+                        <%= image_tag("tap.png") %>
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">Simplifies the Process</h5>
+                        <p class="card-text">Ensure that all students and their needs are met.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="card" style="width: 25rem;">
-          <a class="card-img-top" alt="Card image cap">
-            <%= image_tag("game-controller.png") %>
-         </a>
-         <div class="card-body">
-          <h5 class="card-title">Reduces Complexity</h5>
-          <p class="card-text">Create your class lists in less time than ever before.</p>
-        </div>
-      </div>
     </div>
-    <div class="col-sm-3">
-      <div class="card" style="width: 25rem;">
-        <a class="card-img-top" alt="Card image cap">
-          <%= image_tag("tap.png") %>
-        </a>
-        <div class="card-body">
-          <h5 class="card-title">Simplifies the Process</h5>
-          <p class="card-text">Create your class lists in less time than ever before.</p>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
-</div>
+<%= link_to "students", "/students", class: "special-blue-btn" %>
+<%= link_to "classrooms", "/classrooms", class: "btn btn-danger" %>
 
-
-
-    <%= link_to "students", "/students", class: "special-blue-btn" %>
-    <%= link_to "classrooms", "/classrooms", class: "btn btn-danger" %>
-    <%= @hello %>
-    <!-- </div> -->
-    <!-- </div> -->
 
