@@ -53,15 +53,14 @@ ActiveRecord::Schema.define(version: 2019_11_19_024257) do
     t.integer "schoolID"
     t.string "first_name"
     t.string "last_name"
-    t.string "birthday"
+    t.date "birthday"
     t.string "gender"
     t.string "photo"
-    t.boolean "esl"
-    t.boolean "gifted_talented"
-    t.boolean "special_education"
-    t.boolean "medical_alert"
-    t.string "next_teacher_lock"
-    t.text "notes"
+    t.boolean "esl", default: false
+    t.boolean "gifted_talented", default: false
+    t.boolean "special_education", default: false
+    t.boolean "medical_alert", default: false
+    t.text "notes", default: ""
     t.bigint "grade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -83,9 +82,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_024257) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "schoolID"
-    t.string "first_name"
-    t.string "last_name"
+    t.string "teacher_name"
     t.bigint "grade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
