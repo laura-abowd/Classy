@@ -1,13 +1,18 @@
 /* Style the header */
-.classy-top-container {
-  background-color: $classy-yellow;
+.classy-students-header {
+  padding: 40px 0 40px 0;
+  text-align: center;
+  color: white;
+  background-color: $classy-blue;
 }
 
-
+.classy-sticky-button {
+  float: right;
+}
 
 .header {
   padding: 10px 16px;
-  background: $classy-blue;
+  background: transparent;
   color: white;
   z-index: 999;
 }
@@ -29,17 +34,5 @@
   padding-top: 102px;
 }
 
-.classy-sticky-content {
 
-}
 
-.classy-sticky-list ul {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.classy-sticky-list li {
-  list-style: none;
-}
