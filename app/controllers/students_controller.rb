@@ -8,7 +8,7 @@ class StudentsController < ApplicationController
   end
 
   def update
-    @student = Booking.find(params[:id])
+    @student = Student.find(params[:id])
     @student.update(student_params)
     redirect_to students_path
   end
@@ -104,6 +104,7 @@ class StudentsController < ApplicationController
       redirect_to students_path
 
       raise
+
   end
 
   private

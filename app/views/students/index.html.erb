@@ -45,7 +45,8 @@
           <%= simple_form_for @do_not_place do |f| %>
             <div class="do-not-place">
               <%= f.error_notification %>
-              <%= f.association :student_two, label: false, collection: student.grade.students.map { |student| [student.first_name, student.id] } %>
+              <%= f.input :student_one_id, as: :hidden, input_html: {value: student.id} %>
+              <%= f.association :student_two, label: false, collection: student.grade.students.map { |student| [student.first_name, student.id] }%>
             </div>
           <% end %>
           <!-- <div class="dnp-display border w-100 h-100">
