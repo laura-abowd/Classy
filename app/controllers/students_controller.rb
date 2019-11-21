@@ -80,25 +80,25 @@ class StudentsController < ApplicationController
       #   student.teacher = Teacher.where(teacher_name: 'Mr. Berkley)
       # }
 
-      classone.each do |student| {
-        student.teacher = Teacher.where(teacher_name: 'Ms. Teague')
-      }
+      # classone.each do |student| {
+      #   student.teacher = Teacher.where(teacher_name: 'Ms. Teague')
+      # }
 
-      classtwo.each do |student| {
-        student.teacher = Teacher.where(teacher_name: 'Ms. Reed')
-      }
+      # classtwo.each do |student| {
+      #   student.teacher = Teacher.where(teacher_name: 'Ms. Reed')
+      # }
 
-      classthree.each do |student| {
-        student.teacher = Teacher.where(teacher_name: 'Ms. Rogers')
-      }
+      # classthree.each do |student| {
+      #   student.teacher = Teacher.where(teacher_name: 'Ms. Rogers')
+      # }
 
-      classfour.each do |student| {
-        student.teacher = Teacher.where(teacher_name: 'Mr. Garcia')
-      }
+      # classfour.each do |student| {
+      #   student.teacher = Teacher.where(teacher_name: 'Mr. Garcia')
+      # }
 
-      classfive.each do |student| {
-        student.teacher = Teacher.where(teacher_name: 'Mr. Berkley')
-      }
+      # classfive.each do |student| {
+      #   student.teacher = Teacher.where(teacher_name: 'Mr. Berkley')
+      # }
 
 
       redirect_to students_path
