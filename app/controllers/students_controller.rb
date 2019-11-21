@@ -8,7 +8,7 @@ class StudentsController < ApplicationController
   end
 
   def update
-    @student = Booking.find(params[:id])
+    @student = Student.find(params[:id])
     @student.update(student_params)
     redirect_to students_path
   end
@@ -58,6 +58,8 @@ class StudentsController < ApplicationController
     @boysnoconditions.each_with_index do |student, index|
       stupidarray[index % 5] << student
       end
+
+    raise
 
       redirect_to classrooms_path
   end
