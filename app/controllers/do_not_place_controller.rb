@@ -4,7 +4,7 @@ class DoNotPlaceController < ApplicationController
     if @do_not_place.save
       redirect_to students_path
     else
-      render "students"
+      redirect_to students_path
   end
 
   def do_not_place_params

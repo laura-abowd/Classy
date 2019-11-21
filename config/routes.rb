@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get '/students', to: 'students#index'
   get '/classrooms', to: 'classrooms#index'
-  post '', to: 'students#sort', as: 'sortbutton'
+  post '/sort', to: 'students#sort', as: 'sortbutton'
 
   resources :teacher_locks, only: :create
   resources :do_not_places, only: :create
