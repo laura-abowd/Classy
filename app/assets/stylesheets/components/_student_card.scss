@@ -8,11 +8,8 @@
 }
 
 .student-card {
-// display: flex
-// justify-content: space-around;
 overflow: hidden;
 width: 1080px;
-// height: 90px;
 padding: 10px;
 margin: 20px 5px 5px 5px;
 align-items: center;
@@ -28,9 +25,6 @@ transition: height 0.3s, box-shadow 0.3s;
 .student-card:hover {
   box-shadow: 5px 10px 15px 0px rgba(182, 210, 246,0.45);
 }
-
-/* my style */
-
 
 /* dropdown */
 .dropdown-card {
@@ -50,29 +44,11 @@ transition: height 0.3s, box-shadow 0.3s;
   }
 }
 
-
-
 .active .dropdown-card {
  height: 120px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Checkbox
-// Each checkbox has an ID, checkbox with duplicate ID will not work.
-// Checkbox ID is embedded in the html component
 
 .checkbox input[type="checkbox"] {
     opacity: 0.3;
@@ -109,7 +85,9 @@ transition: height 0.3s, box-shadow 0.3s;
     top: 3px;
 }
 
+
 /*Checkmark of the fake checkbox*/
+
 .checkbox label::after {
     height: 6px;
     width: 15px;
@@ -121,14 +99,35 @@ transition: height 0.3s, box-shadow 0.3s;
     top: 11px;
 }
 
+
 /*Hide the checkmark by default*/
+
 .checkbox input[type="checkbox"] + label::after {
     content: none;
 }
 
+
 /*Unhide on the checked state*/
+
 .checkbox input[type="checkbox"]:checked + label::after {
     content: "";
+}
+
+
+/* Checkbox Icon */
+
+.checkbox-icon {
+  color: $classy-blue;
+  i {
+    opacity: 0.35;
+    font-size: 20px;
+    margin-left: 40px;
+    transition: 0.3s ease-out;
+  }
+}
+
+.checkbox-icon i:hover, .checkbox-icon i.active {
+  opacity: 1;
 }
 
 

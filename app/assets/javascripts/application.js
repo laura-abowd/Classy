@@ -24,3 +24,11 @@ document.querySelectorAll('.student-card-container').forEach( (card) => {
     card.classList.toggle('active')
   });
 })
+
+
+const checkAll = document.querySelectorAll('.checkbox-icon i');
+checkAll.forEach( (button) => {
+    button.addEventListener("click", (event) => {
+        event.currentTarget.classList.toggle("active")
+    });
+})
