@@ -54,15 +54,17 @@
           </div>
     </div>
     <div class="dropdown-card">
-      <div class="d-flex m-auto">
-        <div class="notes mr-3 ml-4">
+        <div class="mr-3 ml-4 w-50">
+          <div class="student-content">
           Leave a note
           <%= simple_form_for @student do |f| %>
             <%= f.error_notification %>
             <%= f.input :notes, input_html: {class: "h-100 w-100"}, label: false, placeholder: "Notes" %>
           <% end %>
+          </div>
         </div>
-          <div class="assign-teacher">
+        <div class="mr-3 ml-4 w-25">
+          <div class="student-content">
             Assign to
             <%= simple_form_for @teacher_lock do |f| %>
               <%= f.error_notification %>
@@ -72,9 +74,10 @@
             <% end %>
           </div>
         </div>
+      </div>
     </div>
-  </div>
     <% end %>
+  </div>
 </div>
 
 <!-- /STUDENT CARD  -->
