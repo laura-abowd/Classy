@@ -1,11 +1,8 @@
 class PagesController < ApplicationController
-
   skip_before_action :authenticate_teacher!, only: :home
 
   def home
-
   end
-
 
 # def group_students_by_grade
 #     #put all students in the same grade together

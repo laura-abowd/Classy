@@ -1,14 +1,15 @@
+/* Style the header */
 .header {
   padding: 10px 16px;
   background: $classy-blue;
-  color: black;
+  color: white;
   z-index: 999;
 }
 
 /* Page content */
-// .content {
-//   padding: 16px;
-// }
+.content {
+  padding: 16px;
+}
 
 /* The sticky class is added to the header with JS when it reaches its scroll position */
 .sticky {
@@ -21,20 +22,3 @@
 .sticky + .content {
   padding-top: 102px;
 }
-
-#myHeader {
-  padding-top: 20px;
-  padding-left: 150px;
-  padding-bottom: 20px;
-}
-
-ul {
-  display: inline-block;
-  text-decoration: none;
-  list-style-type: none;
-}
-
-li {
-  display: inline;
-}
-
