@@ -1,7 +1,5 @@
 // Student card for teacher's view
-.simple-form-for .spacearound-checkbox input {
-  border-color: $classy-blue;
-}
+
 
 .cards-container {
   position: relative;
@@ -23,7 +21,7 @@ transition: height 0.3s, box-shadow 0.3s;
 }
 
 .student-card:hover {
-  box-shadow: 5px 10px 15px 0px rgba(182, 210, 246,0.45);
+  box-shadow: 5px 10px 15px 0px rgba(182, 210, 246,0.65);
 }
 
 /* dropdown */
@@ -116,13 +114,16 @@ transition: height 0.3s, box-shadow 0.3s;
 
 /* Checkbox Icon */
 
+.checkbox-icons i:hover {
+  opacity: 1;
+}
 .checkbox-icons {
   color: $classy-blue;
   i {
     opacity: 0.35;
     font-size: 20px;
     margin-top: 20px;
-    margin-left: 20px;
+    margin-left: 30px;
     // margin: 20px;
     transition: 0.3s ease-out;
   }
@@ -133,8 +134,7 @@ transition: height 0.3s, box-shadow 0.3s;
     opacity: 1;
   }
 }
-
-.checkbox-icon i:hover, .checkbox-icon i.active {
+.checkbox-icons i.active {
   opacity: 1;
 }
 
