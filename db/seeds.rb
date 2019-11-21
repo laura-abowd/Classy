@@ -31,11 +31,11 @@ berkley = Teacher.create!(teacher_name: 'Mr. Berkley', grade: second, email: 'be
 
 teachers = Teacher.all
 
-Classroom.create!(teacher: abowd, grade: grades.sample)
-Classroom.create!(teacher: wright, grade: grades.sample)
-Classroom.create!(teacher: torres, grade: grades.sample)
-Classroom.create!(teacher: meleck, grade: grades.sample)
-Classroom.create!(teacher: marquez, grade: grades.sample)
+Classroom.create!(teacher: abowd, grade: first)
+Classroom.create!(teacher: wright, grade: first)
+Classroom.create!(teacher: torres, grade: first)
+Classroom.create!(teacher: meleck, grade: first)
+Classroom.create!(teacher: marquez, grade: first)
 
 classrooms = Classroom.all
 
