@@ -116,13 +116,21 @@ transition: height 0.3s, box-shadow 0.3s;
 
 /* Checkbox Icon */
 
-.checkbox-icon {
+.checkbox-icons {
   color: $classy-blue;
   i {
     opacity: 0.35;
     font-size: 20px;
-    margin-left: 40px;
+    margin-top: 20px;
+    margin-left: 20px;
+    // margin: 20px;
     transition: 0.3s ease-out;
+  }
+  .form-check-input {
+    display: none;
+  }
+  .form-check-input:checked + label > i {
+    opacity: 1;
   }
 }
 
@@ -130,5 +138,17 @@ transition: height 0.3s, box-shadow 0.3s;
   opacity: 1;
 }
 
+
+/* Dropdown carrot button */
+.fa-chevron-down {
+  font-size: 20px;
+  color: $classy-blue;
+  opacity: 0.75;
+}
+
+
+.fa-chevron-down:hover {
+  opacity: 1;
+}
 
 
