@@ -16,12 +16,15 @@
 .classy-sub-banner {
   width: 100%;
   background-color: $classy-yellow;
+  padding: 45px 0 45px 0;
+  h3 {
+    font-weight: bolder;
+  }
 }
 
-// .classy-sub-banner h3 {
-//   padding-top: 45px;
-// }
-
+#row-cards {
+  padding-top: 20px;
+}
 
 #container-sub-banner {
   padding-left: 0px;
@@ -39,4 +42,14 @@
 #row-cards {
  padding-bottom: 50px;
 }
+
+.classy-card-title {
+  font-weight: bold;
+}
+
+.classy-home-list {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 
