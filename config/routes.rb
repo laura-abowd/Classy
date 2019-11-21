@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/classrooms', to: 'classrooms#index'
   post '/sort', to: 'students#sort', as: 'sortbutton'
 
+  resources :students, only: :update
   resources :teacher_locks, only: :create
   resources :do_not_places, only: :create
 
