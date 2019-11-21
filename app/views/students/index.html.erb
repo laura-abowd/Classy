@@ -28,39 +28,33 @@
         </div>
         <!-- /student information container -->
 
-        <div class="checkbox-icon">
-          <i class="fas fa-plus-square"></i>
-          <i class="fas fa-globe-americas"></i>
-          <i class="fas fa-hat-wizard"></i>
-          <i class="fas fa-exclamation-triangle"></i>
-        </div>
-        <!-- insert checkbox here -->
-        <!-- /insert checkbox here -->
-          <%= simple_form_for @do_not_place do |f| %>
-
-        <div class="special-icons">
+        <div class="checkbox-icons">
           <%= simple_form_for student, remote: true do |f| %>
             <%= f.error_notification %>
               <div class="spacearound-checkbox">
                 <div class="d-flex">
                   <div class="mr-5">
-                    <%= f.input :esl, label: false %>
+                    <%= f.input :esl, input_html: {id: "student_esl_#{student.id}"}, label: '<i class="fas fa-globe-americas"></i>'.html_safe %>
                   </div>
                   <div class="mr-5">
-                    <%= f.input :gifted_talented, label: false %>
+                    <%= f.input :gifted_talented, input_html: {id: "student_gifted_talented_#{student.id}"}, label: '<i class="fas fa-hat-wizard"></i>'.html_safe %>
                   </div>
                   <div class="mr-5">
-                    <%= f.input :special_education, label: false %>
+                    <%= f.input :special_education, input_html: {id: "student_special_education_#{student.id}"}, label: '<i class="fas fa-star"></i>'.html_safe %>
                   </div>
                   <div class="mr-5">
-                    <%= f.input :medical_alert, label: false %>
+                    <%= f.input :medical_alert, input_html: {id: "student_medical_alert_#{student.id}"}, label: '<i class="fas fa-plus-square"></i>'.html_safe %>
                   </div>
                   <%= f.submit %>
                 </div>
               </div>
             <%#= f.input :notes %>
-          <% end %>
         </div>
+        <!-- insert checkbox here -->
+        <!-- /insert checkbox here -->
+          <%= simple_form_for @do_not_place do |f| %>
+
+          <% end %>
           <%= simple_form_for @do_not_place, remote: true do |f| %>
 
             <div class="do-not-place">
@@ -78,7 +72,7 @@
             <%# end %>
           </div> -->
           <div id="view-dropdown">
-            <div class="yellow-btn">View Note</div>
+            <i class="fas fa-chevron-down"></i>
           </div>
     </div>
     <div class="dropdown-card">
@@ -105,6 +99,7 @@
             <% end %>
           </div>
         </div>
+
       </div>
     </div>
 
