@@ -1,10 +1,11 @@
-class DoNotPlaceController < ApplicationController
+class DoNotPlacesController < ApplicationController
   def create
     @do_not_place = DoNotPlace.new(do_not_place_params)
     if @do_not_place.save
       redirect_to students_path
     else
-      redirect_to students_path
+      render 'students'
+    end
   end
 
   def do_not_place_params

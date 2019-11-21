@@ -14,12 +14,15 @@
         <div class="student-info">
           <!-- student information container -->
           <div class="student ml-3">
+
             <p>#<%= student.schoolID %></p>
+
             <p><%= student.birthday %></p>
             <p><%= student.gender.capitalize %></p>
           </div>
         </div>
         <!-- /student information container -->
+
         <div class="checkbox-icon">
           <i class="fas fa-plus-square"></i>
           <i class="fas fa-globe-americas"></i>
@@ -29,9 +32,37 @@
         <!-- insert checkbox here -->
         <!-- /insert checkbox here -->
           <%= simple_form_for @do_not_place do |f| %>
+
+        <div class="special-icons">
+          <%= simple_form_for student, remote: true do |f| %>
+            <%= f.error_notification %>
+              <div class="spacearound-checkbox">
+                <div class="d-flex">
+                  <div class="mr-5">
+                    <%= f.input :esl, label: false %>
+                  </div>
+                  <div class="mr-5">
+                    <%= f.input :gifted_talented, label: false %>
+                  </div>
+                  <div class="mr-5">
+                    <%= f.input :special_education, label: false %>
+                  </div>
+                  <div class="mr-5">
+                    <%= f.input :medical_alert, label: false %>
+                  </div>
+                  <%= f.submit %>
+                </div>
+              </div>
+            <%#= f.input :notes %>
+          <% end %>
+        </div>
+          <%= simple_form_for @do_not_place, remote: true do |f| %>
+
             <div class="do-not-place">
               <%= f.error_notification %>
-              <%= f.association :student_two, label: false, collection: student.grade.students.map { |student| [student.first_name, student.id] } %>
+              <%= f.input :student_one_id, input_html: { value: student.id }, as: :hidden %>
+              <%= f.association :student_two, label: false, collection: student.grade.students.map { |student| [student.first_name, student.id] }%>
+              <%= f.submit %>
             </div>
           <% end %>
           <!-- <div class="dnp-display border w-100 h-100">
@@ -49,20 +80,23 @@
         <div class="mr-3 ml-4 w-50">
           <div class="student-content">
           Leave a note
-          <%= simple_form_for @student do |f| %>
+          <%= simple_form_for student, remote: true do |f| %>
             <%= f.error_notification %>
             <%= f.input :notes, input_html: {class: "h-100 w-100"}, label: false, placeholder: "Notes" %>
+            <%= f.submit %>
           <% end %>
           </div>
         </div>
         <div class="mr-3 ml-4 w-25">
           <div class="student-content">
             Assign to
-            <%= simple_form_for @teacher_lock do |f| %>
+            <%= simple_form_for @teacher_lock, remote: true do |f| %>
               <%= f.error_notification %>
+              <%= f.input :student_id, input_html: { value: student.id }, as: :hidden %>
               <%= f.association :teacher,
                     label: false,
                     collection: Teacher.all.map {|teacher| [teacher.teacher_name, teacher.id]} %>
+              <%= f.submit %>
             <% end %>
           </div>
         </div>
@@ -96,5 +130,7 @@
 </div>
 
 <!-- /STUDENT CARD  -->
+<%= link_to "home", "/", class: "btn btn-primary" %>
+<br>  <br>
 
 
