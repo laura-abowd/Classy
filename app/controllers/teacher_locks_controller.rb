@@ -1,4 +1,4 @@
-class TeacherLockController < ApplicationController
+class TeacherLocksController < ApplicationController
 
   def create
     @teacher_lock = TeacherLock.new(teacher_lock_params)
