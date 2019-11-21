@@ -14,7 +14,6 @@ class StudentsController < ApplicationController
   end
 
   def sort
-    # loop through students from group_students_by_grade into classrooms from creating_classes
     stupidarray = [[],[],[],[],[]]
 
     @allstudents = Student.all
@@ -59,9 +58,53 @@ class StudentsController < ApplicationController
       stupidarray[index % 5] << student
       end
 
-    raise
+      # secondgradeteachers = Teacher.where(Teacher.grade.level == 2)
 
-      redirect_to classrooms_path
+            # classone.each do |student| {
+      #   student.teacher = Teacher.where(teacher_name: 'Ms. Teague')
+      # }
+
+      # classone.each do |student| {
+      #   student.teacher = Teacher.where(teacher_name: 'Ms. Reed')
+      # }
+
+      # classone.each do |student| {
+      #   student.teacher = Teacher.where(teacher_name: 'Ms. Rogers')
+      # }
+
+      # classone.each do |student| {
+      #   student.teacher = Teacher.where(teacher_name: 'Mr. Garcia')
+      # }
+
+      # classone.each do |student| {
+      #   student.teacher = Teacher.where(teacher_name: 'Mr. Berkley)
+      # }
+
+      classone.each do |student| {
+        student.teacher = Teacher.where(teacher_name: 'Ms. Teague')
+      }
+
+      classtwo.each do |student| {
+        student.teacher = Teacher.where(teacher_name: 'Ms. Reed')
+      }
+
+      classthree.each do |student| {
+        student.teacher = Teacher.where(teacher_name: 'Ms. Rogers')
+      }
+
+      classfour.each do |student| {
+        student.teacher = Teacher.where(teacher_name: 'Mr. Garcia')
+      }
+
+      classfive.each do |student| {
+        student.teacher = Teacher.where(teacher_name: 'Mr. Berkley')
+      }
+
+
+      redirect_to students_path
+
+      raise
+
   end
 
   private
