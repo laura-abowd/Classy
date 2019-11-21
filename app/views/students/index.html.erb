@@ -9,7 +9,7 @@
   <% @students.each  do |student| %>
   <div class="student-card-container">
     <div class="student-card d-flex  flex-grow-1 justify-content-around">
-        <img class="avatar-large" alt="avatar-large" src="https://cdn.dribbble.com/users/458522/screenshots/2700102/cute_monster_3_rgb_dribbbler.jpg" />
+        <img class="avatar-large" alt="avatar-large" src="<%= student.photo %>" />
         <p><%= student.first_name %></p>
         <div class="student-info">
           <!-- student information container -->
@@ -102,35 +102,15 @@
         </div>
       </div>
     </div>
-        <div class="special-icons">
-          <%= simple_form_for @student do |f| %>
-            <%= f.error_notification %>
-              <div class="spacearound-checkbox">
-                <div class="d-flex">
-                  <div class="mr-5" style="opacity: 1;">
-                    <%= f.input :esl, label: false %>
-                  </div>
-                  <div class="mr-5" style="opacity: 1;">
-                    <%= f.input :gifted_talented, label: false %>
-                  </div>
-                  <div class="mr-5" style="opacity: 1;">
-                    <%= f.input :special_education, label: false %>
-                  </div>
-                  <div class="mr-5" style="opacity: 1;">
-                    <%= f.input :medical_alert, label: false %>
-                  </div>
-                </div>
-              </div>
-            <%#= f.input :notes %>
-          <% end %>
-        </div>
+
 
     <% end %>
+<% end  %>
   </div>
 </div>
+
 
 <!-- /STUDENT CARD  -->
 <%= link_to "home", "/", class: "btn btn-primary" %>
 <br>  <br>
-
 
