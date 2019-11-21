@@ -5,14 +5,15 @@ class TeacherLockController < ApplicationController
     if @teacher_lock.save
       redirect_to students_path
     else
-      redirect_to students_path
+      render "students"
     end
   end
 
 private
 
+
   def teacher_lock_params
-    params.require(:do_not_place).permit(:teacher_id, :student_id)
+    params.require(:teacher_lock).permit(:teacher_id, :student_id)
   end
 
 end
