@@ -1,4 +1,10 @@
 /* Style the header */
+.classy-top-container {
+  background-color: $classy-yellow;
+}
+
+
+
 .header {
   padding: 10px 16px;
   background: $classy-blue;
@@ -21,4 +27,19 @@
 /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
 .sticky + .content {
   padding-top: 102px;
+}
+
+.classy-sticky-content {
+
+}
+
+.classy-sticky-list ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.classy-sticky-list li {
+  list-style: none;
 }
