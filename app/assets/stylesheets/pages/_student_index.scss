@@ -1,9 +1,17 @@
 /* Style the header */
 .classy-students-header {
-  padding: 40px 0 40px 0;
+  height: 200px;
+  width: 100%;
+  line-height: 200px;
   text-align: center;
   color: white;
   background-color: $classy-blue;
+}
+
+.classy-content-header {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
 }
 
 .classy-sticky-button {

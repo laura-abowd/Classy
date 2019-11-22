@@ -151,4 +151,31 @@ transition: height 0.3s, box-shadow 0.3s;
   opacity: 1;
 }
 
+.classroom-card {
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 60px 1fr 75px;
+  // justify-content: space-evenly;
+  //remove set height and width after code works
+  height: 90px;
+  width: 300px;
+  border: 1px solid;
+  box-shadow: 0 5px 8px rgba(182, 210, 246, 0.5);
+}
+
+.student-name-label {
+  align-self: center;
+}
+
+.student-data {
+  justify-self: end;
+}
+
+.student-card-icons {
+  i {
+    font-size: 15px;
+  }
+}
+
+
 
