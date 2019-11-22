@@ -6,6 +6,10 @@ class StudentsController < ApplicationController
     @teacher_lock = TeacherLock.new
     @do_not_place = DoNotPlace.new
     # @mystudents = Student.joins(:classroom_enrollments, :classrooms).where(teacher_id: current_teacher.id)
+
+    # @laurasclass = Student.joins(:classroom_enrollments, :classrooms)
+    #                    .where(classrooms: { teacher: Teacher.find_by(teacher_name: 'Ms. Abowd') }).distinct
+
   end
 
   def update
