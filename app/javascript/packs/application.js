@@ -1,6 +1,6 @@
 import "bootstrap";
-import { submitOnEvent } from '../components/submitOnEvent.js';
 import Rails from '@rails/ujs';
+import { submitOnEvent } from '../components/submitOnEvent.js';
 
 Rails.start();
 

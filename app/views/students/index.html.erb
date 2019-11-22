@@ -17,7 +17,7 @@
 
 <!-- STUDENT CARD  -->
 <div class="container m-auto">
-  <% @students.each  do |student| %>
+  <% @mystudents.each  do |student| %>
   <div class="student-card-container">
     <div class="student-card d-flex  flex-grow-1 justify-content-around">
         <img class="avatar-large" alt="avatar-large" src="<%= student.photo %>" />
@@ -56,7 +56,7 @@
             <div class="do-not-place">
               <%= f.error_notification %>
               <%= f.input :student_one_id, input_html: { value: student.id }, as: :hidden %>
-              <%= f.association :student_two, label: false, collection: student.grade.students.map { |student| [student.first_name, student.id] }%>
+              <%= f.association :student_two, label: false, collection: @grade.students.map { |student| [student.first_name, student.id] }%>
               <!-- <#%= f.submit as: :hidden %> -->
             </div>
           <% end %>
