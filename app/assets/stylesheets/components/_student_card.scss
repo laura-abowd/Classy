@@ -102,14 +102,12 @@ transition: height 0.3s, box-shadow 0.3s;
 
 
 /*Hide the checkmark by default*/
-
 .checkbox input[type="checkbox"] + label::after {
     content: none;
 }
 
 
 /*Unhide on the checked state*/
-
 .checkbox input[type="checkbox"]:checked + label::after {
     content: "";
 }
@@ -157,7 +155,27 @@ transition: height 0.3s, box-shadow 0.3s;
 }
 
 
-/* classroom cards */
+.classroom-container {
+  padding-top: 5px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1rem;
+}
+
+.classroom-card-teacher {
+  text-align: center;
+  //remove set height and width after code works
+  height: 90px;
+  // width: 300px;
+  border: 1px solid;
+  box-shadow: 0 5px 8px rgba(182, 210, 246, 0.5);
+}
+
+.teacher-column {
+  display: grid;
+  grid-gap: 1rem;
+}
+
 
 .classroom-card {
   padding: 5px;

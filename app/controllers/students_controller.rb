@@ -1,9 +1,24 @@
 class StudentsController < ApplicationController
   def index
-    @students = Student.all
+
+
+    @students = Student.includes(:classrooms).where(classrooms: { grade: current_teacher.grade }).distinct
+
+    @grade = current_teacher.grade
+
+    @mystudents = Student.joins(:classroom_enrollments, :classrooms).where(classrooms: { teacher: Teacher.find_by(teacher_name: current_teacher.teacher_name) }).shuffle
+
+
+    @teachers = Teacher.all
     @teacher_lock = TeacherLock.new
     @do_not_place = DoNotPlace.new
+
     # @mystudents = Student.joins(:classroom_enrollments, :classrooms).where(teacher_id: current_teacher.id)
+    # @laurasclass = Student.joins(:classroom_enrollments, :classrooms)
+    #                    .where(classrooms: { teacher: Teacher.find_by(teacher_name: 'Ms. Abowd') }).distinct
+    # @students = Student.includes(:grade).joins(:classroom_enrollments, :classrooms)
+    #                    .where(classrooms: { grade: Grade.find_by(level: current_teacher.grade.level) }).distinct
+
   end
 
   def update
@@ -12,13 +27,48 @@ class StudentsController < ApplicationController
     redirect_to students_path
   end
 
-  def sort
-    # TODO: don't hard code number of classes do number of teachers and grade
 
-    classes = [[],[],[],[],[]]
+
+  def sort
+
+    # TODO: refactor to pass year and level through params
+
+    classes = []
     donotplaces = []
 
-    students = Student.all
+    grade = Grade.find_by(level: 1)
+    students =  Student.joins(:classroom_enrollments, :classrooms)
+                       .where(classrooms: { grade: Grade.find_by(level: 1) }).distinct
+
+
+    nextgrade = Grade.find_by(level: grade.level + 1)
+    nextgradeteachers = Teacher.where(grade: nextgrade)
+
+    nextgradeteachers.each_with_index do |teacher, index|
+      classes << []
+      Classroom.find_or_create_by(
+        teacher: teacher,
+        grade: nextgrade,
+        year: Date.today.year + 1
+      )
+    end
+
+
+    classrooms = Classroom.where(grade: nextgrade)
+
+    tls = TeacherLock.joins(:teacher).where(teachers: { grade_id: grade.id} )
+
+
+    tls.each do |pair|
+      locked_student = pair.student
+      locked_teacher = pair.teacher
+      ClassroomEnrollment.create(
+        student: locked_student,
+        classroom: locked_teacher.classroom,
+      )
+      students.reject { |student| student == locked_student }
+    end
+
 
     @specialtrue = students.where(special_education: true).where.not(id: classes.flatten)
     @specialtrue.each_with_index do |student, index|
@@ -60,22 +110,13 @@ class StudentsController < ApplicationController
       classes[index % 5] << student
     end
 
-      secondgrade = Grade.find_by(level: 2)
-      secondgradeteachers = Teacher.where(grade: secondgrade)
 
-      classes.each_with_index do |class_array, index|
-        classroom = Classroom.create(
-          teacher: secondgradeteachers[index],
-          grade: secondgrade,
-          year: 2020
-        )
-        class_array.each do |student|
+      classes.each_with_index do |classroom, index|
+        classroom.each do |student|
           ClassroomEnrollment.create(
             student: student,
-            classroom: classroom
+            classroom: classrooms[index]
           )
-          student.grade = classroom.grade
-          student.save
         end
       end
 
@@ -100,19 +141,34 @@ class StudentsController < ApplicationController
       end
     end
 
-    # raise
+    # @dnps.each do |dnp|
+    #   student_one = dnp.student_one
+    #   student_two = dnp.student_two
+    #   if student_one.current_classroom == student_two.current_classroom
+    #     raise
+    #   end
+    # end
 
-    @tls = TeacherLock.all
-
+    # tls.each do |pair|
+    # locked_student = pair.student
+    # locked_teacher = pair.teacher
+    # if locked_student.current_classroom.teacher == locked_teacher
+    #   raise
+    #   end
+    # end
 
     redirect_to classrooms_path
+
+
   end
+
 
   private
 
   def student_params
     params.require(:student).permit(:esl, :gifted_talented, :medical_alert, :special_education, :notes)
   end
+
 end
 
 
