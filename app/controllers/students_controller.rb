@@ -14,18 +14,43 @@ class StudentsController < ApplicationController
   end
 
 
-
-
-
-
   def sort
-    # TODO: don't hard code number of classes do number of teachers and grade
 
-    classes = [[],[],[],[],[]]
+    # TODO: refactor to pass year and level through params
+
+    classes = []
     donotplaces = []
 
-    students = Student.all
+    grade = Grade.find_by(level: 1)
+    students =  Student.joins(:classroom_enrollments, :classrooms)
+                       .where(classrooms: { grade: Grade.find_by(level: 1) }).distinct
 
+
+    nextgrade = Grade.find_by(level: grade.level + 1)
+    nextgradeteachers = Teacher.where(grade: nextgrade)
+
+    nextgradeteachers.each_with_index do |teacher, index|
+      classes << []
+      Classroom.find_or_create_by(
+        teacher: teacher,
+        grade: nextgrade,
+        year: Date.today.year + 1
+      )
+    end
+
+    classrooms = Classroom.where(grade: nextgrade)
+
+    tls = TeacherLock.joins(:teacher).where(teachers: { grade_id: grade.id} )
+
+    tls.each do |pair|
+      locked_student = pair.student
+      locked_teacher = pair.teacher
+      ClassroomEnrollment.create(
+        student: locked_student,
+        classroom: locked_teacher.classroom,
+      )
+      students.reject { |student| student == locked_student }
+    end
 
 
     @specialtrue = students.where(special_education: true).where.not(id: classes.flatten)
@@ -68,22 +93,13 @@ class StudentsController < ApplicationController
       classes[index % 5] << student
     end
 
-      secondgrade = Grade.find_by(level: 2)
-      secondgradeteachers = Teacher.where(grade: secondgrade)
 
-      classes.each_with_index do |class_array, index|
-        classroom = Classroom.create(
-          teacher: secondgradeteachers[index],
-          grade: secondgrade,
-          year: 2020
-        )
-        class_array.each do |student|
+      classes.each_with_index do |classroom, index|
+        classroom.each do |student|
           ClassroomEnrollment.create(
             student: student,
-            classroom: classroom
+            classroom: classrooms[index]
           )
-          student.grade = classroom.grade
-          student.save
         end
       end
 
@@ -108,12 +124,16 @@ class StudentsController < ApplicationController
       end
     end
 
-    # raise
 
-    @tls = TeacherLock.all
+    raise
 
 
     redirect_to classrooms_path
+
+
+
+
+
   end
 
   private
