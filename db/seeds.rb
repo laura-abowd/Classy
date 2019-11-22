@@ -30,11 +30,11 @@ garcia = Teacher.create!(teacher_name: 'Mr. Garcia', grade: second, email: 'garc
 berkley = Teacher.create!(teacher_name: 'Mr. Berkley', grade: second, email: 'berkley@akinelementary.com', password: 'password')
 
 
-firstone = Classroom.create!(teacher: abowd, grade: first, year: 2019)
-firsttwo = Classroom.create!(teacher: wright, grade: first, year: 2019)
-firstthree = Classroom.create!(teacher: torres, grade: first, year: 2019)
-firstfour = Classroom.create!(teacher: meleck, grade: first, year: 2019)
-firstfive = Classroom.create!(teacher: marquez, grade: first, year: 2019)
+firstone = Classroom.create!(teacher: abowd, grade: first, year: Date.today.year)
+firsttwo = Classroom.create!(teacher: wright, grade: first, year: Date.today.year)
+firstthree = Classroom.create!(teacher: torres, grade: first, year: Date.today.year)
+firstfour = Classroom.create!(teacher: meleck, grade: first, year: Date.today.year)
+firstfive = Classroom.create!(teacher: marquez, grade: first, year: Date.today.year)
 
 classrooms = Classroom.all
 
@@ -46,7 +46,6 @@ classrooms = Classroom.all
     gender: 'male',
     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
     photo: 'https://cdn.dribbble.com/users/458522/screenshots/2700065/cute_monster_2_rgb_dribbbler.jpg',
-    grade: first,
 
   )
   student.save!
@@ -60,7 +59,6 @@ end
     gender: 'female',
     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
     photo: 'https://cdn.dribbble.com/users/458522/screenshots/2700837/cute_monster_5_dribbbler.jpg',
-    grade: first,
 
   )
   student.save!
@@ -74,7 +72,6 @@ end
     gender: 'male',
     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
     photo: 'https://cdn.dribbble.com/users/458522/screenshots/2700102/cute_monster_3_rgb_dribbbler.jpg',
-    grade: first,
 
   )
   student.save!
@@ -88,7 +85,6 @@ end
     gender: 'female',
     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
     photo: 'https://cdn.dribbble.com/users/458522/screenshots/2700762/cute_monster_4_dribbbler.jpg',
-    grade: first,
 
   )
   student.save!
@@ -102,7 +98,6 @@ end
     gender: 'male',
     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
     photo: 'https://adarit.com/wp-content/uploads/2016/06/Cute-tech-monster.jpg',
-    grade: first,
 
   )
   student.save!
@@ -116,7 +111,6 @@ end
     gender: 'female',
     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
     photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwqH-s8lYsDvxf12yrUj1oEpSrhDMMAMyBf_kC2UumNiMRr6fW',
-    grade: first,
     special_education: true,
     gifted_talented: true
 
@@ -132,7 +126,7 @@ ClassroomEnrollment.create!(student: student, classroom: classrooms[i])
 end
 
 
-teachers = Teacher.all
+teachers = Teacher.where(grade: second)
 
 
 DoNotPlace.create!(student_one: students.sample, student_two: students.sample)

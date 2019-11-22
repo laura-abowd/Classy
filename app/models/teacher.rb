@@ -5,6 +5,12 @@ class Teacher < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :grade
+  has_many :classrooms
+
+  def classroom
+    classrooms.order(year: :desc).first
+  end
+
 
 
   # has_many :classrooms

@@ -1,5 +1,4 @@
 class Student < ApplicationRecord
-  belongs_to :grade
   # has_one :teacher, through: :grade
 
 
@@ -19,6 +18,11 @@ class Student < ApplicationRecord
 
   # validates :first_name,  presence: true
   # validates :schoolID,     uniqueness: true
+
+  def grade
+    current_classroom.grade
+  end
+
 end
 
 
