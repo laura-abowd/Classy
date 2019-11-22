@@ -1,5 +1,8 @@
 import "bootstrap";
 import { submitOnEvent } from '../components/submitOnEvent.js';
+import Rails from '@rails/ujs';
+
+Rails.start();
 
 // When the user scrolls the page, execute myFunction
 window.onscroll = function() {myFunction()};

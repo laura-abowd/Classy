@@ -1,15 +1,21 @@
+import Rails from '@rails/ujs';
+
 const submitOnEvent = () => {
 
-  document.querySelectorAll('.check_form').forEach( (form) => {
-    form.addEventListener('change', () => form.submit())
+  document.querySelectorAll('.checkform').forEach( (form) => {
+    form.addEventListener('change', () => Rails.fire(form, 'submit'))
   })
 
-  document.querySelectorAll('.text_form').forEach( (form) => {
-    form.addEventListener('blur', () => form.submit())
+  document.querySelectorAll('.notesform').forEach( (form) => {
+    form.addEventListener('focusout', () => Rails.fire(form, 'submit'))
   })
 
-document.querySelectorAll('.select_form').forEach( (form) => {
-    form.addEventListener('change', () => form.submit())
+document.querySelectorAll('.selectdnp').forEach( (form) => {
+    form.addEventListener('change', () => Rails.fire(form, 'submit'))
+  })
+
+document.querySelectorAll('.teacherform').forEach( (form) => {
+    form.addEventListener('change', () => Rails.fire(form, 'submit'))
   })
 }
 
