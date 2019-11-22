@@ -16,6 +16,9 @@ Grade.delete_all
 
 first = Grade.create!(level: 1)
 second = Grade.create!(level: 2)
+third = Grade.create!(level: 3)
+fourth = Grade.create!(level: 4)
+fifth = Grade.create!(level: 5)
 grades = Grade.all
 
 abowd = Teacher.create!(teacher_name: 'Ms. Abowd', grade: first, email: 'abowd@akinelementary.com', password: 'password')
@@ -23,11 +26,30 @@ wright = Teacher.create!(teacher_name: 'Mrs. Wright', grade: first, email: 'wrig
 torres = Teacher.create!(teacher_name: 'Mrs. Torres', grade: first, email: 'torres@akinelementary.com', password: 'password')
 meleck = Teacher.create!(teacher_name: 'Mrs. Meleck', grade: first, email: 'meleck@akinelementary.com', password: 'password')
 marquez = Teacher.create!(teacher_name: 'Ms. Marquez', grade: first, email: 'marquez@akinelementary.com', password: 'password')
+
 teague = Teacher.create!(teacher_name: 'Ms. Teague', grade: second, email: 'teague@akinelementary.com', password: 'password')
 reed = Teacher.create!(teacher_name: 'Ms. Reed', grade: second, email: 'reed@akinelementary.com', password: 'password')
 rogers = Teacher.create!(teacher_name: 'Ms. Rogers', grade: second, email: 'rogers@akinelementary.com', password: 'password')
 garcia = Teacher.create!(teacher_name: 'Mr. Garcia', grade: second, email: 'garcia@akinelementary.com', password: 'password')
 berkley = Teacher.create!(teacher_name: 'Mr. Berkley', grade: second, email: 'berkley@akinelementary.com', password: 'password')
+
+ilham = Teacher.create!(teacher_name: 'Mr. Ilham', grade: second, email: 'ilham@akinelementary.com', password: 'password')
+sriram = Teacher.create!(teacher_name: 'Mr. Sriram', grade: second, email: 'sriram@akinelementary.com', password: 'password')
+sylvia = Teacher.create!(teacher_name: 'Ms. Sylvia', grade: second, email: 'sylvia@akinelementary.com', password: 'password')
+sabrina = Teacher.create!(teacher_name: 'Ms. Sabrina', grade: second, email: 'sabrina@akinelementary.com', password: 'password')
+satoru = Teacher.create!(teacher_name: 'Mr. satoru', grade: second, email: 'satoru@akinelementary.com', password: 'password')
+
+kaan = Teacher.create!(teacher_name: 'Mr. Kaan', grade: second, email: 'kaan@akinelementary.com', password: 'password')
+joon = Teacher.create!(teacher_name: 'Mr. Joon', grade: second, email: 'joon@akinelementary.com', password: 'password')
+eduardo = Teacher.create!(teacher_name: 'Mr. Eduardo', grade: second, email: 'eduardo@akinelementary.com', password: 'password')
+eddo = Teacher.create!(teacher_name: 'Mr. Eddo', grade: second, email: 'eddo@akinelementary.com', password: 'password')
+david = Teacher.create!(teacher_name: 'Mr. David', grade: second, email: 'david@akinelementary.com', password: 'password')
+
+yaan = Teacher.create!(teacher_name: 'Mr. Yaan', grade: second, email: 'yaan@akinelementary.com', password: 'password')
+james = Teacher.create!(teacher_name: 'Mr. James', grade: second, email: 'james@akinelementary.com', password: 'password')
+doug = Teacher.create!(teacher_name: 'Mr. Doug', grade: second, email: 'doug@akinelementary.com', password: 'password')
+trouni = Teacher.create!(teacher_name: 'Mr. Trouni', grade: second, email: 'trouni@akinelementary.com', password: 'password')
+sylvain = Teacher.create!(teacher_name: 'Mr. Sylvain', grade: second, email: 'sylvain@akinelementary.com', password: 'password')
 
 
 firstone = Classroom.create!(teacher: abowd, grade: first, year: Date.today.year)
