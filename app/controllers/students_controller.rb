@@ -6,7 +6,7 @@ class StudentsController < ApplicationController
 
     @grade = current_teacher.grade
 
-    @mystudents = Student.joins(:classroom_enrollments, :classrooms).where(classrooms: { teacher: Teacher.find_by(teacher_name: current_teacher.teacher_name) }).shuffle
+    @mystudents = Student.joins(:classroom_enrollments, :classrooms).where(classrooms: { teacher: Teacher.find_by(teacher_name: current_teacher.teacher_name) }).distinct.shuffle
 
 
     @teachers = Teacher.all
