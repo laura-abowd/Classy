@@ -32,7 +32,7 @@
         <!-- /student information container -->
 
         <div class="checkbox-icons">
-          <%= simple_form_for student, remote: true do |f| %>
+          <%= simple_form_for student, html: { class: "check_form"}, remote: true do |f| %>
             <%= f.error_notification %>
                 <div class="d-flex">
                     <%= f.input :esl, input_html: {id: "student_esl_#{student.id}"}, label: '<i class="fas fa-globe-americas"></i>'.html_safe %>
@@ -49,7 +49,7 @@
           <%= simple_form_for @do_not_place do |f| %>
 
           <% end %>
-          <%= simple_form_for @do_not_place, remote: true do |f| %>
+          <%= simple_form_for @do_not_place, html: { class: "select_form"}, remote: true do |f| %>
 
             <div class="do-not-place">
               <%= f.error_notification %>
@@ -73,7 +73,7 @@
         <div class="mr-3 ml-4 w-50 h-25">
           <div class="student-content">
           Leave a note
-          <%= simple_form_for student, remote: true do |f| %>
+          <%= simple_form_for student, html: { class: "text_form"},  remote: true do |f| %>
             <%= f.error_notification %>
             <%= f.input :notes, input_html: {class: "h-100 w-100"}, label: false, placeholder: "Notes" %>
             <%= f.submit %>
@@ -83,7 +83,7 @@
         <div class="mr-3 ml-4 w-25">
           <div class="student-content">
             Assign to
-            <%= simple_form_for @teacher_lock, remote: true do |f| %>
+            <%= simple_form_for @teacher_lock, html: { class: "select_form"},  remote: true do |f| %>
               <%= f.error_notification %>
               <%= f.input :student_id, input_html: { value: student.id }, as: :hidden %>
               <%= f.association :teacher,

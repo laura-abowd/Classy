@@ -1,4 +1,5 @@
 import "bootstrap";
+import { submitOnEvent } from '../components/submitOnEvent.js';
 
 // When the user scrolls the page, execute myFunction
 window.onscroll = function() {myFunction()};
@@ -18,3 +19,4 @@ function myFunction() {
   }
 }
 
+submitOnEvent();
