@@ -1,4 +1,3 @@
-//= require rails-ujs
 //= require_tree .
 
 document.querySelectorAll('.classy-sticky-button .yellow-btn').forEach( (button) => {
