@@ -1,8 +1,12 @@
+
+
 <div class="classy-students-header">
     <div class="classy-content-header">
         <h1>Your class has been sorted!</h1>
     </div>
 </div>
+
+<!--    CSS grid parent container -->
 <div class="classroom-container">
     <div class="teacher-column">
         <div class="classroom-card-teacher">
@@ -12,7 +16,9 @@
             </div>
         </div>
     </div>
-    <!-- Using code below to test only, will delete later -->
+
+
+<!-- teacher columns  -->
     <div class="teacher-column">
         <div class="classroom-card-teacher">
             <div class="teacher-image-card"><img src="" alt=""></div>
@@ -47,7 +53,7 @@
     </div>
 
 
-    <!--     student cards below -->
+    <!-- student cards -->
     <div class="classroom-student-card-container">
         <div class="classroom-card">
             <div class="student-image-card"><img src="" alt=""></div>
@@ -121,3 +127,28 @@
         </div>
     </div>
 </div>
+
+<!-- Loop to display cards with student information -->
+
+
+<div class="classroom-card">
+            <div class="student-image-card"><img src="" alt=""></div><% @students.each do |student|%>
+            <div class="student-name-label">
+                <div class="student-first">
+                </div>
+                <!-- <div class="student-last">Garcia</div> -->
+            </div>
+            <div class="student-data">
+                <div class="gripper-icon">: : : :</div>
+                <div class="student-card-icons">
+                    <i class="fas fa-plus-square classroom-card-icon"></i>
+                    <i class="fas fa-globe-americas classroom-card-icon"></i>
+                    <i class="fas fa-hat-wizard classroom-card-icon"></i>
+                    <i class="fas fa-exclamation-triangle classroom-card-icon"></i>
+                </div>
+                <div class="view-info-link">View Info</div>
+            </div>
+            <% end  %>
+        </div>
+
+
