@@ -1,14 +1,23 @@
 class StudentsController < ApplicationController
   def index
-    @students = Student.joins(:classroom_enrollments, :classrooms)
-                       .where(classrooms: { grade: Grade.find_by(level: current_teacher.grade.level) }).distinct
+
+
+    @students = Student.includes(:classrooms).where(classrooms: { grade: current_teacher.grade }).distinct
+
+    @grade = current_teacher.grade
+
+    @mystudents = Student.joins(:classroom_enrollments, :classrooms).where(classrooms: { teacher: Teacher.find_by(teacher_name: current_teacher.teacher_name) }).shuffle
+
+
     @teachers = Teacher.all
     @teacher_lock = TeacherLock.new
     @do_not_place = DoNotPlace.new
-    # @mystudents = Student.joins(:classroom_enrollments, :classrooms).where(teacher_id: current_teacher.id)
 
+    # @mystudents = Student.joins(:classroom_enrollments, :classrooms).where(teacher_id: current_teacher.id)
     # @laurasclass = Student.joins(:classroom_enrollments, :classrooms)
     #                    .where(classrooms: { teacher: Teacher.find_by(teacher_name: 'Ms. Abowd') }).distinct
+    # @students = Student.includes(:grade).joins(:classroom_enrollments, :classrooms)
+    #                    .where(classrooms: { grade: Grade.find_by(level: current_teacher.grade.level) }).distinct
 
   end
 
@@ -145,22 +154,18 @@ class StudentsController < ApplicationController
     #   end
     # end
 
-
-
-
     redirect_to classrooms_path
 
 
-
-
-
   end
+
 
   private
 
   def student_params
     params.require(:student).permit(:esl, :gifted_talented, :medical_alert, :special_education, :notes)
   end
+
 end
 
 
