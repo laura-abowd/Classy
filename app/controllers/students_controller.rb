@@ -125,6 +125,22 @@ class StudentsController < ApplicationController
       end
     end
 
+    # @dnps.each do |dnp|
+    #   student_one = dnp.student_one
+    #   student_two = dnp.student_two
+    #   if student_one.current_classroom == student_two.current_classroom
+    #     raise
+    #   end
+    # end
+
+    # tls.each do |pair|
+    # locked_student = pair.student
+    # locked_teacher = pair.teacher
+    # if locked_student.current_classroom.teacher == locked_teacher
+    #   raise
+    #   end
+    # end
+
 
 
 
