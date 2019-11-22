@@ -28,6 +28,7 @@ class StudentsController < ApplicationController
   end
 
 
+
   def sort
 
     # TODO: refactor to pass year and level through params
@@ -52,9 +53,11 @@ class StudentsController < ApplicationController
       )
     end
 
+
     classrooms = Classroom.where(grade: nextgrade)
 
     tls = TeacherLock.joins(:teacher).where(teachers: { grade_id: grade.id} )
+
 
     tls.each do |pair|
       locked_student = pair.student

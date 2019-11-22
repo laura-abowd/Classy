@@ -2,37 +2,42 @@
 
 <div class="classy-students-header">
   <div class="classy-content-header">
-   <h1>  Welcome User! </h1>
-   <p>Please update your students' information to ensure best results.</p>
-</div>
+    <div class="student-banner">
+       <h1>  Welcome <%= current_teacher.teacher_name %>! </h1>
+       <p>Please update your students' information to ensure best results.</p>
+    </div>
+  </div>
 </div>
 <div class="header" id="student-header">
 <div class="classy-sticky-button">
   <div class="d-flex">
-    <div class="yellow-btn">Expand All Notes</div>
-    <%= button_to 'Save and sort', sortbutton_path, method: :post, class: "yellow-btn" %>
+    <div class="blue-btn" style="margin-right: 5px; margin-bottom: 30px;">
+      <div class="expand-view">
+    View All Notes
+      </div>
+    </div>
+    <%= button_to "Save and sort", sortbutton_path, method: :post, class: "blue-btn" %>
+    </div>
   </div>
-</div>
 </div>
 
 <!-- STUDENT CARD  -->
 <div class="container m-auto">
+
   <% @mystudents.each  do |student| %>
+
   <div class="student-card-container">
     <div class="student-card d-flex  flex-grow-1 justify-content-around">
         <img class="avatar-large" alt="avatar-large" src="<%= student.photo %>" />
-        <p><%= student.first_name %></p>
-        <div class="student-info">
-          <!-- student information container -->
-          <div class="student ml-3">
-
-            <p>#<%= student.schoolID %></p>
-            <p><%= student.birthday %></p>
-            <p><%= student.gender.capitalize %></p>
-          </div>
+        <div class="student-name">
+          <p><%= student.first_name %></p>
+          <p><%= student.last_name %></p>
         </div>
-        <!-- /student information container -->
-
+        <div class="empty-placeholder">
+          <p>#<%= student.schoolID %></p>
+          <p><%= student.birthday %></p>
+          <p><%= student.gender.capitalize %></p>
+        </div>
         <div class="checkbox-icons">
           <%= simple_form_for student, html: { class: "checkform"}, remote: true do |f| %>
             <%= f.error_notification %>
@@ -72,7 +77,7 @@
           </div>
     </div>
     <div class="dropdown-card">
-        <div class="mr-3 ml-4 w-50 h-25">
+        <div class="mr-3 ml-4 w-50">
           <div class="student-content">
           Leave a note
           <%= simple_form_for student, html: { class: "notesform"},  remote: true do |f| %>
@@ -95,16 +100,12 @@
             <% end %>
           </div>
         </div>
-
       </div>
     </div>
-    <% end %>
-<% end  %>
-  </div>
+  <% end %>
+<% end %>
+</div>
 </div>
 
 
-<!-- /STUDENT CARD  -->
-<%= link_to "home", "/", class: "btn btn-primary" %>
-<br>  <br>
 
