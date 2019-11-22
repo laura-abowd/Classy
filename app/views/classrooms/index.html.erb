@@ -1,154 +1,80 @@
-
-
 <div class="classy-students-header">
-    <div class="classy-content-header">
-        <h1>Your class has been sorted!</h1>
-    </div>
+  <div class="classy-content-header">
+    <h1>Your class has been sorted!</h1>
+  </div>
 </div>
-
 <!--    CSS grid parent container -->
 <div class="classroom-container">
-    <div class="teacher-column">
-        <div class="classroom-card-teacher">
-            <div class="teacher-image-card"><img src="" alt=""></div>
-            <div class="teacher-name-label">
-                <div class="teacher-name">Mr. Garcia</div>
-            </div>
-        </div>
+  <div class="teacher-column">
+    <div class="classroom-card-teacher">
+      <div class="teacher-image-card"><img src="" alt=""></div>
+      <div class="teacher-name-label">
+        <div class="teacher-name">Mr. Garcia</div>
+      </div>
     </div>
-
-
-<!-- teacher columns  -->
-    <div class="teacher-column">
-        <div class="classroom-card-teacher">
-            <div class="teacher-image-card"><img src="" alt=""></div>
-            <div class="teacher-name-label">
-                <div class="teacher-name">Mr. Berkley</div>
-            </div>
-        </div>
+  </div>
+  <!-- teacher columns  -->
+  <div class="teacher-column">
+    <div class="classroom-card-teacher">
+      <div class="teacher-image-card"><img src="" alt=""></div>
+      <div class="teacher-name-label">
+        <div class="teacher-name">Mr. Berkley</div>
+      </div>
     </div>
-    <div class="teacher-column">
-        <div class="classroom-card-teacher">
-            <div class="teacher-image-card"><img src="" alt=""></div>
-            <div class="teacher-name-label">
-                <div class="teacher-name">Mrs. Reed</div>
-            </div>
-        </div>
+  </div>
+  <div class="teacher-column">
+    <div class="classroom-card-teacher">
+      <div class="teacher-image-card"><img src="" alt=""></div>
+      <div class="teacher-name-label">
+        <div class="teacher-name">Mrs. Reed</div>
+      </div>
     </div>
-    <div class="teacher-column">
-        <div class="classroom-card-teacher">
-            <div class="teacher-image-card"><img src="" alt=""></div>
-            <div class="teacher-name-label">
-                <div class="teacher-name">Mrs. Teague</div>
-            </div>
-        </div>
+  </div>
+  <div class="teacher-column">
+    <div class="classroom-card-teacher">
+      <div class="teacher-image-card"><img src="" alt=""></div>
+      <div class="teacher-name-label">
+        <div class="teacher-name">Mrs. Teague</div>
+      </div>
     </div>
-    <div class="teacher-column">
-        <div class="classroom-card-teacher">
-            <div class="teacher-image-card"><img src="" alt=""></div>
-            <div class="teacher-name-label">
-                <div class="teacher-name">Mrs. Rogers</div>
-            </div>
-        </div>
+  </div>
+  <div class="teacher-column">
+    <div class="classroom-card-teacher">
+      <div class="teacher-image-card"><img src="" alt=""></div>
+      <div class="teacher-name-label">
+        <div class="teacher-name">Mrs. Rogers</div>
+      </div>
     </div>
-
-
-    <!-- student cards -->
-    <div class="classroom-student-card-container">
-        <div class="classroom-card">
-            <div class="student-image-card"><img src="" alt=""></div>
-            <div class="student-name-label">
-                <div class="student-first">David</div>
-                <div class="student-last">Garcia</div>
-            </div>
-            <div class="student-data">
-                <div class="gripper-icon">: : : :</div>
-                <div class="student-card-icons">
-                    <i class="fas fa-plus-square classroom-card-icon"></i>
-                    <i class="fas fa-globe-americas classroom-card-icon"></i>
-                    <i class="fas fa-hat-wizard classroom-card-icon"></i>
-                    <i class="fas fa-exclamation-triangle classroom-card-icon"></i>
-                </div>
-                <div class="view-info-link">View Info</div>
-            </div>
+  </div>
+  <!-- student cards -->
+  <div class="classroom-student-card-container">
+    <%@students.each do |student|%>
+    <div class="classroom-card">
+      <div class="student-image-card"><img class="avatar-large" alt="avatar-large" src="<%= student.photo %>" /></div>
+      <div class="student-name-label">
+        <div class="student-first">
+          <!--   <p> -->
+          <%= student.first_name %>
+          <!-- </p> -->
         </div>
-        <div class="classroom-card">
-            <div class="student-image-card"><img src="" alt=""></div>
-            <div class="student-name-label">
-                <div class="student-first">Gerard</div>
-                <div class="student-last">Cabarse</div>
-            </div>
-            <div class="student-data">
-                <div class="gripper-icon">: : : :</div>
-                <div class="student-card-icons">
-                    <i class="fas fa-plus-square classroom-card-icon"></i>
-                    <i class="fas fa-globe-americas classroom-card-icon"></i>
-                    <i class="fas fa-hat-wizard classroom-card-icon"></i>
-                    <i class="fas fa-exclamation-triangle classroom-card-icon"></i>
-                </div>
-                <div class="view-info-link">View Info</div>
-            </div>
+        <div class="student-last">
+          <!--  <p> -->
+          <%= student.last_name %>
+          <!--   </p> -->
         </div>
+      </div>
+      <div class="student-data">
+        <div class="gripper-icon">: : : :</div>
+        <div class="student-card-icons">
+          <i class="fas fa-plus-square classroom-card-icon"></i>
+          <i class="fas fa-globe-americas classroom-card-icon"></i>
+          <i class="fas fa-hat-wizard classroom-card-icon"></i>
+          <i class="fas fa-exclamation-triangle classroom-card-icon"></i>
+        </div>
+        <div class="view-info-link">View Info</div>
+      </div>
     </div>
-    <div class="classroom-student-card-container">
-        <div class="classroom-card">
-            <div class="student-image-card"><img src="" alt=""></div>
-            <div class="student-name-label">
-                <div class="student-first">Kloey</div>
-                <div class="student-last">Yapp</div>
-            </div>
-            <div class="student-data">
-                <div class="gripper-icon">: : : :</div>
-                <div class="student-card-icons">
-                    <i class="fas fa-plus-square classroom-card-icon"></i>
-                    <i class="fas fa-globe-americas classroom-card-icon"></i>
-                    <i class="fas fa-hat-wizard classroom-card-icon"></i>
-                    <i class="fas fa-exclamation-triangle classroom-card-icon"></i>
-                </div>
-                <div class="view-info-link">View Info</div>
-            </div>
-        </div>
-        <div class="classroom-card">
-            <div class="student-image-card"><img src="" alt=""></div>
-            <div class="student-name-label">
-                <div class="student-first">Naoto</div>
-                <div class="student-last">Suzuki</div>
-            </div>
-            <div class="student-data">
-                <div class="gripper-icon">: : : :</div>
-                <div class="student-card-icons">
-                    <i class="fas fa-plus-square classroom-card-icon"></i>
-                    <i class="fas fa-globe-americas classroom-card-icon"></i>
-                    <i class="fas fa-hat-wizard classroom-card-icon"></i>
-                    <i class="fas fa-exclamation-triangle classroom-card-icon"></i>
-                </div>
-                <div class="view-info-link">View Info</div>
-            </div>
-        </div>
-    </div>
+    <% end %>
+  </div>
 </div>
-
 <!-- Loop to display cards with student information -->
-
-
-<div class="classroom-card">
-            <div class="student-image-card"><img src="" alt=""></div><% @students.each do |student|%>
-            <div class="student-name-label">
-                <div class="student-first">
-                </div>
-                <!-- <div class="student-last">Garcia</div> -->
-            </div>
-            <div class="student-data">
-                <div class="gripper-icon">: : : :</div>
-                <div class="student-card-icons">
-                    <i class="fas fa-plus-square classroom-card-icon"></i>
-                    <i class="fas fa-globe-americas classroom-card-icon"></i>
-                    <i class="fas fa-hat-wizard classroom-card-icon"></i>
-                    <i class="fas fa-exclamation-triangle classroom-card-icon"></i>
-                </div>
-                <div class="view-info-link">View Info</div>
-            </div>
-            <% end  %>
-        </div>
-
-

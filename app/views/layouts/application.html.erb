@@ -16,20 +16,18 @@
   <div class="content">
     <%= render 'shared/navbar' %>
   </div>
-
-<%= yield %>
-     <p class="notice">
-        <%= notice %>
-    </p>
-    <p class="alert">
-        <%= alert %>
-      </p>
-
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_pack_tag 'application' %>
-    <div class="classy-footer">
-   <%= render 'shared/footer' %>
-</div>
+  <%= yield %>
+  <p class="notice">
+    <%= notice %>
+  </p>
+  <p class="alert">
+    <%= alert %>
+  </p>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_pack_tag 'application' %>
+  <div class="classy-footer">
+    <%= render 'shared/footer' %>
+  </div>
 </body>
 
 </html>
