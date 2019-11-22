@@ -1,6 +1,7 @@
 class StudentsController < ApplicationController
   def index
-    @students = Student.all
+    @students = Student.includes(:grade).all
+    @teachers = Teacher.all
     @teacher_lock = TeacherLock.new
     @do_not_place = DoNotPlace.new
     # @mystudents = Student.joins(:classroom_enrollments, :classrooms).where(teacher_id: current_teacher.id)
