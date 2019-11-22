@@ -125,7 +125,6 @@ class StudentsController < ApplicationController
     end
 
 
-    raise
 
 
     redirect_to classrooms_path
