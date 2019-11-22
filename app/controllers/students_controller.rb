@@ -12,11 +12,6 @@ class StudentsController < ApplicationController
     redirect_to students_path
   end
 
-
-
-
-
-
   def sort
     # TODO: don't hard code number of classes do number of teachers and grade
 
@@ -24,8 +19,6 @@ class StudentsController < ApplicationController
     donotplaces = []
 
     students = Student.all
-
-
 
     @specialtrue = students.where(special_education: true).where.not(id: classes.flatten)
     @specialtrue.each_with_index do |student, index|

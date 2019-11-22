@@ -1,6 +1,6 @@
 //= require_tree .
 
-document.querySelectorAll('.classy-sticky-button .yellow-btn').forEach( (button) => {
+document.querySelectorAll('.blue-btn .expand-view').forEach( (button) => {
   button.addEventListener("click", () => {
     document.querySelectorAll('.student-card-container').forEach( (card) => {
       card.classList.toggle('active')
