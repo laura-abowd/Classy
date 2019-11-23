@@ -3,34 +3,56 @@
 }
 
 .student-card {
-overflow: hidden;
-width: 1080px;
-padding: 10px;
-margin: 20px 5px 5px 5px;
-align-items: center;
-z-index: 9999;
-box-shadow: 0 5px 8px rgba(182, 210, 246, 0.5);
-transition: height 0.3s, box-shadow 0.3s;
+  position: relative;
+  background-color: $classy-background-color;
+  overflow: hidden;
+  width: 1080px;
+  padding: 10px;
+  margin: 20px 0px 0px 0px;
+  align-items: center;
+  z-index: 0;
+  border-radius: 3px;
+  // box-shadow: 0px 5px 0px rgba(182, 210, 246, 0.5);
+  // transition: height 0.3s,
+  //   box-shadow 0.3s;
   p {
-    font-size: 12.08px;
+    // font-size: 14px;
     margin: 0;
   }
 }
 
-.student-card:hover {
-  box-shadow: 5px 10px 15px 0px rgba(182, 210, 246,0.65);
+// .student-card-container {
+//   background-color: $classy-background-color;
+// }
+
+.empty-placeholder {
+  font-size: 12px;
+  color: $classy-less-important-text-shade;
 }
+
+.section-student-cards {
+  width: 100%;
+  background-color: $light-gray;
+  padding-bottom: 60px;
+}
+
+// .student-card:hover {
+//   box-shadow: 5px 10px 15px 0px rgba(182, 210, 246,0.65);
+// }
 
 /* dropdown */
 .dropdown-card {
-  margin-left: 6px;
+  // margin-left: 6px;
+  border-radius: 3px;
+  margin-top: -10px;
+  padding-top: 10px;
   display: flex;
-  z-index: 1;
+  z-index: 999;
   justify-content: space-around;
   width: 1080px;
   height: 0px;
   background-color: #F0F7FF;
-  box-shadow: 0 5px 8px rgba(182, 210, 246, 0.5);
+  box-shadow: 0px 2px 0px $classy-shadow-gray;
   overflow: hidden;
   transition: height 0.3s ease-out;
   .student-content {
@@ -46,6 +68,8 @@ transition: height 0.3s, box-shadow 0.3s;
 /* Student Card Components */
 
 .student-name {
+  font-size: 18px;
+  font-weight: bolder;
   width: 90px;
 }
 
