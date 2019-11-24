@@ -1,13 +1,25 @@
-<!-- STICKY HEADER  -->
+<div class="students-header-container">
 <div class="classy-students-header">
   <div class="classy-content-header">
-    <div class="student-banner">
       <h1> Welcome
         <%= current_teacher.teacher_name %>! </h1>
       <p>Please update your students' information to ensure best results.</p>
-    </div>
   </div>
 </div>
+</div>
+<!-- View students tabs -->
+<ul class="nav nav-tabs student-tab-container">
+  <li class="nav-item student-tab">
+    <a class="nav-link student-nav-link" href="#">My Students</a>
+  </li>
+  <!-- need to add an "active" status class -->
+  <li class="nav-item student-tab">
+    <a class="nav-link student-nav-link" href="#">View All Students</a>
+  </li>
+</ul>
+
+
+<!-- STICKY HEADER  -->
 <div class="header" id="student-header">
   <!--  <div class="classy-sticky-button"> -->
   <div class="save-btn ">
