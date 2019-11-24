@@ -1,17 +1,41 @@
 /* Style the header */
 .classy-students-header {
-  height: 200px;
-  width: 100%;
-  line-height: 200px;
+  margin: auto auto 20px auto;
+  height: 150px;
+  width: 80%;
+  line-height: 150px;
   text-align: center;
   color: $classy-gray;
-  background-color: $classy-background-color;
+  background-color: $light-gray;
 }
 
 .classy-content-header {
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
+}
+
+.student-tab-container {
+  justify-content: center;
+  text-align: center;
+}
+
+.student-tab {
+  border-radius: 24px 24px 0px 0px;
+  width: 575px;
+  height: 60px;
+  margin: 1px;
+  background-color: $classy-blue;
+  opacity: .35;
+  a {
+    color: $classy-background-color;
+  }
+}
+
+// needs to be $classy-blue when active and classy-blue opacity .35 when not active
+
+.student-nav-link {
+  border: 0 !important; //border is inherited from bootstrap
 }
 
 #student-header {
