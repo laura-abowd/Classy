@@ -21,10 +21,6 @@
   }
 }
 
-// .student-card-container {
-//   background-color: $classy-background-color;
-// }
-
 .empty-placeholder {
   font-size: 12px;
   color: $classy-less-important-text-shade;
@@ -124,18 +120,15 @@
     top: 11px;
 }
 
-
 /*Hide the checkmark by default*/
 .checkbox input[type="checkbox"] + label::after {
     content: none;
 }
 
-
 /*Unhide on the checked state*/
 .checkbox input[type="checkbox"]:checked + label::after {
     content: "";
 }
-
 
 /* Checkbox Icon */
 
@@ -164,20 +157,20 @@
   opacity: 1;
 }
 
-
 /* Dropdown carrot button */
 
 .fa-chevron-down {
+  cursor:pointer;
   font-size: 20px;
   color: $classy-blue;
   opacity: 0.75;
 }
 
-
 .fa-chevron-down:hover {
   opacity: 1;
 }
 
+// individual stduent cards for classroom#index
 
 .classroom-container {
   padding-top: 5px;
@@ -188,6 +181,8 @@
 
 .classroom-card-teacher {
   text-align: center;
+  font-size: 18px;
+  font-weight: bolder;
   //remove set height and width after code works
   height: 90px;
   // width: 300px;
@@ -199,7 +194,6 @@
   display: grid;
   grid-gap: 1rem;
 }
-
 
 .classroom-card {
   padding: 5px;

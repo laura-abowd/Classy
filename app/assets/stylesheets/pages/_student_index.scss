@@ -4,8 +4,8 @@
   width: 100%;
   line-height: 200px;
   text-align: center;
-  color: white;
-  background-color: $classy-blue;
+  color: $classy-gray;
+  background-color: $classy-background-color;
 }
 
 .classy-content-header {
@@ -14,15 +14,46 @@
   line-height: normal;
 }
 
-.classy-sticky-button {
-  float: right;
-}
-
-.header {
-  padding: 0px 0px;
-  background: transparent;
+#student-header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  padding: 25px 0px 25px 0px;
+  width: 100%;
+  background: $classy-blue;
   color: white;
   z-index: 999;
+}
+
+.icon-text {
+  font-size: 14px;
+}
+
+// .flex-items-header {
+//   flex-grow: 1;
+// }
+
+.sticky-save-btn {
+  width: 300px;
+}
+
+.save-btn {
+  padding-left: 170px;
+}
+
+.icon-labels {
+    flex-grow: 1;
+}
+
+.icon-labels ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  // justify-content: space-between;
+}
+
+.view-notes-btn {
+  padding-right: 10px;
 }
 
 /* Page content */
