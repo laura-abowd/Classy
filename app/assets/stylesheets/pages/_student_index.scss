@@ -38,47 +38,80 @@
   border: 0 !important; //border is inherited from bootstrap
 }
 
-#student-header {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: flex-start;
-  padding: 25px 0px 25px 0px;
-  width: 100%;
-  background: $classy-blue;
-  color: white;
-  z-index: 999;
-}
+// sticky-navbar content
 
-.icon-text {
-  font-size: 14px;
-}
-
-// .flex-items-header {
-//   flex-grow: 1;
+// #student-header {
+//   display: flex;
+//   flex-flow: row nowrap;
+//   justify-content: flex-start;
+//   padding: 25px 0px 25px 0px;
+//   width: 100%;
+//   background: $classy-blue;
+//   color: white;
+//   z-index: 999;
 // }
 
-.sticky-save-btn {
-  width: 300px;
+// .icon-text {
+//   font-size: 14px;
+// }
+
+// // .flex-items-header {
+// //   flex-grow: 1;
+// // }
+
+// .sticky-save-btn {
+//   width: 300px;
+// }
+
+// .save-btn {
+//   padding-left: 170px;
+// }
+
+// .icon-labels {
+//     flex-grow: 1;
+// }
+
+// .icon-labels ul {
+//   list-style-type: none;
+//   display: flex;
+//   justify-content: space-around;
+//   // justify-content: space-between;
+// }
+
+// .view-notes-btn {
+//   padding-right: 10px;
+// }
+
+.sticky-header-container {
+  background: $classy-blue;
+  justify-items: center;
+}
+
+ #student-header {
+  display: grid;
+  max-width: 1080px;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  // grid-template-rows: 1;
 }
 
 .save-btn {
-  padding-left: 170px;
+  grid-column: span 7;
+  // max-width: 200px;
 }
 
-.icon-labels {
-    flex-grow: 1;
+.icon-text {
+  grid-column: span 1;
+  color: $classy-background-color;
+
 }
 
-.icon-labels ul {
-  list-style-type: none;
-  display: flex;
-  justify-content: space-around;
-  // justify-content: space-between;
+.show-notes-btn {
+  grid-column: span 5;
 }
 
-.view-notes-btn {
-  padding-right: 10px;
-}
 
 /* Page content */
 .content {

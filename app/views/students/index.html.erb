@@ -20,12 +20,19 @@
 
 
 <!-- STICKY HEADER  -->
+<div class="sticky-header-container">
 <div class="header" id="student-header">
   <!--  <div class="classy-sticky-button"> -->
-  <div class="save-btn ">
+ <div class="save-btn">
     <%= button_to "Save and Submit", sortbutton_path, method: :post, class: "yellow-btn sticky-save-btn" %>
   </div>
-  <div class="icon-labels flex-items-header">
+
+    <div class="icon-text">ESL</div>
+    <div class="icon-text">Gifted & Talented</div>
+    <div class="icon-text">SPED</div>
+    <div class="icon-text">Medical Alert</div>
+
+  <!-- <div class="icon-labels flex-items-header">
     <ul>
       <li>
         <div class="icon-text">ESL</div>
@@ -40,14 +47,16 @@
         <div class="icon-text">Medical Alert</div>
       </li>
     </ul>
-  </div>
-  <div class="view-notes-btn flex-items-header">
-    <div class="yellow-btn" id="ylw-view-btn">
-      <div class="expand-view">
+  </div> -->
+  <!-- <div class="view-notes-btn flex-items-header"> -->
+   <!--  id="ylw-view-btn" -->
+    <div class="show-notes-btn">
+      <div class="yellow-btn expand-view">
         Show All Notes
       </div>
     </div>
-  </div>
+<!--   </div> -->
+</div>
 </div>
 <!-- STUDENT CARD  -->
 <div class="section-student-cards">
