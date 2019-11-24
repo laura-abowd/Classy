@@ -1,15 +1,11 @@
 /* Style the header */
-
-
 .classy-students-header {
-  margin: auto auto 20px auto;
-  height: 150px;
-  width: 80%;
-
-  line-height: 150px;
+  height: 200px;
+  width: 100%;
+  line-height: 200px;
   text-align: center;
   color: $classy-gray;
-  background-color: $light-gray;
+  background-color: $classy-background-color;
 }
 
 .classy-content-header {
@@ -18,39 +14,13 @@
   line-height: normal;
 }
 
-.student-tab-container {
-  justify-content: center;
-  text-align: center;
-}
-
-.student-tab {
-  border-radius: 24px 24px 0px 0px;
-  width: 575px;
-  height: 60px;
-  margin: 1px;
-  background-color: $classy-blue;
-  opacity: .35;
-    a {
-    color: $classy-background-color;
-  }
-}
-// needs to be $classy-blue when active and classy-blue opacity .35 when not active
-
-.student-nav-link {
-  border: 0 !important; //border is inherited from bootstrap
-}
-
-// Sticky Header with Buttons
 #student-header {
   display: flex;
   flex-flow: row nowrap;
-  align-self: center;
   justify-content: flex-start;
   padding: 25px 0px 25px 0px;
-  height: 100px;
   width: 100%;
   background: $classy-blue;
-  // height: 134px;
   color: white;
   z-index: 999;
 }
@@ -58,6 +28,10 @@
 .icon-text {
   font-size: 14px;
 }
+
+// .flex-items-header {
+//   flex-grow: 1;
+// }
 
 .sticky-save-btn {
   width: 300px;
