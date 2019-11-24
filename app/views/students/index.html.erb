@@ -9,14 +9,31 @@
   </div>
 </div>
 <div class="header" id="student-header">
-  <div class="classy-sticky-button">
-    <div class="d-flex">
-      <div class="blue-btn" style="margin-right: 5px; margin-bottom: 30px;">
-        <div class="expand-view">
-          Show All Notes
-        </div>
+  <!--  <div class="classy-sticky-button"> -->
+  <div class="save-btn ">
+    <%= button_to "Save and Submit", sortbutton_path, method: :post, class: "yellow-btn sticky-save-btn" %>
+  </div>
+  <div class="icon-labels flex-items-header">
+    <ul>
+      <li>
+        <div class="icon-text">ESL</div>
+      </li>
+      <li>
+        <div class="icon-text">Gifted & Talented</div>
+      </li>
+      <li>
+        <div class="icon-text">SPED</div>
+      </li>
+      <li>
+        <div class="icon-text">Medical Alert</div>
+      </li>
+    </ul>
+  </div>
+  <div class="view-notes-btn flex-items-header">
+    <div class="yellow-btn" id="ylw-view-btn">
+      <div class="expand-view">
+        Show All Notes
       </div>
-      <%= button_to "Save and Submit", sortbutton_path, method: :post, class: "blue-btn" %>
     </div>
   </div>
 </div>
@@ -64,6 +81,7 @@
         <% end %>
         <%= simple_form_for @do_not_place, html: { class: "selectdnp"}, remote: true do |f| %>
         <div class="do-not-place">
+          Do Not Place With
           <%= f.error_notification %>
           <%= f.input :student_one_id, input_html: { value: student.id }, as: :hidden %>
           <%= f.association :student_two, label: false, collection: @grade.students.map { |student| [student.first_name, student.id] }%>
