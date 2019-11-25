@@ -1,11 +1,11 @@
 <div class="students-header-container">
-<div class="classy-students-header">
-  <div class="classy-content-header">
+  <div class="classy-students-header">
+    <div class="classy-content-header">
       <h1> Welcome
         <%= current_teacher.teacher_name %>! </h1>
       <p>Please update your students' information to ensure best results.</p>
+    </div>
   </div>
-</div>
 </div>
 <!-- View students tabs -->
 <ul class="nav nav-tabs student-tab-container">
@@ -17,45 +17,27 @@
     <a class="nav-link student-nav-link" href="#">View All Students</a>
   </li>
 </ul>
-
-
 <!-- STICKY HEADER  -->
-<div class="sticky-header-container">
-<div class="header" id="student-header">
-  <!--  <div class="classy-sticky-button"> -->
- <div class="save-btn">
-    <%= button_to "Save and Submit", sortbutton_path, method: :post, class: "yellow-btn sticky-save-btn" %>
-  </div>
-
+<div class="wrapper" id="header-container-sticky">
+  <div class="container">
+  <div class="sticky-header-container" >
+  <div class="header" id="student-header">
+    <!--  <div class="classy-sticky-button"> -->
+    <div class="save-btn">
+      <%= button_to "Save and Submit", sortbutton_path, method: :post, class: "yellow-btn sticky-save-btn" %>
+    </div>
     <div class="icon-text">ESL</div>
     <div class="icon-text">Gifted & Talented</div>
     <div class="icon-text">SPED</div>
     <div class="icon-text">Medical Alert</div>
-
-  <!-- <div class="icon-labels flex-items-header">
-    <ul>
-      <li>
-        <div class="icon-text">ESL</div>
-      </li>
-      <li>
-        <div class="icon-text">Gifted & Talented</div>
-      </li>
-      <li>
-        <div class="icon-text">SPED</div>
-      </li>
-      <li>
-        <div class="icon-text">Medical Alert</div>
-      </li>
-    </ul>
-  </div> -->
-  <!-- <div class="view-notes-btn flex-items-header"> -->
-   <!--  id="ylw-view-btn" -->
     <div class="show-notes-btn">
       <div class="yellow-btn expand-view">
         Show All Notes
       </div>
     </div>
-<!--   </div> -->
+    <!--   </div> -->
+  </div>
+</div>
 </div>
 </div>
 <!-- STUDENT CARD  -->
@@ -139,7 +121,7 @@
             <%= f.input :student_id, input_html: { value: student.id }, as: :hidden %>
             <%= f.association :teacher,
                     label: false,
-                    collection: @teachers.map {|teacher| [teacher.teacher_name, teacher.id]} %>
+                    collection: @secondgradeteachers.map {|teacher| [teacher.teacher_name, teacher.id]} %>
             <!-- <#%= f.submit as: :hidden %> -->
             <% end %>
           </div>
@@ -150,4 +132,3 @@
     <% end %>
   </div>
 </div>
-<!-- </div> -->

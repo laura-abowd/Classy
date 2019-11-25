@@ -6,10 +6,10 @@ class StudentsController < ApplicationController
 
     @grade = current_teacher.grade
 
-    @mystudents = Student.joins(:classroom_enrollments, :classrooms).where(classrooms: { teacher: Teacher.find_by(teacher_name: current_teacher.teacher_name) }).distinct.shuffle
+    @mystudents = Student.joins(:classroom_enrollments, :classrooms).where(classrooms: { teacher: Teacher.find_by(teacher_name: current_teacher.teacher_name) }).distinct.sort_by(&:last_name)
 
 
-    @teachers = Teacher.all
+    @secondgradeteachers = Teacher.where(grade:  Grade.find_by(level: current_teacher.grade.level + 1) )
     @teacher_lock = TeacherLock.new
     @do_not_place = DoNotPlace.new
 
