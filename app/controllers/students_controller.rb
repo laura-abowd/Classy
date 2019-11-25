@@ -116,9 +116,6 @@ class StudentsController < ApplicationController
 
 
 
-
-    # @dnps = DoNotPlace.all
-
     # @dnps.each do |dnp|
     #   student_two = dnp.student_two
     #   next unless dnp.student_one.current_classroom == student_two.current_classroom
@@ -156,6 +153,10 @@ class StudentsController < ApplicationController
 
   end
 
+# def autocomplete_
+#   @suggestions = student.select(:first_name, :last_name)
+#   render json: @suggestions
+# end
 
   private
 
