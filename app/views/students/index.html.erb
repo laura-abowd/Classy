@@ -43,89 +43,42 @@
 <!-- STUDENT CARD  -->
 <div class="section-student-cards">
   <div class="container m-auto container-student-cards">
-    <% @mystudents.each  do |student| %>
-    <div class="student-card-container">
-      <div class="student-card d-flex  flex-grow-1 justify-content-around">
-        <img class="avatar-large" alt="avatar-large" src="<%= student.photo %>" />
-        <div class="student-name">
-          <p>
-            <%= student.first_name %>
-          </p>
-          <p>
-            <%= student.last_name %>
-          </p>
-        </div>
-        <div class="empty-placeholder">
-          <p>#
-            <%= student.schoolID %>
-          </p>
-          <p>
-            <%= student.birthday %>
-          </p>
-          <p>
-            <%= student.gender.capitalize %>
-          </p>
-        </div>
-        <div class="checkbox-icons">
-          <%= simple_form_for student, html: { class: "checkform"}, remote: true do |f| %>
-          <%= f.error_notification %>
-          <div class="d-flex">
-            <%= f.input :esl, input_html: {id: "student_esl_#{student.id}"}, label: '<div class="first-layer"><i class="fas fa-square" style="font-size: 32px"></i><div class="second-layer-americas"><i class="fas fa-globe-americas"></i></div></div>'.html_safe %>
-            <%= f.input :gifted_talented, input_html: {id: "student_gifted_talented_#{student.id}"}, label: '<div class="first-layer"><i class="fas fa-square" style="font-size: 32px"></i><div class="second-layer-wizard"><i class="fas fa-hat-wizard"></i></div></div>'.html_safe %>
-            <%= f.input :special_education, input_html: {id: "student_special_education_#{student.id}"}, label: '<div class="first-layer"><i class="fas fa-square" style="font-size: 32px"></i><div class="second-layer-star"><i class="fas fa-star" style="left: 18%;"></i></div></div>'.html_safe %>
-            <%= f.input :medical_alert, input_html: {id: "student_medical_alert_#{student.id}"}, label: '<div class="first-layer"><i class="fas fa-square" style="font-size: 32px"></i><div class="second-layer-plus"><i class="fas fa-plus-square"></i></div></div>'.html_safe %>
-            <!-- <#%= f.submit as: :hidden %> -->
+    <% @mystudents.each_with_index  do |student, index| %>
+      <div class="student-card-container">
+        <div class="student-card d-flex  flex-grow-1 justify-content-around">
+          <img class="avatar-large" alt="avatar-large" src="<%= student.photo %>" />
+          <div class="student-name">
+            <p>
+              <%= student.first_name %>
+            </p>
+            <p>
+              <%= student.last_name %>
+            </p>
           </div>
-        </div>
-      </div>
-    </div>
-    <!-- STUDENT CARD  -->
-    <div class="section-student-cards">
-      <div class="container m-auto container-student-cards">
-        <% @mystudents.each_with_index  do |student, index| %>
-        <div class="student-card-container">
-          <div class="student-card d-flex  flex-grow-1 justify-content-around">
-            <img class="avatar-large" alt="avatar-large" src="<%= student.photo %>" />
-            <div class="student-name">
-              <p>
-                <%= student.first_name %>
-              </p>
-              <p>
-                <%= student.last_name %>
-              </p>
-            </div>
-            <div class="empty-placeholder">
-              <p>#
-                <%= student.schoolID %>
-              </p>
-              <p>
-                <%= student.birthday %>
-              </p>
-              <p>
-                <%= student.gender.capitalize %>
-              </p>
-            </div>
-            <div class="checkbox-icons">
-              <%= simple_form_for student, html: { class: "checkform"}, remote: true do |f| %>
+          <div class="empty-placeholder">
+            <p>#
+              <%= student.schoolID %>
+            </p>
+            <p>
+              <%= student.birthday %>
+            </p>
+            <p>
+              <%= student.gender.capitalize %>
+            </p>
+          </div>
+          <div class="checkbox-icons">
+            <%= simple_form_for student, html: { class: "checkform"}, remote: true do |f| %>
               <%= f.error_notification %>
               <div class="d-flex">
-                <%= f.input :esl, input_html: {id: "student_esl_#{student.id}"}, label: '<i class="fas fa-globe-americas"></i>'.html_safe %>
-                <%= f.input :gifted_talented, input_html: {id: "student_gifted_talented_#{student.id}"}, label: '<i class="fas fa-hat-wizard"></i>'.html_safe %>
-                <%= f.input :special_education, input_html: {id: "student_special_education_#{student.id}"}, label: '<i class="fas fa-star"></i>'.html_safe %>
-                <%= f.input :medical_alert, input_html: {id: "student_medical_alert_#{student.id}"}, label: '<i class="fas fa-plus-square"></i>'.html_safe %>
+                <%= f.input :esl, input_html: {id: "student_esl_#{student.id}"}, label: '<div class="first-layer"><i class="fas fa-square" style="font-size: 32px"></i><div class="second-layer-americas"><i class="fas fa-globe-americas"></i></div></div>'.html_safe %>
+                <%= f.input :gifted_talented, input_html: {id: "student_gifted_talented_#{student.id}"}, label: '<div class="first-layer"><i class="fas fa-square" style="font-size: 32px"></i><div class="second-layer-wizard"><i class="fas fa-hat-wizard"></i></div></div>'.html_safe %>
+                <%= f.input :special_education, input_html: {id: "student_special_education_#{student.id}"}, label: '<div class="first-layer"><i class="fas fa-square" style="font-size: 32px"></i><div class="second-layer-star"><i class="fas fa-star" style="left: 18%;"></i></div></div>'.html_safe %>
+                <%= f.input :medical_alert, input_html: {id: "student_medical_alert_#{student.id}"}, label: '<div class="first-layer"><i class="fas fa-square" style="font-size: 32px"></i><div class="second-layer-plus"><i class="fas fa-plus-square"></i></div></div>'.html_safe %>
                 <!-- <#%= f.submit as: :hidden %> -->
               </div>
-              <%#= f.input :notes %>
-              <% end %>
-            </div>
-            <!-- insert checkbox here -->
-            <!-- /insert checkbox here -->
-
-
-
-
-
-            <%= simple_form_for @do_not_place, html: { class: "dnp-form"} do |f| %>
+            <% end %>
+          </div>
+          <%= simple_form_for @do_not_place, html: { class: "dnp-form"} do |f| %>
             <!-- <p class="m-0 p-0"><small>Do not place with</small></p> -->
             <div class="do-not-place">
               <%= f.error_notification %>
@@ -139,44 +92,37 @@
                 <% end %>
               </div>
             </div>
-            <% end %>
-
-
-
-
-
-
-        <div id="view-dropdown">
-          <i class="fas fa-chevron-down"></i>
-        </div>
-      </div>
-      <div class="dropdown-card">
-        <div class="mr-3 ml-4 w-50">
-          <div class="student-content">
-            Leave a note
-            <%= simple_form_for student, html: { class: "notesform"},  remote: true do |f| %>
-            <%= f.error_notification %>
-            <%= f.input :notes, input_html: {class: "h-100 w-100"}, label: false, placeholder: "Notes" %>
-            <!-- <#%= f.submit as: :hidden %> -->
-            <% end %>
+          <% end %>
+          <div id="view-dropdown">
+            <i class="fas fa-chevron-down"></i>
           </div>
         </div>
-        <div class="mr-3 ml-4 w-25">
-          <div class="student-content">
-            Assign to
-            <%= simple_form_for @teacher_lock, html: { class: "teacherform"},  remote: true do |f| %>
-            <%= f.error_notification %>
-            <%= f.input :student_id, input_html: { value: student.id }, as: :hidden %>
-            <%= f.association :teacher,
-                    label: false,
-                    collection: @nextgradeteachers.map {|teacher| [teacher.teacher_name, teacher.id]} %>
-            <!-- <#%= f.submit as: :hidden %> -->
-            <% end %>
+        <div class="dropdown-card">
+          <div class="mr-3 ml-4 w-50">
+            <div class="student-content">
+              Leave a note
+              <%= simple_form_for student, html: { class: "notesform"},  remote: true do |f| %>
+                <%= f.error_notification %>
+                <%= f.input :notes, input_html: {class: "h-100 w-100"}, label: false, placeholder: "Notes" %>
+                <!-- <#%= f.submit as: :hidden %> -->
+              <% end %>
+            </div>
+          </div>
+          <div class="mr-3 ml-4 w-25">
+            <div class="student-content">
+              Assign to
+              <%= simple_form_for @teacher_lock, html: { class: "teacherform"},  remote: true do |f| %>
+                <%= f.error_notification %>
+                <%= f.input :student_id, input_html: { value: student.id }, as: :hidden %>
+                <%= f.association :teacher,
+                        label: false,
+                        collection: @nextgradeteachers.map {|teacher| [teacher.teacher_name, teacher.id]} %>
+                <!-- <#%= f.submit as: :hidden %> -->
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
     <% end %>
-
   </div>
 </div>
