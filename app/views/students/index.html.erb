@@ -121,7 +121,7 @@
             <%= f.input :student_id, input_html: { value: student.id }, as: :hidden %>
             <%= f.association :teacher,
                     label: false,
-                    collection: @secondgradeteachers.map {|teacher| [teacher.teacher_name, teacher.id]} %>
+                    collection: @nextgradeteachers.map {|teacher| [teacher.teacher_name, teacher.id]} %>
             <!-- <#%= f.submit as: :hidden %> -->
             <% end %>
           </div>
