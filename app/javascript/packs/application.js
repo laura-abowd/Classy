@@ -10,7 +10,9 @@ Rails.start();
 window.onscroll = function() {myFunction()};
 
 // Get the header
+
 const header = document.getElementById("student-header");
+
 
 // Get the offset position of the navbar
 const sticky = header.offsetTop;
