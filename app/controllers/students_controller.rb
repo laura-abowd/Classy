@@ -88,9 +88,6 @@ class StudentsController < ApplicationController
         end
       end
 
-
-
-
     @dnps = DoNotPlace.all
 
     @dnps.each do |dnp|
@@ -128,9 +125,12 @@ class StudentsController < ApplicationController
 
     redirect_to classrooms_path
 
-
   end
 
+# def autocomplete_
+#   @suggestions = student.select(:first_name, :last_name)
+#   render json: @suggestions
+# end
 
   private
 

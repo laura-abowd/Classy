@@ -76,28 +76,76 @@
             <%= f.input :medical_alert, input_html: {id: "student_medical_alert_#{student.id}"}, label: '<div class="first-layer"><i class="fas fa-square" style="font-size: 32px"></i><div class="second-layer-plus"><i class="fas fa-plus-square"></i></div></div>'.html_safe %>
             <!-- <#%= f.submit as: :hidden %> -->
           </div>
-          <%#= f.input :notes %>
         </div>
-        <!-- insert checkbox here -->
-        <!-- /insert checkbox here -->
-        <%= simple_form_for @do_not_place do |f| %>
-        <% end %>
-        <%= simple_form_for @do_not_place, html: { class: "selectdnp"}, remote: true do |f| %>
-        <div class="do-not-place">
-          Do Not Place With
-          <%= f.error_notification %>
-          <%= f.input :student_one_id, input_html: { value: student.id }, as: :hidden %>
-          <%= f.association :student_two, label: false, collection: @grade.students.map { |student| [student.first_name, student.id] }%>
-          <!-- <#%= f.submit as: :hidden %> -->
-        </div>
-        <% end %>
-        <!-- <div class="dnp-display border w-100 h-100">
-            <%# student.do_not_places.each do |dnp| %>
-              <p class="dnp badge badge-danger">
-              <%#= dnp.first_name %>
+      </div>
+    </div>
+    <!-- STUDENT CARD  -->
+    <div class="section-student-cards">
+      <div class="container m-auto container-student-cards">
+        <% @mystudents.each_with_index  do |student, index| %>
+        <div class="student-card-container">
+          <div class="student-card d-flex  flex-grow-1 justify-content-around">
+            <img class="avatar-large" alt="avatar-large" src="<%= student.photo %>" />
+            <div class="student-name">
+              <p>
+                <%= student.first_name %>
               </p>
-            <%# end %>
-          </div> -->
+              <p>
+                <%= student.last_name %>
+              </p>
+            </div>
+            <div class="empty-placeholder">
+              <p>#
+                <%= student.schoolID %>
+              </p>
+              <p>
+                <%= student.birthday %>
+              </p>
+              <p>
+                <%= student.gender.capitalize %>
+              </p>
+            </div>
+            <div class="checkbox-icons">
+              <%= simple_form_for student, html: { class: "checkform"}, remote: true do |f| %>
+              <%= f.error_notification %>
+              <div class="d-flex">
+                <%= f.input :esl, input_html: {id: "student_esl_#{student.id}"}, label: '<i class="fas fa-globe-americas"></i>'.html_safe %>
+                <%= f.input :gifted_talented, input_html: {id: "student_gifted_talented_#{student.id}"}, label: '<i class="fas fa-hat-wizard"></i>'.html_safe %>
+                <%= f.input :special_education, input_html: {id: "student_special_education_#{student.id}"}, label: '<i class="fas fa-star"></i>'.html_safe %>
+                <%= f.input :medical_alert, input_html: {id: "student_medical_alert_#{student.id}"}, label: '<i class="fas fa-plus-square"></i>'.html_safe %>
+                <!-- <#%= f.submit as: :hidden %> -->
+              </div>
+              <%#= f.input :notes %>
+              <% end %>
+            </div>
+            <!-- insert checkbox here -->
+            <!-- /insert checkbox here -->
+
+
+
+
+
+            <%= simple_form_for @do_not_place, html: { class: "dnp-form"} do |f| %>
+            <!-- <p class="m-0 p-0"><small>Do not place with</small></p> -->
+            <div class="do-not-place">
+              <%= f.error_notification %>
+              <%= f.input :student_one_id, input_html: { value: student.id, class: "m-0" }, as: :hidden %>
+              <%= f.association :student_two, input_html: { class: "student-two-select", data: { index: index } }, label: false, prompt: "Do not place with", collection: @grade.students.map { |student| [student.first_name, student.id] }%>
+              <div class="dnp-badges">
+                <% student.do_not_places.each do |dnp| %>
+                  <p class="dnp-badge">
+                  <%= dnp.other_student(student).first_name %>&nbsp;<%= dnp.other_student(student).last_name[0].upcase %>&nbsp;<span class="delete-dnp"><%= link_to "✕", do_not_place_path(dnp), method: :delete %></span>
+                  </p>
+                <% end %>
+              </div>
+            </div>
+            <% end %>
+
+
+
+
+
+
         <div id="view-dropdown">
           <i class="fas fa-chevron-down"></i>
         </div>
@@ -129,6 +177,6 @@
       </div>
     </div>
     <% end %>
-    <% end %>
+
   </div>
 </div>
