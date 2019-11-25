@@ -1,6 +1,8 @@
+
 import "bootstrap";
 import Rails from '@rails/ujs';
 import { submitOnEvent } from '../components/submitOnEvent.js';
+import { initSortable } from './plugins/init_sortable';
 
 Rails.start();
 
@@ -8,13 +10,15 @@ Rails.start();
 window.onscroll = function() {myFunction()};
 
 // Get the header
-var header = document.getElementById("header-container-sticky");
+
+const header = document.getElementById("student-header");
+
 
 // Get the offset position of the navbar
-var sticky = header.offsetTop;
+const sticky = header.offsetTop;
 
 // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
+const myFunction = () => {
   if (window.pageYOffset > sticky) {
     header.classList.add("sticky");
   } else {
@@ -23,3 +27,7 @@ function myFunction() {
 }
 
 submitOnEvent();
+// const list = document.querySelector('#results');
+initSortable();
+// myFunction();
+
