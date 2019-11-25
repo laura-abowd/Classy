@@ -73,5 +73,47 @@
   padding-top: 102px;
 }
 
+.do-not-place {
+  position: relative;
+  width: 300px;
+}
 
+.dnp-badges {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  height: 2em;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // padding: 0 5px;
+  width: 280px;
+}
 
+.do_not_place_student_one, .do_not_place_student_two {
+  margin: 0 !important;
+}
+
+.dnp-badge {
+  border-radius: 8px;
+  background-color: lightgray;
+  padding: 0.3em !important;
+  display: inline;
+  font-size: 0.8em;
+  line-height: 1.8em;
+  margin: 2px !important;
+}
+
+.delete-dnp {
+  line-height: 1.8em;
+  font-size: 1.3em;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.select2-container .select2-selection--single {
+  line-height: 2em;
+  height: 2em !important;
+}
