@@ -22,10 +22,9 @@ class StudentsController < ApplicationController
     classes = []
     donotplaces = []
 
-    grade = Grade.find_by(level: current_user.grade.level)
-    students =  Student.joins(:classroom_enrollments, :classrooms)
-                       .where(classrooms: { grade: Grade.find_by(level: current_user.grade.level) }).distinct
-
+    grade = Grade.find_by(level: current_teacher.grade.level)
+    students =  Student.joins("INNER JOIN classroom_enrollments on classroom_enrollments.student_id = students.id", "INNER JOIN classrooms ON classrooms.id = classroom_enrollments.classroom_id")
+                       .where(classrooms: { grade: Grade.find_by(level: current_teacher.grade.level) }).order("RANDOM()")
 
     nextgrade = Grade.find_by(level: grade.level + 1)
     nextgradeteachers = Teacher.where(grade: nextgrade)
@@ -42,7 +41,8 @@ class StudentsController < ApplicationController
 
     classrooms = Classroom.where(grade: nextgrade)
 
-    tls = TeacherLock.joins(:teacher).where(teachers: { grade_id: grade.id} )
+    fuck = TeacherLock.joins(:teacher).where(teachers: { grade: grade} )
+    tls = TeacherLock.all
 
 
     tls.each do |pair|
@@ -52,50 +52,34 @@ class StudentsController < ApplicationController
         student: locked_student,
         classroom: locked_teacher.classroom,
       )
-      students.reject { |student| student == locked_student }
+      students = students.where.not(id: locked_student.id)
     end
 
 
-    @specialtrue = students.where(special_education: true).where.not(id: classes.flatten)
-    @specialtrue.each_with_index do |student, index|
-      classes[index % 5] << student
+
+    attributeslist = ['special_education', 'gifted_talented', 'esl', 'medical_alert']
+
+    attributeslist.each do |attribute|
+      @filteredstudents = students.where("#{attribute} = true")
+      @filteredstudents.each_with_index do |student, index|
+        classes[index % classrooms.count] << student
+        students = students.where.not(id: student.id)
+      end
+      classes.sort!
     end
 
-    classes.sort!
-
-    @giftedtrue = students.where(gifted_talented: true).where.not(id: classes.flatten)
-    @giftedtrue.each_with_index do |student, index|
-      classes[index % 5] << student
+    genders = ['female', 'male']
+    genders.each do |gender|
+      @girlsnoconditions = students.where(gender: gender)
+      @girlsnoconditions.each_with_index do |student, index|
+        classes[index % classrooms.count] << student
+        students = students.where.not(id: student.id)
+      end
+      classes.sort!
     end
 
-    classes.sort!
 
-    @esltrue = students.where(esl: true).where.not(id: classes.flatten)
-    @esltrue.each_with_index do |student, index|
-      classes[index % 5] << student
-    end
-
-    classes.sort!
-
-    @medicaltrue = students.where(medical_alert: true).where.not(id: classes.flatten)
-    @medicaltrue.each_with_index do |student, index|
-      classes[index % 5] << student
-    end
-
-    classes.sort!
-
-    @girlsnoconditions = students.where(gender: 'female', esl: false, gifted_talented: false, medical_alert: false, special_education: false).where.not(id: classes.flatten)
-    @girlsnoconditions.each_with_index do |student, index|
-      classes[index % 5] << student
-    end
-
-    classes.sort!
-
-    @boysnoconditions = students.where(gender: 'male', esl: false, gifted_talented: false, medical_alert: false, special_education: false).where.not(id: classes.flatten)
-    @boysnoconditions.each_with_index do |student, index|
-      classes[index % 5] << student
-    end
-
+      ClassroomEnrollment.joins(:classroom).where(classrooms: { grade: Grade.find_by(level: current_teacher.grade.level + 1) }).destroy_all
 
       classes.each_with_index do |classroom, index|
         classroom.each do |student|
@@ -105,6 +89,8 @@ class StudentsController < ApplicationController
           )
         end
       end
+
+      raise
 
 
 
