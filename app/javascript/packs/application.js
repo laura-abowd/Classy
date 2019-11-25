@@ -1,8 +1,7 @@
 import "bootstrap";
 import Rails from '@rails/ujs';
 import { submitOnEvent } from '../components/submitOnEvent.js';
-import { initSortable } from './plugins/init_sortable';
-
+import { initSortable } from '../plugins/init_sortable';
 
 Rails.start();
 
@@ -10,7 +9,7 @@ Rails.start();
 window.onscroll = function() {myFunction()};
 
 // Get the header
-var header = document.getElementById("student-header");
+var header = document.getElementById("header-container-sticky");
 
 // Get the offset position of the navbar
 var sticky = header.offsetTop;
