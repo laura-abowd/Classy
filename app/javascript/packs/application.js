@@ -2,7 +2,7 @@
 import "bootstrap";
 import Rails from '@rails/ujs';
 import { submitOnEvent } from '../components/submitOnEvent.js';
-// import { initSortable } from './plugins/init_sortable';
+import { initSortable } from '../plugins/init_sortable';
 
 Rails.start();
 
