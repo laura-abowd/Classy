@@ -67,10 +67,10 @@
           <%= simple_form_for student, html: { class: "checkform"}, remote: true do |f| %>
           <%= f.error_notification %>
           <div class="d-flex">
-            <%= f.input :esl, input_html: {id: "student_esl_#{student.id}"}, label: '<i class="fas fa-globe-americas"></i>'.html_safe %>
-            <%= f.input :gifted_talented, input_html: {id: "student_gifted_talented_#{student.id}"}, label: '<i class="fas fa-hat-wizard"></i>'.html_safe %>
-            <%= f.input :special_education, input_html: {id: "student_special_education_#{student.id}"}, label: '<i class="fas fa-star"></i>'.html_safe %>
-            <%= f.input :medical_alert, input_html: {id: "student_medical_alert_#{student.id}"}, label: '<i class="fas fa-plus-square"></i>'.html_safe %>
+            <%= f.input :esl, input_html: {id: "student_esl_#{student.id}"}, label: '<div class="first-layer"><i class="fas fa-square" style="font-size: 32px"></i><div class="second-layer-americas"><i class="fas fa-globe-americas"></i></div></div>'.html_safe %>
+            <%= f.input :gifted_talented, input_html: {id: "student_gifted_talented_#{student.id}"}, label: '<div class="first-layer"><i class="fas fa-square" style="font-size: 32px"></i><div class="second-layer-wizard"><i class="fas fa-hat-wizard"></i></div></div>'.html_safe %>
+            <%= f.input :special_education, input_html: {id: "student_special_education_#{student.id}"}, label: '<div class="first-layer"><i class="fas fa-square" style="font-size: 32px"></i><div class="second-layer-star"><i class="fas fa-star" style="left: 18%;"></i></div></div>'.html_safe %>
+            <%= f.input :medical_alert, input_html: {id: "student_medical_alert_#{student.id}"}, label: '<div class="first-layer"><i class="fas fa-square" style="font-size: 32px"></i><div class="second-layer-plus"><i class="fas fa-plus-square"></i></div></div>'.html_safe %>
             <!-- <#%= f.submit as: :hidden %> -->
           </div>
           <%#= f.input :notes %>
