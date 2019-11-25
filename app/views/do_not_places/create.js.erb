@@ -1,0 +1,8 @@
+function refreshCard(innerHTML) {
+  const newCard = document.querySelector(`.container-student-cards #student-${<%= @do_not_place.student_one.id %>}`);
+  newCard.innerHTML = innerHTML;
+}
+
+// TODO: add student_two card !!!!!!!!!!!!!!!!!!!!!!!!!
+
+refreshCard('<%= j render "students/card", student: @do_not_place.student_one %>');

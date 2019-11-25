@@ -1,12 +1,20 @@
 class DoNotPlacesController < ApplicationController
   def create
     @do_not_place = DoNotPlace.new(do_not_place_params)
+    @grade = current_teacher.grade
+    @teacher_lock = TeacherLock.new
+    @nextgradeteachers = Teacher.where(grade:  Grade.find_by(level: current_teacher.grade.level + 1) )
+
     if @do_not_place.save
-      redirect_to students_path
+      respond_to do |format|
+        format.html { redirect_to students_path }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
-      raise
-      redirect_to students_path
-      # render "students/index"
+      respond_to do |format|
+        format.html { redirect_to students_path }
+        format.js
+      end
     end
   end
 
