@@ -18,6 +18,7 @@ class StudentsController < ApplicationController
 
 
   def sort
+      ClassroomEnrollment.joins(:classroom).where(classrooms: { grade: Grade.find_by(level: current_teacher.grade.level + 1) }).destroy_all
 
     classes = []
     donotplaces = []
@@ -41,11 +42,12 @@ class StudentsController < ApplicationController
 
     classrooms = Classroom.where(grade: nextgrade)
 
-  teacherlocksucks = TeacherLock.joins(:teacher).where(teachers: { grade: nextgrade } )
 
-    teacherlocksucks.each do |pair|
+  teacherlocks = TeacherLock.joins(:teacher).where(teachers: { grade: nextgrade } )
+    teacherlocks.each do |pair|
       locked_student = pair.student
       locked_teacher = pair.teacher
+
       ClassroomEnrollment.create(
         student: locked_student,
         classroom: locked_teacher.classroom,
@@ -54,6 +56,30 @@ class StudentsController < ApplicationController
     end
 
 
+
+    #works really well until the same student is used as one or two, then it duplicates that student
+    dnps = DoNotPlace.all
+    dnps.each_with_index do |pairing, index|
+
+      studentone = pairing.student_one
+      studenttwo = pairing.student_two
+
+      if classes.include?(studentone)
+      classes[(index + 4) % classrooms.count] << studenttwo
+      students = students.where.not(id: studenttwo.id)
+
+      elsif classes.include?(studenttwo)
+      classes[(index + 4) % classrooms.count] << studentone
+      students = students.where.not(id: studentone.id)
+
+      else
+      classes[index % classrooms.count] << studentone
+      classes[(index + 4) % classrooms.count] << studenttwo
+      students = students.where.not(id: studentone.id)
+      students = students.where.not(id: studenttwo.id)
+      end
+      end
+      classes.sort!
 
     attributeslist = ['special_education', 'gifted_talented', 'esl', 'medical_alert']
 
@@ -77,7 +103,7 @@ class StudentsController < ApplicationController
     end
 
 
-      ClassroomEnrollment.joins(:classroom).where(classrooms: { grade: Grade.find_by(level: current_teacher.grade.level + 1) }).destroy_all
+
 
       classes.each_with_index do |classroom, index|
         classroom.each do |student|
@@ -88,24 +114,24 @@ class StudentsController < ApplicationController
         end
       end
 
-    @dnps = DoNotPlace.all
 
-    @dnps.each do |dnp|
-      student_two = dnp.student_two
-      next unless dnp.student_one.current_classroom == student_two.current_classroom
 
-      student_two_enrollment = student_two.classroom_enrollments.order(:created_at).last
-      innocent_student = students.where(gender: student_two.gender, esl: false, gifted_talented: false, medical_alert: false, special_education: false).where.not(id: [@dnps.map(&:student_one) + @dnps.map(&:student_two)]).find { |student| student.current_classroom != student_two.current_classroom }
-      if innocent_student
-        innocent_student_enrollment = innocent_student.classroom_enrollments.order(:created_at).last
-        student_two_classroom = student_two_enrollment.classroom
-        student_two_enrollment.classroom = innocent_student_enrollment.classroom
-        innocent_student_enrollment.classroom = student_two_classroom
+    # @dnps.each do |dnp|
+    #   student_two = dnp.student_two
+    #   next unless dnp.student_one.current_classroom == student_two.current_classroom
 
-        student_two_enrollment.save
-        innocent_student_enrollment.save
-      end
-    end
+    #   student_two_enrollment = student_two.classroom_enrollments.order(:created_at).last
+    #   innocent_student = students.where(gender: student_two.gender, esl: false, gifted_talented: false, medical_alert: false, special_education: false).where.not(id: [@dnps.map(&:student_one) + @dnps.map(&:student_two)]).find { |student| student.current_classroom != student_two.current_classroom }
+    #   if innocent_student
+    #     innocent_student_enrollment = innocent_student.classroom_enrollments.order(:created_at).last
+    #     student_two_classroom = student_two_enrollment.classroom
+    #     student_two_enrollment.classroom = innocent_student_enrollment.classroom
+    #     innocent_student_enrollment.classroom = student_two_classroom
+
+    #     student_two_enrollment.save
+    #     innocent_student_enrollment.save
+    #   end
+    # end
 
     # @dnps.each do |dnp|
     #   student_one = dnp.student_one
