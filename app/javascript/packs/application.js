@@ -5,7 +5,7 @@ import Rails from '@rails/ujs';
 import { submitOnEvent } from '../components/submitOnEvent.js';
 
 import { initSelect2 } from '../components/init_select2.js';
-import { initSortable } from '../plugins/init_sortable';
+
 
 Rails.start();
 
@@ -35,6 +35,5 @@ initSelect2();
 // })
 submitOnEvent();
 // const list = document.querySelector('#results');
-initSortable();
 // myFunction();
 
