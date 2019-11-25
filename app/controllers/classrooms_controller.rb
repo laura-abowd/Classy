@@ -7,6 +7,7 @@ class ClassroomsController < ApplicationController
     @class = Classroom.first
     @classrooms = Classroom.all
     @students = Student.joins(:classroom_enrollments, :classrooms).where(classrooms: { grade: Grade.find_by(level: current_teacher.grade.level + 1) }).distinct
+    @nextgradeteachers = Teacher.where(grade:  Grade.find_by(level: current_teacher.grade.level + 1) )
 
     @garciastudents = Student.joins(:classroom_enrollments, :classrooms).where(classrooms: { teacher: Teacher.find_by(teacher_name: 'Mr. Garcia') }).distinct.order(:last_name)
     @berkleystudents = Student.joins(:classroom_enrollments, :classrooms).where(classrooms: { teacher: Teacher.find_by(teacher_name: 'Mr. Berkley') }).distinct.order(:last_name)
@@ -19,3 +20,5 @@ class ClassroomsController < ApplicationController
   def update
   end
 end
+
+
