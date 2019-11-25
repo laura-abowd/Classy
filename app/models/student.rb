@@ -1,9 +1,9 @@
 class Student < ApplicationRecord
-  # has_one :teacher, through: :grade
 
 
   has_many :classroom_enrollments
   has_many :classrooms, through: :classroom_enrollments
+  # has_one :teacher, through: :classrooms
   # scope :current_classroom, joins(:classroom_enrollments).joins(:classrooms).find_by('classrooms.year = ?', 2019)
   # belongs_to :teacher, through: :current_classrooms
   has_many :do_not_places, ->(student) { unscope(:where).where("student_one_id = :id OR student_two_id = :id", id: student.id)}

@@ -9,6 +9,7 @@
     "popper.js": "^1.16.0",
     "select2": "^4.0.12",
     "typeahead": "^0.2.2"
+    "sortablejs": "^1.10.1"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.9.0"

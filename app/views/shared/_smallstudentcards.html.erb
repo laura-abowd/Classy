@@ -1,0 +1,30 @@
+<% @nextgradeteachers.each do |teacher| %>
+<div class="classroom-student-card-container">
+    <% teacher.classroom.students.each do |student|%>
+    <div class="classroom-card">
+        <div class="student-name-label">
+            <div class="student-first">
+                <!--   <p> -->
+                <%= student.first_name %>
+                <!-- </p> -->
+            </div>
+            <div class="student-last">
+                <!--  <p> -->
+                <%= student.last_name %>
+                <!--   </p> -->
+            </div>
+        </div>
+        <div class="student-data">
+            <div class="gripper-icon" id="results">: : : :</div>
+            <div class="student-card-icons">
+                <i class="fas fa-plus-square classroom-card-icon"></i>
+                <i class="fas fa-globe-americas classroom-card-icon"></i>
+                <i class="fas fa-hat-wizard classroom-card-icon"></i>
+                <i class="fas fa-exclamation-triangle classroom-card-icon"></i>
+            </div>
+            <div class="view-info-link">View Info</div>
+        </div>
+    </div>
+    <% end %>
+</div>
+<% end  %>
