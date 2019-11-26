@@ -1,8 +1,9 @@
 
 <!--BANNER -->
-<div class="students-header-container">
+<div class="students-header-container" style="margin-bottom: 30px;">
   <div class="classy-students-header">
     <div class="classy-content-header">
+      <div class="header-message"></div>
       <h1> Welcome
         <%= current_teacher.teacher_name %>! </h1>
       <p>Please update your students' information to ensure best results.</p>
@@ -14,24 +15,20 @@
 <!-- TABS -->
   <ul class="nav nav-tabs d-flex justify-content-start ml-4" id="myTab" role="tablist">
   <li class="nav-item">
-    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My Students</a>
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="tru" style= "font-size: 20px;">My Students</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">View All Students</a>
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" style= "font-size: 20px;">View All Students</a>
   </li>
 </ul>
+
 
 <!-- STICKY HEADER  -->
 <div class="wrapper" id="header-container-sticky">
     <div class="container">
       <div class="sticky-header-container" >
       <div class="header-flex">
-        <div class="header-name">
-          <div class="header-content">Name</div>
-        </div>
-        <div class="header-student-info">
-          <div class="header-content">Student <br>Info</div>
-        </div>
+       <%= button_to "Save and Submit", sortbutton_path, method: :post, class: "yellow-btn" %>
         <div class="header-parameters">
           <div class="header-content" style="padding-top: 8px;">ESL</div>
           <div class="header-content">Gifted &<br>Talented</div>
@@ -39,11 +36,10 @@
           <div class="header-content">Medical <br>Alert</div>
         </div>
         <div class="show-notes-btn">
-          <div class="yellow-btn expand-view" style="margin-right: 20px;">
-            Show All Notes
+          <div class="btn btn-outline-info expand-view" style="margin-left: 320px;">
+            <i class='far fa-angle-double-down'></i>
           </div>
         </div>
-            <%= button_to "Save and Submit", sortbutton_path, method: :post, class: "yellow-btn" %>
 
       </div>
     </div>
