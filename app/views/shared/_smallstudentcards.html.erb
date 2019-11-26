@@ -1,7 +1,7 @@
 <% @nextgradeteachers.each do |teacher| %>
-<div class="classroom-student-card-container" data-controller="studentClassroom" >
+<div class="classroom-student-card-container" data-action="drop->studentClassroom#student_drop_handler dragover->studentClassroom#student_dragover_handler" >
     <% teacher.classroom.students.each do |student|%>
-    <div class="classroom-card" draggable="true"  >
+    <div class="classroom-card"  id="student-<%= student.id %>" draggable="true" data-action="dragstart->studentClassroom#student_dragstart_handler ">
         <div class="student-name-label">
             <div class="student-first">
                 <!--   <p> -->
@@ -14,7 +14,7 @@
                 <!--   </p> -->
             </div>
         </div>
-        <div class="student-data"  >
+        <div class="student-data">
             <div class="gripper-icon" id="results"> : : : : </div>
             <div class="student-card-icons">
                 <i class="fas fa-plus-square classroom-card-icon"></i>
@@ -28,7 +28,13 @@
     <% end %>
 </div>
 <% end %>
+
+
+
+<!-- data-action="ondragstart->studentClassroom# student_dragstart_handler" draggable="true  -->
 <!-- <p draggable="true" ondragstart="event.dataTransfer.setData('text/plain', 'This text may be dragged')">
 </p> -->
+
+<!-- data-action="drag->studentClassroom# student_dragstart_handler" -->
 
 <!-- data-action="drop->squadplace#playerDropHandler dragover->squadplace#playerDragOverHandler dragleave->squadplace#playerDragExitHandler" -->
