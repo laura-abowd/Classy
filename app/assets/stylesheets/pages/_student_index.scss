@@ -1,12 +1,30 @@
 /* Style the header */
+
+.students-header-container {
+  position: relative;
+}
 .classy-students-header {
   margin: auto auto 20px auto;
   height: 150px;
-  width: 80%;
+  width: 85%;
   line-height: 150px;
   text-align: center;
   color: $classy-gray;
-  background-color: $light-gray;
+  background-color: $classy-yellow;
+  border-radius: 40px;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 25px 10px 0 10px;
+  border-color: $classy-yellow transparent transparent transparent;
+  border-radius: 4px;
+  position: absolute;
+  bottom: -11%;
+  left: 8.5%;
+  transform: rotate(25deg);
 }
 
 .classy-content-header {
@@ -38,6 +56,9 @@
   border: 0 !important; //border is inherited from bootstrap
 }
 
+
+/* student header */
+
 .wrapper {
    background: $classy-blue;
    z-index: 999;
@@ -48,11 +69,14 @@
   padding: 20px 0 20px 0;
 }
 
+
+/* GRID HEADER */
+
  #student-header {
   display: grid;
   max-width: 1080px;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-columns: repeat(16, 2fr);
+  grid-template-rows: 2fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   align-items: center;
@@ -84,9 +108,43 @@
   width: 100%
 }
 
+.sticky-test {
+  position: sticky;
+  top: 0;
+}
+
 /* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
 .sticky + .content {
   padding-top: 102px;
+}
+
+/* CUSTOM STICKY HEADER */
+
+.header-flex {
+  display: flex;
+  margin: auto;
+  color: $classy-background-color;
+  font-size: 12px;
+}
+
+.header-name {
+  margin-left: 138px;
+  margin-right: 44px;
+  padding-top: 8px;
+}
+
+.header-student-info {
+  margin-right: 55px;
+}
+
+.header-parameters {
+  display: flex;
+  margin-left: 210px;
+}
+
+.header-content {
+  margin-right: 37px;
+  text-align: center;
 }
 
 

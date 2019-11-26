@@ -1,0 +1,18 @@
+
+<% students = @example.classroom.students %>
+
+
+<p>name</p>
+<%= @example.teacher_name %>
+<p>gifted count</p>
+<%= students.where(gifted_talented: true).count %>
+<p>esl count</p>
+<%= students.where(esl: true).count %>
+<p>med count</p>
+<%= students.where(medical_alert: true).count %>
+<p>special count</p>
+<%= students.where(special_education: true).count %>
+<p>boy count</p>
+<%= students.where(gender: 'male').count %>
+<p>girl count</p>
+<%= students.where(gender: 'female').count %>

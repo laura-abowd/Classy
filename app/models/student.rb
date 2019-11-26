@@ -1,6 +1,8 @@
 class Student < ApplicationRecord
 
 
+
+  has_many :teacher_locks
   has_many :classroom_enrollments
   has_many :classrooms, through: :classroom_enrollments
   # has_one :teacher, through: :classrooms
@@ -10,6 +12,11 @@ class Student < ApplicationRecord
 
   def full_name
     "#{first_name.capitalize} #{last_name[0].upcase}."
+  end
+
+  def current_enrollment
+    # TODO: Fix logic here
+    classroom_enrollments.find_by(classroom: current_classroom)
   end
 
   def current_classroom
@@ -27,7 +34,12 @@ class Student < ApplicationRecord
     current_classroom.grade
   end
 
+
+  # GIFTED = Student.select(:gifted_talented).map(&:gifted_talented).uniq.reject(&:blank?)
+  # SPECIAL = Student.select(:special_education).map(&:special_education).uniq.reject(&:blank?)
+  # ESL = Student.select(:esl).map(&:esl).uniq.reject(&:blank?)
+  # MEDICAL = Student.select(:medical_alert).map(&:medical_alert).uniq.reject(&:blank?)
+
+
 end
-
-
 
