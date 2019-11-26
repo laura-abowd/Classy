@@ -6,4 +6,7 @@ class Classroom < ApplicationRecord
 
 
   # validates :year,  presence: true
+  def to_s
+    id
+  end
 end
