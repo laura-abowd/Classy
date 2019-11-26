@@ -1,6 +1,7 @@
 class Student < ApplicationRecord
 
 
+  has_many :teacher_locks
   has_many :classroom_enrollments
   has_many :classrooms, through: :classroom_enrollments
   # has_one :teacher, through: :classrooms
