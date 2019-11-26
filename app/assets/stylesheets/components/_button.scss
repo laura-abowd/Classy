@@ -11,7 +11,7 @@
   padding: 4px 22px;
   text-decoration:none;
   border-radius: 2px;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 .yellow-btn:hover {
   text-decoration: none;
@@ -35,13 +35,15 @@
   font-weight:light;
   padding: 4px 22px;
   border-radius: 2px;
-  transition: 0.3s ease-in;
+  transition: 0.2s;
 }
 
-.blue-btn a:hover {
+.blue-btn:hover {
+  background-color: rgb(1, 53, 121);
+  a:hover {
   text-decoration: none;
-  background-color: $classy-blue;
-  color: $classy-gray;
+  color:white
+  }
 }
 
 .blue-btn:active {
