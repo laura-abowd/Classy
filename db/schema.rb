@@ -61,10 +61,8 @@ ActiveRecord::Schema.define(version: 2019_11_19_024257) do
     t.boolean "special_education", default: false
     t.boolean "medical_alert", default: false
     t.text "notes", default: ""
-    t.bigint "grade_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["grade_id"], name: "index_students_on_grade_id"
   end
 
   create_table "teacher_locks", force: :cascade do |t|
@@ -97,7 +95,6 @@ ActiveRecord::Schema.define(version: 2019_11_19_024257) do
   add_foreign_key "classrooms", "teachers"
   add_foreign_key "do_not_places", "students", column: "student_one_id"
   add_foreign_key "do_not_places", "students", column: "student_two_id"
-  add_foreign_key "students", "grades"
   add_foreign_key "teacher_locks", "students"
   add_foreign_key "teacher_locks", "teachers"
   add_foreign_key "teachers", "grades"

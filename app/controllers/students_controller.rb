@@ -18,10 +18,11 @@ class StudentsController < ApplicationController
 
 
   def sort
-      ClassroomEnrollment.joins(:classroom).where(classrooms: { grade: Grade.find_by(level: current_teacher.grade.level + 1) }).destroy_all
+    ClassroomEnrollment.joins(:classroom).where(classrooms: { grade: Grade.find_by(level: current_teacher.grade.level + 1) }).destroy_all
 
-    classes = []
-    donotplaces = []
+    # classes = []
+    classrooms = []
+    # donotplaces = []
 
     grade = Grade.find_by(level: current_teacher.grade.level)
     students =  Student.joins("INNER JOIN classroom_enrollments on classroom_enrollments.student_id = students.id", "INNER JOIN classrooms ON classrooms.id = classroom_enrollments.classroom_id")
@@ -31,22 +32,22 @@ class StudentsController < ApplicationController
     nextgradeteachers = Teacher.where(grade: nextgrade)
 
     nextgradeteachers.each_with_index do |teacher, index|
-      classes << []
-      Classroom.find_or_create_by(
-        teacher: teacher,
-        grade: nextgrade,
-        year: Date.today.year + 1
-      )
+      # classes << []
+      classrooms << Classroom.find_or_create_by(
+                      teacher: teacher,
+                      grade: nextgrade,
+                      year: Date.today.year + 1
+                    )
     end
 
-
-    classrooms = Classroom.where(grade: nextgrade)
-
+    # classrooms = Classroom.where(grade: nextgrade)
 
   teacherlocks = TeacherLock.joins(:teacher).where(teachers: { grade: nextgrade } )
     teacherlocks.each do |pair|
       locked_student = pair.student
       locked_teacher = pair.teacher
+      # classindex = classrooms.index { |classroom| classroom.teacher == locked_teacher }
+      # classes[classindex] << locked_student
 
       ClassroomEnrollment.create(
         student: locked_student,
@@ -55,8 +56,6 @@ class StudentsController < ApplicationController
       students = students.where.not(id: locked_student.id)
     end
 
-
-
     #works really well until the same student is used as one or two, then it duplicates that student
     dnps = DoNotPlace.all
     dnps.each_with_index do |pairing, index|
@@ -64,90 +63,86 @@ class StudentsController < ApplicationController
       studentone = pairing.student_one
       studenttwo = pairing.student_two
 
-      if classes.include?(studentone)
-      classes[(index + 4) % classrooms.count] << studenttwo
-      students = students.where.not(id: studenttwo.id)
+      classrooms = Classroom.where(grade: nextgrade).sort_by { |classroom| classroom.students.count }
+      classroom_one = ClassroomEnrollment.joins(:classroom).find_by(student: studentone, classrooms: { grade: nextgrade })
+      classroom_two = ClassroomEnrollment.joins(:classroom).find_by(student: studenttwo, classrooms: { grade: nextgrade })
 
-      elsif classes.include?(studenttwo)
-      classes[(index + 4) % classrooms.count] << studentone
-      students = students.where.not(id: studentone.id)
+      if classroom_one && classroom_two
+      # if classes.flatten.include?(studentone) && classes.flatten.include?(studenttwo)
+        next
+      # elsif classes.flatten.include?(studentone)
+      elsif classroom_one
+        # room = classes.index { |classroom| classroom.include?(studentone)}
+        ClassroomEnrollment.create(student: studenttwo, classroom: classrooms.reject { |classroom| classroom.id == classroom_one.id }.first)
+        # classes[ (room + 1) % classrooms.count] << studenttwo
+        students = students.where.not(id: studenttwo.id)
 
+      elsif classroom_two
+        ClassroomEnrollment.create(student: studentone, classroom: classrooms.reject { |classroom| classroom.id == classroom_two.id }.first)
+        # room = classes.index { |classroom| classroom.include?(studenttwo)}
+        # classes[(room + 1) % classrooms.count] << studentone
+        students = students.where.not(id: studentone.id)
       else
-      classes[index % classrooms.count] << studentone
-      classes[(index + 4) % classrooms.count] << studenttwo
-      students = students.where.not(id: studentone.id)
-      students = students.where.not(id: studenttwo.id)
+        classroom_one = ClassroomEnrollment.create(student: studentone, classroom: classrooms.first)
+        ClassroomEnrollment.create(student: studenttwo, classroom: classrooms.reject { |classroom| classroom.id == classroom_one.id }.first)
+        # classes[(index + 1) % classrooms.count] << studenttwo
+        students = students.where.not(id: studenttwo.id)
+        students = students.where.not(id: studentone.id)
       end
-      end
-      classes.sort!
+      # classes.sort!
+    end
+
 
     attributeslist = ['special_education', 'gifted_talented', 'esl', 'medical_alert']
 
+    classrooms = Classroom.where(grade: nextgrade).sort_by { |classroom| classroom.students.count }
     attributeslist.each do |attribute|
       @filteredstudents = students.where("#{attribute} = true")
       @filteredstudents.each_with_index do |student, index|
-        classes[index % classrooms.count] << student
+        # classes[index % classrooms.count] << student
+        ClassroomEnrollment.create(student: student, classroom: classrooms[index % classrooms.count])
         students = students.where.not(id: student.id)
       end
-      classes.sort!
     end
 
+    classrooms = Classroom.where(grade: nextgrade).sort_by { |classroom| classroom.students.count }
     genders = ['female', 'male']
     genders.each do |gender|
       @girlsnoconditions = students.where(gender: gender)
       @girlsnoconditions.each_with_index do |student, index|
-        classes[index % classrooms.count] << student
+        # classes[index % classrooms.count] << student
+        ClassroomEnrollment.create(student: student, classroom: classrooms[index % classrooms.count])
         students = students.where.not(id: student.id)
       end
-      classes.sort!
+      # classes.sort!
     end
 
+      # classes.each_with_index do |classroom, index|
+      #   classroom.each do |student|
+      #     ClassroomEnrollment.create(
+      #       student: student,
+      #       classroom: classrooms[index]
+      #     )
+      #   end
+      # end
 
 
-
-      classes.each_with_index do |classroom, index|
-        classroom.each do |student|
-          ClassroomEnrollment.create(
-            student: student,
-            classroom: classrooms[index]
-          )
-        end
+    stupid = DoNotPlace.all
+    stupid.each do |dnp|
+      student_one = dnp.student_one
+      student_two = dnp.student_two
+      if student_one.current_classroom == student_two.current_classroom
       end
+    end
 
+    dumb = TeacherLock.all
+    dumb.each do |pair|
+    locked_student = pair.student
+    locked_teacher = pair.teacher
+    if locked_student.current_classroom.teacher == locked_teacher
+      end
+    end
 
-
-    # @dnps.each do |dnp|
-    #   student_two = dnp.student_two
-    #   next unless dnp.student_one.current_classroom == student_two.current_classroom
-
-    #   student_two_enrollment = student_two.classroom_enrollments.order(:created_at).last
-    #   innocent_student = students.where(gender: student_two.gender, esl: false, gifted_talented: false, medical_alert: false, special_education: false).where.not(id: [@dnps.map(&:student_one) + @dnps.map(&:student_two)]).find { |student| student.current_classroom != student_two.current_classroom }
-    #   if innocent_student
-    #     innocent_student_enrollment = innocent_student.classroom_enrollments.order(:created_at).last
-    #     student_two_classroom = student_two_enrollment.classroom
-    #     student_two_enrollment.classroom = innocent_student_enrollment.classroom
-    #     innocent_student_enrollment.classroom = student_two_classroom
-
-    #     student_two_enrollment.save
-    #     innocent_student_enrollment.save
-    #   end
-    # end
-
-    # @dnps.each do |dnp|
-    #   student_one = dnp.student_one
-    #   student_two = dnp.student_two
-    #   if student_one.current_classroom == student_two.current_classroom
-    #     raise
-    #   end
-    # end
-
-    # tls.each do |pair|
-    # locked_student = pair.student
-    # locked_teacher = pair.teacher
-    # if locked_student.current_classroom.teacher == locked_teacher
-    #   raise
-    #   end
-    # end
 
     redirect_to classrooms_path
 
