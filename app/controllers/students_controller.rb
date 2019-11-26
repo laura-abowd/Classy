@@ -2,7 +2,7 @@ class StudentsController < ApplicationController
   def index
 
     @mystudents = Student.joins(:classroom_enrollments, :classrooms).where(classrooms: { teacher: Teacher.find_by(teacher_name: current_teacher.teacher_name) }).distinct.sort_by(&:last_name)
-    @students = Student.includes(:classrooms).where(classrooms: { grade: current_teacher.grade }).distinct
+    @mygradestudents = Student.includes(:classrooms).where(classrooms: { grade: current_teacher.grade }).distinct
     @grade = current_teacher.grade
     @nextgradeteachers = Teacher.where(grade:  Grade.find_by(level: current_teacher.grade.level + 1) )
     @teacher_lock = TeacherLock.new
