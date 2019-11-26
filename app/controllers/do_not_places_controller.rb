@@ -4,7 +4,19 @@ class DoNotPlacesController < ApplicationController
     if @do_not_place.save
       redirect_to students_path
     else
-      render "students"
+      raise
+      redirect_to students_path
+      # render "students/index"
+    end
+  end
+
+  def destroy
+    @do_not_place = DoNotPlace.find(params[:id])
+    @do_not_place.destroy
+    unless @do_not_place.persisted?
+      redirect_to students_path
+    else
+      render 'students/index'
     end
   end
 

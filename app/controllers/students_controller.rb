@@ -1,23 +1,12 @@
 class StudentsController < ApplicationController
   def index
 
-
-    @students = Student.includes(:classrooms).where(classrooms: { grade: current_teacher.grade }).distinct
-
-    @grade = current_teacher.grade
-
     @mystudents = Student.joins(:classroom_enrollments, :classrooms).where(classrooms: { teacher: Teacher.find_by(teacher_name: current_teacher.teacher_name) }).distinct.sort_by(&:last_name)
-
-
-    @secondgradeteachers = Teacher.where(grade:  Grade.find_by(level: current_teacher.grade.level + 1) )
+    @students = Student.includes(:classrooms).where(classrooms: { grade: current_teacher.grade }).distinct
+    @grade = current_teacher.grade
+    @nextgradeteachers = Teacher.where(grade:  Grade.find_by(level: current_teacher.grade.level + 1) )
     @teacher_lock = TeacherLock.new
     @do_not_place = DoNotPlace.new
-
-    # @mystudents = Student.joins(:classroom_enrollments, :classrooms).where(teacher_id: current_teacher.id)
-    # @laurasclass = Student.joins(:classroom_enrollments, :classrooms)
-    #                    .where(classrooms: { teacher: Teacher.find_by(teacher_name: 'Ms. Abowd') }).distinct
-    # @students = Student.includes(:grade).joins(:classroom_enrollments, :classrooms)
-    #                    .where(classrooms: { grade: Grade.find_by(level: current_teacher.grade.level) }).distinct
 
   end
 
@@ -28,18 +17,15 @@ class StudentsController < ApplicationController
   end
 
 
-
   def sort
-
-    # TODO: refactor to pass year and level through params
+      ClassroomEnrollment.joins(:classroom).where(classrooms: { grade: Grade.find_by(level: current_teacher.grade.level + 1) }).destroy_all
 
     classes = []
     donotplaces = []
 
-    grade = Grade.find_by(level: 1)
-    students =  Student.joins(:classroom_enrollments, :classrooms)
-                       .where(classrooms: { grade: Grade.find_by(level: 1) }).distinct
-
+    grade = Grade.find_by(level: current_teacher.grade.level)
+    students =  Student.joins("INNER JOIN classroom_enrollments on classroom_enrollments.student_id = students.id", "INNER JOIN classrooms ON classrooms.id = classroom_enrollments.classroom_id")
+                       .where(classrooms: { grade: Grade.find_by(level: current_teacher.grade.level) }).order("RANDOM()")
 
     nextgrade = Grade.find_by(level: grade.level + 1)
     nextgradeteachers = Teacher.where(grade: nextgrade)
@@ -56,59 +42,67 @@ class StudentsController < ApplicationController
 
     classrooms = Classroom.where(grade: nextgrade)
 
-    tls = TeacherLock.joins(:teacher).where(teachers: { grade_id: grade.id} )
 
-
-    tls.each do |pair|
+  teacherlocks = TeacherLock.joins(:teacher).where(teachers: { grade: nextgrade } )
+    teacherlocks.each do |pair|
       locked_student = pair.student
       locked_teacher = pair.teacher
+
       ClassroomEnrollment.create(
         student: locked_student,
         classroom: locked_teacher.classroom,
       )
-      students.reject { |student| student == locked_student }
+      students = students.where.not(id: locked_student.id)
     end
 
 
-    @specialtrue = students.where(special_education: true).where.not(id: classes.flatten)
-    @specialtrue.each_with_index do |student, index|
-      classes[index % 5] << student
+
+    #works really well until the same student is used as one or two, then it duplicates that student
+    dnps = DoNotPlace.all
+    dnps.each_with_index do |pairing, index|
+
+      studentone = pairing.student_one
+      studenttwo = pairing.student_two
+
+      if classes.include?(studentone)
+      classes[(index + 4) % classrooms.count] << studenttwo
+      students = students.where.not(id: studenttwo.id)
+
+      elsif classes.include?(studenttwo)
+      classes[(index + 4) % classrooms.count] << studentone
+      students = students.where.not(id: studentone.id)
+
+      else
+      classes[index % classrooms.count] << studentone
+      classes[(index + 4) % classrooms.count] << studenttwo
+      students = students.where.not(id: studentone.id)
+      students = students.where.not(id: studenttwo.id)
+      end
+      end
+      classes.sort!
+
+    attributeslist = ['special_education', 'gifted_talented', 'esl', 'medical_alert']
+
+    attributeslist.each do |attribute|
+      @filteredstudents = students.where("#{attribute} = true")
+      @filteredstudents.each_with_index do |student, index|
+        classes[index % classrooms.count] << student
+        students = students.where.not(id: student.id)
+      end
+      classes.sort!
     end
 
-    classes.sort!
-
-    @giftedtrue = students.where(gifted_talented: true).where.not(id: classes.flatten)
-    @giftedtrue.each_with_index do |student, index|
-      classes[index % 5] << student
+    genders = ['female', 'male']
+    genders.each do |gender|
+      @girlsnoconditions = students.where(gender: gender)
+      @girlsnoconditions.each_with_index do |student, index|
+        classes[index % classrooms.count] << student
+        students = students.where.not(id: student.id)
+      end
+      classes.sort!
     end
 
-    classes.sort!
 
-    @esltrue = students.where(esl: true).where.not(id: classes.flatten)
-    @esltrue.each_with_index do |student, index|
-      classes[index % 5] << student
-    end
-
-    classes.sort!
-
-    @medicaltrue = students.where(medical_alert: true).where.not(id: classes.flatten)
-    @medicaltrue.each_with_index do |student, index|
-      classes[index % 5] << student
-    end
-
-    classes.sort!
-
-    @girlsnoconditions = students.where(gender: 'female', esl: false, gifted_talented: false, medical_alert: false, special_education: false).where.not(id: classes.flatten)
-    @girlsnoconditions.each_with_index do |student, index|
-      classes[index % 5] << student
-    end
-
-    classes.sort!
-
-    @boysnoconditions = students.where(gender: 'male', esl: false, gifted_talented: false, medical_alert: false, special_education: false).where.not(id: classes.flatten)
-    @boysnoconditions.each_with_index do |student, index|
-      classes[index % 5] << student
-    end
 
 
       classes.each_with_index do |classroom, index|
@@ -122,24 +116,22 @@ class StudentsController < ApplicationController
 
 
 
-    @dnps = DoNotPlace.all
+    # @dnps.each do |dnp|
+    #   student_two = dnp.student_two
+    #   next unless dnp.student_one.current_classroom == student_two.current_classroom
 
-    @dnps.each do |dnp|
-      student_two = dnp.student_two
-      next unless dnp.student_one.current_classroom == student_two.current_classroom
+    #   student_two_enrollment = student_two.classroom_enrollments.order(:created_at).last
+    #   innocent_student = students.where(gender: student_two.gender, esl: false, gifted_talented: false, medical_alert: false, special_education: false).where.not(id: [@dnps.map(&:student_one) + @dnps.map(&:student_two)]).find { |student| student.current_classroom != student_two.current_classroom }
+    #   if innocent_student
+    #     innocent_student_enrollment = innocent_student.classroom_enrollments.order(:created_at).last
+    #     student_two_classroom = student_two_enrollment.classroom
+    #     student_two_enrollment.classroom = innocent_student_enrollment.classroom
+    #     innocent_student_enrollment.classroom = student_two_classroom
 
-      student_two_enrollment = student_two.classroom_enrollments.order(:created_at).last
-      innocent_student = students.where(gender: student_two.gender, esl: false, gifted_talented: false, medical_alert: false, special_education: false).where.not(id: [@dnps.map(&:student_one) + @dnps.map(&:student_two)]).find { |student| student.current_classroom != student_two.current_classroom }
-      if innocent_student
-        innocent_student_enrollment = innocent_student.classroom_enrollments.order(:created_at).last
-        student_two_classroom = student_two_enrollment.classroom
-        student_two_enrollment.classroom = innocent_student_enrollment.classroom
-        innocent_student_enrollment.classroom = student_two_classroom
-
-        student_two_enrollment.save
-        innocent_student_enrollment.save
-      end
-    end
+    #     student_two_enrollment.save
+    #     innocent_student_enrollment.save
+    #   end
+    # end
 
     # @dnps.each do |dnp|
     #   student_one = dnp.student_one
@@ -159,9 +151,12 @@ class StudentsController < ApplicationController
 
     redirect_to classrooms_path
 
-
   end
 
+# def autocomplete_
+#   @suggestions = student.select(:first_name, :last_name)
+#   render json: @suggestions
+# end
 
   private
 

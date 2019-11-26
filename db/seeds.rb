@@ -133,8 +133,6 @@ end
     gender: 'female',
     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
     photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwqH-s8lYsDvxf12yrUj1oEpSrhDMMAMyBf_kC2UumNiMRr6fW',
-    special_education: true,
-    gifted_talented: true
 
   )
   student.save!
@@ -148,23 +146,23 @@ ClassroomEnrollment.create!(student: student, classroom: classrooms[i])
 end
 
 
-teachers = Teacher.where(grade: second)
+# teachers = Teacher.where(grade: second)
 
 
-DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
-DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
-DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
-DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
-DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
-DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
-DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
-DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
+# DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
+# DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
+# DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
+# DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
+# DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
+# DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
+# DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
+# DoNotPlace.create!(student_one: students.sample, student_two: students.sample)
 
 
 
-TeacherLock.create!(student: students.sample, teacher: teachers.sample)
-TeacherLock.create!(student: students.sample, teacher: teachers.sample)
-TeacherLock.create!(student: students.sample, teacher: teachers.sample)
-TeacherLock.create!(student: students.sample, teacher: teachers.sample)
+# TeacherLock.create!(student: students.sample, teacher: teachers.sample)
+# TeacherLock.create!(student: students.sample, teacher: teachers.sample)
+# TeacherLock.create!(student: students.sample, teacher: teachers.sample)
+# TeacherLock.create!(student: students.sample, teacher: teachers.sample)
 
 
