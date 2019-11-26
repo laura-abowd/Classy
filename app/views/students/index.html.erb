@@ -57,6 +57,12 @@
    </div>
  </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-    This is all the students from current grade which we need to work on.
+    <div class="section-student-cards">
+    <div class="container m-auto container-student-cards">
+      <% @mygradestudents.each_with_index  do |student, index| %>
+        <%= render "students/card", student: student %>
+      <% end %>
+    </div>
+   </div>
   </div>
 </div>
