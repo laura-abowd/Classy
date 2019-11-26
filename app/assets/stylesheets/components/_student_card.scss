@@ -12,11 +12,7 @@
   align-items: center;
   z-index: 0;
   border-radius: 3px;
-  // box-shadow: 0px 5px 0px rgba(182, 210, 246, 0.5);
-  // transition: height 0.3s,
-  //   box-shadow 0.3s;
   p {
-    // font-size: 14px;
     margin: 0;
   }
 }
@@ -32,13 +28,9 @@
   padding-bottom: 60px;
 }
 
-// .student-card:hover {
-//   box-shadow: 5px 10px 15px 0px rgba(182, 210, 246,0.65);
-// }
 
 /* dropdown */
 .dropdown-card {
-  // margin-left: 6px;
   border-radius: 3px;
   margin-top: -10px;
   padding-top: 10px;
@@ -57,9 +49,10 @@
   }
 }
 
-.active .dropdown-card {
+.active1 .dropdown-card {
  height: 120px;
 }
+
 
 /* Student Card Components */
 
@@ -69,66 +62,6 @@
   width: 90px;
 }
 
-// Checkbox
-
-.checkbox input[type="checkbox"] {
-    opacity: 0.3;
-}
-
-.checkbox label {
-    position: relative;
-    display: inline-block;
-    margin: 35px 20px;
-    /*16px width of fake checkbox + 6px distance between fake checkbox and text*/
-    padding-left: 22px;
-}
-
-.checkbox label::before,
-.checkbox label::after {
-    position: absolute;
-    content: "";
-
-    /*Needed for the line-height to take effect*/
-    display: inline-block;
-}
-
-/*Outer box of the fake checkbox*/
-.checkbox label::before{
-    height: 25px;
-    width: 25px;
-    border-radius: 3px;
-    border: 3px solid $classy-yellow;
-    left: 0px;
-
-    /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
-     *to vertically center it.
-     */
-    top: 3px;
-}
-
-
-/*Checkmark of the fake checkbox*/
-
-.checkbox label::after {
-    height: 6px;
-    width: 15px;
-    border-left: 2px solid;
-    border-bottom: 2px solid;
-    color: #0F5EC7;
-    transform: rotate(-45deg);
-    left: 5px;
-    top: 11px;
-}
-
-/*Hide the checkmark by default*/
-.checkbox input[type="checkbox"] + label::after {
-    content: none;
-}
-
-/*Unhide on the checked state*/
-.checkbox input[type="checkbox"]:checked + label::after {
-    content: "";
-}
 
 /* Checkbox Icon */
 
@@ -227,8 +160,6 @@
   padding: 5px;
   display: grid;
   grid-template-columns: 60px 1fr 75px;
-  // justify-content: space-evenly;
-  //remove set height and width after code works
   height: 90px;
   width: 300px;
   border: 1px solid;

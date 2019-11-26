@@ -3,7 +3,8 @@
 document.querySelectorAll('.show-notes-btn .expand-view').forEach( (button) => {
   button.addEventListener("click", () => {
     document.querySelectorAll('.student-card-container').forEach( (card) => {
-      card.classList.toggle('active')
+      card.classList.toggle('active1')
+      console.log(card)
     })
   });
 })
@@ -12,7 +13,8 @@ document.querySelectorAll('.show-notes-btn .expand-view').forEach( (button) => {
 document.querySelectorAll('.student-card-container').forEach( (card) => {
   button = card.querySelector('.fa-chevron-down');
   button.addEventListener("click", () => {
-    card.classList.toggle('active')
+
+    card.classList.toggle('active1')
   });
 })
 

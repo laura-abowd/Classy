@@ -1,3 +1,4 @@
+<!--BANNER -->
 <div class="students-header-container">
   <div class="classy-students-header">
     <div class="classy-content-header">
@@ -7,44 +8,63 @@
     </div>
   </div>
 </div>
-<!-- View students tabs -->
-<ul class="nav nav-tabs student-tab-container">
-  <li class="nav-item student-tab">
-    <a class="nav-link student-nav-link" href="#">My Students</a>
+
+<!-- TABS -->
+  <ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My Students</a>
   </li>
-  <!-- need to add an "active" status class -->
-  <li class="nav-item student-tab">
-    <a class="nav-link student-nav-link" href="#">View All Students</a>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">View All Students</a>
   </li>
 </ul>
+
 <!-- STICKY HEADER  -->
 <div class="wrapper" id="header-container-sticky">
-  <div class="container">
-  <div class="sticky-header-container" >
-  <div class="header" id="student-header">
-    <!--  <div class="classy-sticky-button"> -->
-    <div class="save-btn">
-      <%= button_to "Save and Submit", sortbutton_path, method: :post, class: "yellow-btn sticky-save-btn" %>
-    </div>
-    <div class="icon-text">ESL</div>
-    <div class="icon-text">Gifted & Talented</div>
-    <div class="icon-text">SPED</div>
-    <div class="icon-text">Medical Alert</div>
-    <div class="show-notes-btn">
-      <div class="yellow-btn expand-view">
-        Show All Notes
+    <div class="container">
+      <div class="sticky-header-container" >
+      <div class="header" id="student-header">
+        <!--  <div class="classy-sticky-button"> -->
+        <div class="save-btn">
+          <%= button_to "Save and Submit", sortbutton_path, method: :post, class: "yellow-btn sticky-save-btn" %>
+        </div>
+        <div class="icon-text">ESL</div>
+        <div class="icon-text">Gifted & Talented</div>
+        <div class="icon-text">SPED</div>
+        <div class="icon-text">Medical Alert</div>
+        <div class="show-notes-btn">
+          <div class="yellow-btn expand-view">
+            Show All Notes
+          </div>
+        </div>
+        <!--   </div> -->
       </div>
     </div>
-    <!--   </div> -->
   </div>
-</div>
-</div>
 </div>
 <!-- STUDENT CARD  -->
-<div class="section-student-cards">
-  <div class="container m-auto container-student-cards">
-    <% @mystudents.each_with_index  do |student, index| %>
-      <%= render "students/card", student: student %>
-    <% end %>
+<div class="tab-content" id="myTabContent">
+ <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+   <div class="section-student-cards"> 
+    <div class="container m-auto container-student-cards">  
+      <% @mystudents.each_with_index  do |student, index| %>
+        <%= render "students/card", student: student %>
+      <% end %>
+    </div>  
+   </div>
+ </div>
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
+    This is all the students from current grade which we need to work on.
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
