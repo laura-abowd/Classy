@@ -42,6 +42,8 @@ class StudentsController < ApplicationController
 
     # classrooms = Classroom.where(grade: nextgrade)
 
+    #lockedteacher only works up to a certain point
+
   teacherlocks = TeacherLock.joins(:teacher).where(teachers: { grade: nextgrade } )
     teacherlocks.each do |pair|
       locked_student = pair.student
@@ -64,28 +66,24 @@ class StudentsController < ApplicationController
       studenttwo = pairing.student_two
 
       classrooms = Classroom.where(grade: nextgrade).sort_by { |classroom| classroom.students.count }
-      classroom_one = ClassroomEnrollment.joins(:classroom).find_by(student: studentone, classrooms: { grade: nextgrade })
-      classroom_two = ClassroomEnrollment.joins(:classroom).find_by(student: studenttwo, classrooms: { grade: nextgrade })
+      enrollment_one = ClassroomEnrollment.joins(:classroom).find_by(student: studentone, classrooms: { grade: nextgrade })
+      enrollment_two = ClassroomEnrollment.joins(:classroom).find_by(student: studenttwo, classrooms: { grade: nextgrade })
 
-      if classroom_one && classroom_two
-      # if classes.flatten.include?(studentone) && classes.flatten.include?(studenttwo)
+      if enrollment_one && enrollment_two
         next
-      # elsif classes.flatten.include?(studentone)
-      elsif classroom_one
-        # room = classes.index { |classroom| classroom.include?(studentone)}
-        ClassroomEnrollment.create(student: studenttwo, classroom: classrooms.reject { |classroom| classroom.id == classroom_one.id }.first)
-        # classes[ (room + 1) % classrooms.count] << studenttwo
+
+      elsif enrollment_one
+        roomenrollment_two = ClassroomEnrollment.create(student: studenttwo, classroom: classrooms.reject { |classroom| classroom.id == enrollment_one.id }.first)
         students = students.where.not(id: studenttwo.id)
 
-      elsif classroom_two
-        ClassroomEnrollment.create(student: studentone, classroom: classrooms.reject { |classroom| classroom.id == classroom_two.id }.first)
-        # room = classes.index { |classroom| classroom.include?(studenttwo)}
-        # classes[(room + 1) % classrooms.count] << studentone
+      elsif enrollment_two
+        roomenrollment_one = ClassroomEnrollment.create(student: studentone, classroom: classrooms.reject { |classroom| classroom.id == enrollment_two.id }.first)
         students = students.where.not(id: studentone.id)
+
       else
-        classroom_one = ClassroomEnrollment.create(student: studentone, classroom: classrooms.first)
-        ClassroomEnrollment.create(student: studenttwo, classroom: classrooms.reject { |classroom| classroom.id == classroom_one.id }.first)
-        # classes[(index + 1) % classrooms.count] << studenttwo
+        roomenrollment_one = ClassroomEnrollment.create(student: studentone, classroom: classrooms.first)
+        roomenrollment_two = ClassroomEnrollment.create(student: studenttwo, classroom: classrooms.second)
+
         students = students.where.not(id: studenttwo.id)
         students = students.where.not(id: studentone.id)
       end
@@ -132,6 +130,7 @@ class StudentsController < ApplicationController
       student_one = dnp.student_one
       student_two = dnp.student_two
       if student_one.current_classroom == student_two.current_classroom
+        raise
       end
     end
 
@@ -139,7 +138,8 @@ class StudentsController < ApplicationController
     dumb.each do |pair|
     locked_student = pair.student
     locked_teacher = pair.teacher
-    if locked_student.current_classroom.teacher == locked_teacher
+    if locked_student.current_classroom.teacher != locked_teacher
+      raise
       end
     end
 
