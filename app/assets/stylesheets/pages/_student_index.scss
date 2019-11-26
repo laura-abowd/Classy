@@ -157,7 +157,6 @@
   margin: 0 !important;
 }
 
-
 .dnp-badge {
   border-radius: 8px;
   background-color: lightgray;
@@ -166,6 +165,7 @@
   font-size: 0.8em;
   line-height: 1.8em;
   margin: 2px !important;
+  white-space: nowrap;
 }
 
 .delete-dnp {

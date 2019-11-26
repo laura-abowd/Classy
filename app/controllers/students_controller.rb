@@ -16,7 +16,6 @@ class StudentsController < ApplicationController
     redirect_to students_path
   end
 
-
   def sort
       ClassroomEnrollment.joins(:classroom).where(classrooms: { grade: Grade.find_by(level: current_teacher.grade.level + 1) }).destroy_all
 

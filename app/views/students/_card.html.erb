@@ -32,21 +32,10 @@
         </div>
       <% end %>
     </div>
-    <%= simple_form_for @do_not_place, remote: true, html: { class: "dnp-form"} do |f| %>
-      <!-- <p class="m-0 p-0"><small>Do not place with</small></p> -->
-      <div class="do-not-place">
-        <%= f.error_notification %>
-        <%= f.input :student_one_id, input_html: { value: student.id, class: "m-0" }, as: :hidden %>
-        <%= f.association :student_two, input_html: { class: "student-two-select", id: "student-two-select-#{student.id}"}, label: false, prompt: "Do not place with", collection: @grade.students.map { |student| [student.first_name, student.id] }%>
-        <div class="dnp-badges">
-          <% student.do_not_places.each do |dnp| %>
-            <p class="dnp-badge">
-            <%= dnp.other_student(student).first_name %>&nbsp;<%= dnp.other_student(student).last_name[0].upcase %>&nbsp;<span class="delete-dnp"><%= link_to "✕", do_not_place_path(dnp), method: :delete %></span>
-            </p>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
+    <div id="dnp-<%= student.id %>">
+      <%= render "do_not_places/form", student: student, do_not_place: DoNotPlace.new %>
+    </div>
+
     <div id="view-dropdown">
       <i class="fas fa-chevron-down"></i>
     </div>

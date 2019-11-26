@@ -27,7 +27,7 @@ var getClosest = function ( elem, selector ) {
 
 };
 
-const submitOnEvent = () => {
+window.submitOnEvent = function () {
 
   document.querySelectorAll('.checkform').forEach( (form) => {
     form.addEventListener('change', () => Rails.fire(form, 'submit'))
@@ -67,7 +67,9 @@ const submitOnEvent = () => {
   document.querySelectorAll('.teacherform').forEach( (form) => {
     form.addEventListener('change', () => Rails.fire(form, 'submit'))
   })
-
 }
+
+const submitOnEvent = window.submitOnEvent
+
 
 export { submitOnEvent };
