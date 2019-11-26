@@ -8,7 +8,7 @@ class DoNotPlacesController < ApplicationController
     if @do_not_place.save
       respond_to do |format|
         format.html { redirect_to students_path }
-        format.js  # <-- will render `app/views/reviews/create.js.erb`
+        format.js
       end
     else
       respond_to do |format|
@@ -21,11 +21,21 @@ class DoNotPlacesController < ApplicationController
   def destroy
     @do_not_place = DoNotPlace.find(params[:id])
     @do_not_place.destroy
-    unless @do_not_place.persisted?
-      redirect_to students_path
-    else
-      render 'students/index'
+
+    respond_to do |format|
+      format.html { redirect_to students_path }
+      format.js
+      # render 'students/index'
+      # redirect_to students_path
     end
+    # @do_not_place = DoNotPlace.find(params[:id])
+    # @do_not_place.destroy
+
+    # unless @do_not_place.persisted?
+    #   redirect_to students_path
+    # else
+    #     render 'students/index'
+    # end
   end
 
   def do_not_place_params

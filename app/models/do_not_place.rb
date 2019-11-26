@@ -12,5 +12,3 @@ class DoNotPlace < ApplicationRecord
     end
   end
 end
-
-
