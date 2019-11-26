@@ -1,6 +1,7 @@
 class Student < ApplicationRecord
 
 
+
   has_many :teacher_locks
   has_many :classroom_enrollments
   has_many :classrooms, through: :classroom_enrollments
@@ -11,6 +12,11 @@ class Student < ApplicationRecord
 
   def full_name
     "#{first_name.capitalize} #{last_name[0].upcase}."
+  end
+
+  def current_enrollment
+    # TODO: Fix logic here
+    classroom_enrollments.find_by(classroom: current_classroom)
   end
 
   def current_classroom
@@ -36,6 +42,4 @@ class Student < ApplicationRecord
 
 
 end
-
-
 

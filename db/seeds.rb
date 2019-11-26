@@ -31,7 +31,6 @@ teague = Teacher.create!(teacher_name: 'Ms. Teague', grade: second, email: 'teag
 reed = Teacher.create!(teacher_name: 'Ms. Reed', grade: second, email: 'reed@akinelementary.com', password: 'password')
 rogers = Teacher.create!(teacher_name: 'Ms. Rogers', grade: second, email: 'rogers@akinelementary.com', password: 'password')
 garcia = Teacher.create!(teacher_name: 'Mr. Garcia', grade: second, email: 'garcia@akinelementary.com', password: 'password')
-berkley = Teacher.create!(teacher_name: 'Mr. Berkley', grade: second, email: 'berkley@akinelementary.com', password: 'password')
 
 ilham = Teacher.create!(teacher_name: 'Mr. Ilham', grade: third, email: 'ilham@akinelementary.com', password: 'password')
 sriram = Teacher.create!(teacher_name: 'Mr. Sriram', grade: third, email: 'sriram@akinelementary.com', password: 'password')
@@ -73,7 +72,7 @@ classrooms = Classroom.all
   student.save!
 end
 
-20.times do
+15.times do
   student = Student.new(
     first_name:    Faker::Name.female_first_name,
     last_name:    Faker::Name.last_name,
@@ -86,7 +85,7 @@ end
   student.save!
 end
 
-20.times do
+15.times do
   student = Student.new(
     first_name:    Faker::Name.male_first_name,
     last_name:    Faker::Name.last_name,
@@ -99,7 +98,7 @@ end
   student.save!
 end
 
-20.times do
+15.times do
   student = Student.new(
     first_name:    Faker::Name.female_first_name,
     last_name:    Faker::Name.last_name,
@@ -112,7 +111,7 @@ end
   student.save!
 end
 
-20.times do
+15.times do
   student = Student.new(
     first_name:    Faker::Name.male_first_name,
     last_name:    Faker::Name.last_name,
