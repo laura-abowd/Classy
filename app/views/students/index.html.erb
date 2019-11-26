@@ -1,3 +1,4 @@
+
 <!--BANNER -->
 <div class="students-header-container">
   <div class="classy-students-header">
@@ -7,10 +8,11 @@
       <p>Please update your students' information to ensure best results.</p>
     </div>
   </div>
+  <div class="triangle"></div>
 </div>
 
 <!-- TABS -->
-  <ul class="nav nav-tabs d-flex justify-content-center" id="myTab" role="tablist">
+  <ul class="nav nav-tabs d-flex justify-content-start ml-4" id="myTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My Students</a>
   </li>
@@ -23,21 +25,26 @@
 <div class="wrapper" id="header-container-sticky">
     <div class="container">
       <div class="sticky-header-container" >
-      <div class="header" id="student-header">
-        <!--  <div class="classy-sticky-button"> -->
-        <div class="save-btn">
-          <%= button_to "Save and Submit", sortbutton_path, method: :post, class: "yellow-btn sticky-save-btn" %>
+      <div class="header-flex">
+        <div class="header-name">
+          <div class="header-content">Name</div>
         </div>
-        <div class="icon-text">ESL</div>
-        <div class="icon-text">Gifted & Talented</div>
-        <div class="icon-text">SPED</div>
-        <div class="icon-text">Medical Alert</div>
+        <div class="header-student-info">
+          <div class="header-content">Student <br>Info</div>
+        </div>
+        <div class="header-parameters">
+          <div class="header-content" style="padding-top: 8px;">ESL</div>
+          <div class="header-content">Gifted &<br>Talented</div>
+          <div class="header-content" style="padding-top: 8px;">SPED</div>
+          <div class="header-content">Medical <br>Alert</div>
+        </div>
         <div class="show-notes-btn">
-          <div class="yellow-btn expand-view">
+          <div class="yellow-btn expand-view" style="margin-right: 20px;">
             Show All Notes
           </div>
         </div>
-        <!--   </div> -->
+            <%= button_to "Save and Submit", sortbutton_path, method: :post, class: "yellow-btn" %>
+
       </div>
     </div>
   </div>
@@ -45,26 +52,15 @@
 <!-- STUDENT CARD  -->
 <div class="tab-content" id="myTabContent">
  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-   <div class="section-student-cards"> 
-    <div class="container m-auto container-student-cards">  
+   <div class="section-student-cards">
+    <div class="container m-auto container-student-cards">
       <% @mystudents.each_with_index  do |student, index| %>
         <%= render "students/card", student: student %>
       <% end %>
-    </div>  
+    </div>
    </div>
  </div>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"> 
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     This is all the students from current grade which we need to work on.
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
