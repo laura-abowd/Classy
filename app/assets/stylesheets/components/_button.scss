@@ -28,25 +28,24 @@
 
 .blue-btn {
   background-color: $classy-blue;
-  border:2px solid $classy-blue;
   display: inline-block;
   cursor: pointer;
   color: white;
-  font-family: Comfortaa;
   font-size: 16px;
   font-weight:light;
   padding: 4px 22px;
-  text-decoration: none;
   border-radius: 2px;
   transition: 0.3s ease-in;
 }
-.blue-btn:hover {
+
+.blue-btn a:hover {
   text-decoration: none;
   background-color: $classy-blue;
-  border:2px solid $classy-blue;
-  color: $classy-yellow;
+  color: $classy-gray;
 }
+
 .blue-btn:active {
+  text-decoration: none;
   position:relative;
   color: white;
   background-color: $classy-gray;
@@ -55,7 +54,7 @@
 /* Outline yellow button */
 
 .outline-yellow-btn {
-  background-color:white;
+  background-color: white;
   border:2px solid #F4BF00;
   color: #F4BF00;
   display:inline-block;
