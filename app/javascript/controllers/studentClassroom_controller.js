@@ -10,18 +10,14 @@ export default class extends Controller {
   //   this.myTextTarget.innerText = "Yeahh! Stimulus!"
   // }
     studentDragHandler(event) {
-  // console.log("I'm dragging!");
     event.dataTransfer.setData("text/plain", event.target.id);
     event.dropEffect = "move";
   }
 
+  student_dragstart_handler(event) {
+  console.log("dragStart");
+  event.dataTransfer.setData("text", event.target.id);
+  }
 }
 
 
-
- // playerDragHandler(event) {
- //    // console.log("I'm dragging!");
- //    // event.preventDefault();
- //    event.dataTransfer.setData("text/plain", event.target.id);
- //    event.dropEffect = "move";
- //  }
