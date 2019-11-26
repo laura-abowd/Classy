@@ -28,6 +28,13 @@ class Student < ApplicationRecord
     current_classroom.grade
   end
 
+
+  # GIFTED = Student.select(:gifted_talented).map(&:gifted_talented).uniq.reject(&:blank?)
+  # SPECIAL = Student.select(:special_education).map(&:special_education).uniq.reject(&:blank?)
+  # ESL = Student.select(:esl).map(&:esl).uniq.reject(&:blank?)
+  # MEDICAL = Student.select(:medical_alert).map(&:medical_alert).uniq.reject(&:blank?)
+
+
 end
 
 
