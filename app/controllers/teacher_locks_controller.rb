@@ -9,6 +9,16 @@ class TeacherLocksController < ApplicationController
     end
   end
 
+  def update
+    @teacher_lock = TeacherLock.find(params[:id])
+    @teacher_lock.assign_attributes(teacher_lock_params)
+    if @teacher_lock.save
+      redirect_to students_path
+    else
+      render "students"
+    end
+  end
+
 private
 
 

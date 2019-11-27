@@ -6,7 +6,7 @@ class StudentsController < ApplicationController
     @grade = current_teacher.grade
     @mygradeteachers = Teacher.where(grade:  Grade.find_by(level: current_teacher.grade.level ) )
     @nextgradeteachers = Teacher.where(grade:  Grade.find_by(level: current_teacher.grade.level + 1) )
-    @teacher_lock = TeacherLock.new
+    # @teacher_lock = TeacherLock.new
     @new_do_not_place = DoNotPlace.new
 
   end
