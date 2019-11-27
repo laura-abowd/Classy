@@ -1,10 +1,3 @@
-function refreshCard(innerHTML) {
-  const newCard = document.querySelector(`.container-student-cards #student-${<%= @do_not_place.student_one.id %>}`);
-  newCard.innerHTML = innerHTML;
-}
+var refreshForm = '<%= j render "form", student: @do_not_place.student_one %>';
 
-// TODO: add student_two card !!!!!!!!!!!!!!!!!!!!!!!!!
-
-refreshCard('<%= j render "students/card", student: @do_not_place.student_one %>');
-
-initSelect2();
+document.getElementById('<%= "dnp-#{@do_not_place.student_one.id}" %>').innerHTML = refreshForm;
