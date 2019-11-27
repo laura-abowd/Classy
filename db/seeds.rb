@@ -51,11 +51,11 @@ trouni = Teacher.create!(teacher_name: 'Mr. Trouni', grade: fifth, email: 'troun
 sylvain = Teacher.create!(teacher_name: 'Mr. Sylvain', grade: fifth, email: 'sylvain@akinelementary.com', password: 'password')
 
 
-firstone = Classroom.create!(teacher: abowd, grade: first, year: Date.today.year)
-firsttwo = Classroom.create!(teacher: wright, grade: first, year: Date.today.year)
-firstthree = Classroom.create!(teacher: torres, grade: first, year: Date.today.year)
-firstfour = Classroom.create!(teacher: meleck, grade: first, year: Date.today.year)
-firstfive = Classroom.create!(teacher: marquez, grade: first, year: Date.today.year)
+firstone = Classroom.create!(teacher: abowd, grade: first, year: Date.today.year, readystatus: true )
+firsttwo = Classroom.create!(teacher: wright, grade: first, year: Date.today.year, readystatus: true )
+firstthree = Classroom.create!(teacher: torres, grade: first, year: Date.today.year, readystatus: true )
+firstfour = Classroom.create!(teacher: meleck, grade: first, year: Date.today.year, readystatus: true )
+firstfive = Classroom.create!(teacher: marquez, grade: first, year: Date.today.year, readystatus: true )
 
 classrooms = Classroom.all
 

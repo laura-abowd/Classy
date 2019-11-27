@@ -59,8 +59,13 @@
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
+  <% @mygradeteachers.each do |teacher| %>
 
-    <h1>this is where the second tab content goes</h1>
+  <%= teacher.teacher_name %>
+
+  <%= teacher.classroom.readystatus %>
+
+  <% end %>
 
 
   </div>
