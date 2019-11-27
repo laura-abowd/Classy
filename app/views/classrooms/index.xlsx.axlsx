@@ -1,18 +1,21 @@
 wb = xlsx_package.workbook
 
-wb.add_worksheet(name: "Classrooms") do |sheet|
 
-  # header!
-  sheet.add_row ["2020 2nd grade classes"], style: project_heading
-  # download at
-  sheet.add_row ["Downloaded at", Time.now.strftime("%b %-d, %Y")]
-  # blank row
-  sheet.add_row []
-  # create header row
-  sheet.add_row ["Ms. Teague", "Ms. Reed", "Ms. Rogers", "Mr. Garcia"]
-  # entries for each row
-  @stupid.each do |student|
-    sheet.add_row [student.schoolID, student.first_name, student.esl]
+@nextgradeteachers.each do |teacher|
+
+  wb.add_worksheet(name: "#{teacher.teacher_name}") do |sheet|
+
+    sheet.add_row [ current_teacher.teacher_name + "'s 2020 class" ]
+    sheet.add_row ["Downloaded at", Time.now.strftime("%b %-d, %Y")]
+
+    sheet.add_row []
+
+    sheet.add_row ["School ID", "First Name", "Last Name", "Gender", "Birthday"]
+
+    teacher.classroom.students.each do |student|
+      sheet.add_row [ student.schoolID, student.first_name, student.last_name, student.gender, student.birthday ]
+    end
+
   end
 
 end
