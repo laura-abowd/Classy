@@ -3,10 +3,11 @@ class StudentsController < ApplicationController
 
     @mystudents = Student.joins(:classroom_enrollments, :classrooms).where(classrooms: { teacher: Teacher.find_by(teacher_name: current_teacher.teacher_name) }).distinct.sort_by(&:last_name)
     @mygradestudents = Student.includes(:classrooms).where(classrooms: { grade: current_teacher.grade }).distinct
+
     @grade = current_teacher.grade
     @nextgradeteachers = Teacher.where(grade:  Grade.find_by(level: current_teacher.grade.level + 1) )
     @teacher_lock = TeacherLock.new
-    @do_not_place = DoNotPlace.new
+    @new_do_not_place = DoNotPlace.new
 
   end
 

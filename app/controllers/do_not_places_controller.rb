@@ -4,6 +4,10 @@ class DoNotPlacesController < ApplicationController
     @grade = current_teacher.grade
     @teacher_lock = TeacherLock.new
     @nextgradeteachers = Teacher.where(grade:  Grade.find_by(level: current_teacher.grade.level + 1) )
+    @new_do_not_place = DoNotPlace.new
+
+    @grade = current_teacher.grade
+
 
     if @do_not_place.save
       respond_to do |format|
@@ -21,6 +25,9 @@ class DoNotPlacesController < ApplicationController
   def destroy
     @do_not_place = DoNotPlace.find(params[:id])
     @do_not_place.destroy
+    @new_do_not_place = DoNotPlace.new
+    @grade = current_teacher.grade
+
 
     respond_to do |format|
       format.html { redirect_to students_path }
