@@ -57,7 +57,6 @@ firstthree = Classroom.create!(teacher: torres, grade: first, year: Date.today.y
 firstfour = Classroom.create!(teacher: meleck, grade: first, year: Date.today.year, readystatus: true )
 firstfive = Classroom.create!(teacher: marquez, grade: first, year: Date.today.year, readystatus: true )
 
-classrooms = Classroom.all
 
 50.times do
   student = Student.new(
@@ -138,6 +137,7 @@ end
 # end
 
 students = Student.all
+classrooms = Classroom.all
 
 students.each_with_index do |student, index|
   i = index % 5

@@ -65,7 +65,10 @@ window.submitOnEvent = function () {
   })
 
   document.querySelectorAll('.teacherform').forEach( (form) => {
-    form.addEventListener('change', () => Rails.fire(form, 'submit'))
+    form.addEventListener('change', () => {
+      console.log('submitting teacherlock')
+      Rails.fire(form, 'submit')
+    })
   })
 }
 

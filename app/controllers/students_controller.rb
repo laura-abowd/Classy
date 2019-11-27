@@ -28,6 +28,7 @@ class StudentsController < ApplicationController
     students =  Student.joins("INNER JOIN classroom_enrollments on classroom_enrollments.student_id = students.id", "INNER JOIN classrooms ON classrooms.id = classroom_enrollments.classroom_id")
                        .where(classrooms: { grade: Grade.find_by(level: current_teacher.grade.level) }).order("RANDOM()")
 
+    # raise
     nextgrade = Grade.find_by(level: grade.level + 1)
     nextgradeteachers = Teacher.where(grade: nextgrade)
 
@@ -43,7 +44,6 @@ class StudentsController < ApplicationController
     # classrooms = Classroom.where(grade: nextgrade)
 
     #lockedteacher only works up to a certain point
-
   teacherlocks = TeacherLock.joins(:teacher).where(teachers: { grade: nextgrade } )
     teacherlocks.each do |pair|
       locked_student = pair.student
@@ -69,27 +69,23 @@ class StudentsController < ApplicationController
       enrollment_one = ClassroomEnrollment.joins(:classroom).find_by(student: studentone, classrooms: { grade: nextgrade })
       enrollment_two = ClassroomEnrollment.joins(:classroom).find_by(student: studenttwo, classrooms: { grade: nextgrade })
 
-      if enrollment_one && enrollment_two
-        next
-
-      elsif enrollment_one
-        roomenrollment_two = ClassroomEnrollment.create(student: studenttwo, classroom: classrooms.reject { |classroom| classroom.id == enrollment_one.id }.first)
-        students = students.where.not(id: studenttwo.id)
-
-      elsif enrollment_two
-        roomenrollment_one = ClassroomEnrollment.create(student: studentone, classroom: classrooms.reject { |classroom| classroom.id == enrollment_two.id }.first)
-        students = students.where.not(id: studentone.id)
-
-      else
-        roomenrollment_one = ClassroomEnrollment.create(student: studentone, classroom: classrooms.first)
-        roomenrollment_two = ClassroomEnrollment.create(student: studenttwo, classroom: classrooms.second)
-
+      # if enrollment_one && enrollment_two
+      if not_placed?(studentone, students) && not_placed?(studenttwo, students)
+        create_enrollment(studentone, classrooms.first)
+        create_enrollment(studenttwo, classrooms.second)
         students = students.where.not(id: studenttwo.id)
         students = students.where.not(id: studentone.id)
+
+      elsif not_placed?(studentone, students)
+        create_enrollment(studentone, classrooms.reject { |classroom| classroom.id == enrollment_two.id }.first)
+        students = students.where.not(id: studentone.id)
+
+      elsif not_placed?(studenttwo, students)
+        create_enrollment(studenttwo, classrooms.reject { |classroom| classroom.id == enrollment_one.id }.first)
+        students = students.where.not(id: studenttwo.id)
       end
       # classes.sort!
     end
-
 
     attributeslist = ['special_education', 'gifted_talented', 'esl', 'medical_alert']
 
@@ -98,7 +94,8 @@ class StudentsController < ApplicationController
       @filteredstudents = students.where("#{attribute} = true")
       @filteredstudents.each_with_index do |student, index|
         # classes[index % classrooms.count] << student
-        ClassroomEnrollment.create(student: student, classroom: classrooms[index % classrooms.count])
+        create_enrollment(student, classrooms[index % classrooms.count]) if not_placed?(student, students)
+        # ClassroomEnrollment.create(student: student, classroom: classrooms[index % classrooms.count])
         students = students.where.not(id: student.id)
       end
     end
@@ -109,7 +106,8 @@ class StudentsController < ApplicationController
       @girlsnoconditions = students.where(gender: gender)
       @girlsnoconditions.each_with_index do |student, index|
         # classes[index % classrooms.count] << student
-        ClassroomEnrollment.create(student: student, classroom: classrooms[index % classrooms.count])
+        create_enrollment(student, classrooms[index % classrooms.count]) if not_placed?(student, students)
+        # ClassroomEnrollment.create(student: student, classroom: classrooms[index % classrooms.count])
         students = students.where.not(id: student.id)
       end
       # classes.sort!
@@ -124,6 +122,7 @@ class StudentsController < ApplicationController
       #   end
       # end
 
+    @errors = []
 
     stupid = DoNotPlace.all
     stupid.each do |dnp|
@@ -139,7 +138,7 @@ class StudentsController < ApplicationController
     locked_student = pair.student
     locked_teacher = pair.teacher
     if locked_student.current_classroom.teacher != locked_teacher
-
+        raise
       end
     end
 
@@ -157,6 +156,14 @@ class StudentsController < ApplicationController
 
   def student_params
     params.require(:student).permit(:esl, :gifted_talented, :medical_alert, :special_education, :notes)
+  end
+
+  def create_enrollment(student, classroom)
+    ClassroomEnrollment.create(student: student, classroom: classroom)
+  end
+
+  def not_placed?(student, students)
+    return students.include?(student)
   end
 
 end
