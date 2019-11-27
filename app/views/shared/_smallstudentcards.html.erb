@@ -1,11 +1,8 @@
 <% @nextgradeteachers.each do |teacher| %>
 <div class="classroom-student-card-container" data-action="drop->studentClassroom#student_drop_handler dragover->studentClassroom#student_dragover_handler" data-classroom-id='<%= teacher.classroom.id %>' >
-    <% teacher.classroom.students.order(:last_name).each do |student|%>
+    <% teacher.classroom.students.each do |student|%>
     <div class="classroom-card"  id="student-<%= student.id %>" draggable="true" data-action="dragstart->studentClassroom#student_dragstart_handler ">
       <%= render "classroom_enrollments/form", student: student, classroom_enrollment: student.current_enrollment %>
-        <div class="classy-avatar-space">
-          <img class="avatar-large" alt="avatar-large" src="<%= student.photo %>" />
-        </div>
         <div class="student-name-label">
             <div class="student-first">
                 <!--   <p> -->
@@ -19,9 +16,7 @@
             </div>
         </div>
         <div class="student-data">
-            <!-- <div class="gripper-icon" id="results"> : : : : </div> -->
-<!--             <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="grip-lines" class="svg-inline--fa fa-grip-lines fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M496 288H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zm0-128H16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16z"></path></svg>
- -->            <div class="student-card-icons">
+            <div class="student-card-icons">
                 <i class="fas fa-plus-square classroom-card-icon"></i>
                 <i class="fas fa-globe-americas classroom-card-icon"></i>
                 <i class="fas fa-hat-wizard classroom-card-icon"></i>
@@ -29,53 +24,6 @@
             </div>
             <div class="view-info-link">View Info</div>
         </div>
-        <div class="classy-gripper">
-          <svg width="10" height="54" viewBox="0 0 10 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="1" cy="1" r="1" fill="#C4C4C4"/>
-            <circle cx="5" cy="1" r="1" fill="#C4C4C4"/>
-            <circle cx="9" cy="1" r="1" fill="#C4C4C4"/>
-            <circle cx="1" cy="9" r="1" fill="#C4C4C4"/>
-            <circle cx="5" cy="9" r="1" fill="#C4C4C4"/>
-            <circle cx="9" cy="9" r="1" fill="#C4C4C4"/>
-            <circle cx="1" cy="13" r="1" fill="#C4C4C4"/>
-            <circle cx="5" cy="13" r="1" fill="#C4C4C4"/>
-            <circle cx="9" cy="13" r="1" fill="#C4C4C4"/>
-            <circle cx="1" cy="17" r="1" fill="#C4C4C4"/>
-            <circle cx="5" cy="17" r="1" fill="#C4C4C4"/>
-            <circle cx="9" cy="17" r="1" fill="#C4C4C4"/>
-            <circle cx="1" cy="21" r="1" fill="#C4C4C4"/>
-            <circle cx="5" cy="21" r="1" fill="#C4C4C4"/>
-            <circle cx="9" cy="21" r="1" fill="#C4C4C4"/>
-            <circle cx="1" cy="25" r="1" fill="#C4C4C4"/>
-            <circle cx="5" cy="25" r="1" fill="#C4C4C4"/>
-            <circle cx="9" cy="25" r="1" fill="#C4C4C4"/>
-            <circle cx="1" cy="29" r="1" fill="#C4C4C4"/>
-            <circle cx="5" cy="29" r="1" fill="#C4C4C4"/>
-            <circle cx="9" cy="29" r="1" fill="#C4C4C4"/>
-            <circle cx="1" cy="33" r="1" fill="#C4C4C4"/>
-            <circle cx="5" cy="33" r="1" fill="#C4C4C4"/>
-            <circle cx="9" cy="33" r="1" fill="#C4C4C4"/>
-            <circle cx="1" cy="37" r="1" fill="#C4C4C4"/>
-            <circle cx="5" cy="37" r="1" fill="#C4C4C4"/>
-            <circle cx="9" cy="37" r="1" fill="#C4C4C4"/>
-            <circle cx="1" cy="41" r="1" fill="#C4C4C4"/>
-            <circle cx="5" cy="41" r="1" fill="#C4C4C4"/>
-            <circle cx="9" cy="41" r="1" fill="#C4C4C4"/>
-            <circle cx="1" cy="45" r="1" fill="#C4C4C4"/>
-            <circle cx="5" cy="45" r="1" fill="#C4C4C4"/>
-            <circle cx="9" cy="45" r="1" fill="#C4C4C4"/>
-            <circle cx="1" cy="49" r="1" fill="#C4C4C4"/>
-            <circle cx="5" cy="49" r="1" fill="#C4C4C4"/>
-            <circle cx="9" cy="49" r="1" fill="#C4C4C4"/>
-            <circle cx="1" cy="53" r="1" fill="#C4C4C4"/>
-            <circle cx="5" cy="53" r="1" fill="#C4C4C4"/>
-            <circle cx="9" cy="53" r="1" fill="#C4C4C4"/>
-            <circle cx="1" cy="5" r="1" fill="#C4C4C4"/>
-            <circle cx="5" cy="5" r="1" fill="#C4C4C4"/>
-            <circle cx="9" cy="5" r="1" fill="#C4C4C4"/>
-          </svg>
-        </div>
-
     </div>
     <% end %>
 </div>
@@ -88,5 +36,3 @@
 </p> -->
 
 <!-- data-action="drag->studentClassroom# student_dragstart_handler" -->
-
-<!-- data-action="drop->squadplace#playerDropHandler dragover->squadplace#playerDragOverHandler dragleave->squadplace#playerDragExitHandler" -->
