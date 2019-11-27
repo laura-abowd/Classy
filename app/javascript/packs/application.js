@@ -8,8 +8,6 @@ import { definitionsFromContext } from "stimulus/webpack-helpers"
 
 Rails.start();
 
-
-
 initSelect2();
 submitOnEvent();
 
@@ -17,10 +15,7 @@ $(function () {
   $('[data-toggle="popover"]').popover()
 })
 
-
-
 window.$ = require('jquery')
-
 
 const application = Application.start()
 const context = require.context("../controllers", true, /\.js$/)

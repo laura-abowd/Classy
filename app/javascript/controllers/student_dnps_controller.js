@@ -8,11 +8,11 @@ export default class extends Controller {
   static targets = ['select']
 
   connect() {
-    $(this.selectTarget).select2();
+    $(this.selectTarget).select2({
+    });
 
     $(this.selectTarget).on('change.select', (e) => {
       Rails.fire(e.target.form, 'submit');
     });
-    console.log('charge')
   }
 }
