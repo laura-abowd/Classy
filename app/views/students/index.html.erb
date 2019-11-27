@@ -11,7 +11,6 @@
   <div class="triangle"></div>
 </div>
 <!-- TABS -->
-
 <div class="classy-tabs">
   <ul class="nav nav-tabs  ml-4 classy-ul-tabs" id="myTab" role="tablist">
     <li class="nav-item">
@@ -22,7 +21,6 @@
     </li>
   </ul>
 </div>
-
 <!-- STICKY HEADER  -->
 <div class="wrapper" id="header-container-sticky">
   <div class="container">
@@ -38,7 +36,7 @@
         <div class="show-notes-btn">
           <div class="btn btn-outline-info expand-view" style="margin-left: 320px;">
             <i class='far fa-angle-double-down'>
-<!--               <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-double-down" class="svg-inline--fa fa-angle-double-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M143 256.3L7 120.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0L313 86.3c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.4 9.5-24.6 9.5-34 .1zm34 192l136-136c9.4-9.4 9.4-24.6 0-33.9l-22.6-22.6c-9.4-9.4-24.6-9.4-33.9 0L160 352.1l-96.4-96.4c-9.4-9.4-24.6-9.4-33.9 0L7 278.3c-9.4 9.4-9.4 24.6 0 33.9l136 136c9.4 9.5 24.6 9.5 34 .1z"></path></svg> -->
+              <!--               <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="angle-double-down" class="svg-inline--fa fa-angle-double-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M143 256.3L7 120.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0L313 86.3c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.4 9.5-24.6 9.5-34 .1zm34 192l136-136c9.4-9.4 9.4-24.6 0-33.9l-22.6-22.6c-9.4-9.4-24.6-9.4-33.9 0L160 352.1l-96.4-96.4c-9.4-9.4-24.6-9.4-33.9 0L7 278.3c-9.4 9.4-9.4 24.6 0 33.9l136 136c9.4 9.5 24.6 9.5 34 .1z"></path></svg> -->
             </i>
           </div>
         </div>
@@ -57,16 +55,26 @@
       </div>
     </div>
   </div>
+  <!--   review teacher status tab -->
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
-  <% @mygradeteachers.each do |teacher| %>
-
-  <%= teacher.teacher_name %>
-
-  <%= teacher.classroom.readystatus %>
-
-  <% end %>
-
-
-  </div>
+    <div class="teacher-status-container">
+      <div class="teacher-status-title">
+        <h3>Teacher status:</h3>
+      </div>
+      <div class="teacher-status">
+        <div class="teacher-status-labels">
+          <p>
+            <% @mygradeteachers.each do |teacher| %>
+            <%= teacher.teacher_name %>
+          </p>
+            <%= teacher.classroom.readystatus %> <p> <span class="badge badge-pill badge-success">Succes s</span>
+            <% end %>
+          </p>
 </div>
+        </div>
+        <div class="teacher-status-button-container">
+          <p>this is where the sort now button will go </p>
+        </div>
+
+    </div>
+  </div>

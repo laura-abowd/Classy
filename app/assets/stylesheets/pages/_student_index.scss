@@ -250,3 +250,33 @@
   line-height: 2em;
   height: 2em !important;
 }
+
+
+// Review students tab
+.teacher-status-container {
+  margin: 20px auto;
+  max-width: 1080px;
+  background-color: pink;
+  align-items: center;
+
+}
+
+.teacher-status-title {
+  text-align: center;
+}
+
+.teacher-status {
+  display: flex;
+  background-color: yellow;
+  justify-content: center;
+}
+
+.teacher-status-labels {
+  width: 50%;
+  background-color: white;
+
+
+}
+
+
+
