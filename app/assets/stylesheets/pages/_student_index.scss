@@ -149,6 +149,17 @@
 
 
 /* Tab Component  */
+
+.classy-tabs {
+  display: flex;
+  justify-content: center;
+}
+
+.classy-ul-tabs {
+  max-width: 1080px;
+  width: 100%;
+}
+
 .tabs {
   clear: both;
   position: relative;

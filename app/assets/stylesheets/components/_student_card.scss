@@ -136,21 +136,26 @@
 // individual stduent cards for classroom#index
 
 .classroom-container {
-  padding-top: 5px;
+  padding-top: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
+  grid-column-gap: 50px;
+  grid-template-rows: auto;
+  grid-gap: 0px;
+  justify-items: center;
+  background-color: $light-gray;
 }
 
 .classroom-card-teacher {
   text-align: center;
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bolder;
   //remove set height and width after code works
-  height: 90px;
+  height: 100px;
   width: 300px;
   border: 1px solid;
   box-shadow: 0 5px 8px rgba(182, 210, 246, 0.5);
+  background-color: $classy-background-color;
 }
 
 .teacher-column {
@@ -161,14 +166,22 @@
 .classroom-card {
   padding: 5px;
   display: grid;
-  grid-template-columns: 60px 1fr 75px;
+  grid-template-columns: 0px 60px 1fr 75px 28px;
   // justify-content: space-evenly;
   //remove set height and width after code works
   height: 80px;
   width: 300px;
-  border: 1px solid;
+  border-left: 1px solid $classy-less-important-text-shade;
+  border-right: 1px solid $classy-less-important-text-shade;
+  border-bottom: 1px solid $classy-less-important-text-shade;
   background-color: $classy-background-color;
   box-shadow: 0 5px 8px rgba(182, 210, 246, 0.5);
+  cursor: grab;
+}
+
+.classy-avatar-space {
+  display: grid;
+  align-items: center;
 }
 
 .student-name-label {
@@ -176,7 +189,9 @@
 }
 
 .student-data {
-  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .student-card-icons {
@@ -185,6 +200,15 @@
   }
 }
 
+.fa-grip-lines {
+  max-width: 20px;
+}
+
+.classy-gripper {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
 
 // used for sortable from Le Wagon Kitt
 // #results li {
