@@ -139,7 +139,7 @@ class StudentsController < ApplicationController
     locked_student = pair.student
     locked_teacher = pair.teacher
     if locked_student.current_classroom.teacher != locked_teacher
-      raise
+
       end
     end
 

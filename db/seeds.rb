@@ -66,7 +66,7 @@ classrooms = Classroom.all
     schoolID: Faker::Number.between(from: 900000, to: 999999),
     gender: 'male',
     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
-    photo: 'https://cdn.dribbble.com/users/458522/screenshots/2700065/cute_monster_2_rgb_dribbbler.jpg',
+    photo: 'https://cdn.dribbble.com/users/120891/screenshots/4963369/dribble_53.png',
 
   )
   student.save!
