@@ -79,7 +79,7 @@ end
     schoolID: Faker::Number.between(from: 900000, to: 999999),
     gender: 'female',
     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
-    photo: 'https://cdn.dribbble.com/users/458522/screenshots/2700837/cute_monster_5_dribbbler.jpg',
+    photo: 'https://cdn.dribbble.com/users/1232341/screenshots/4815294/bop-07.png',
 
   )
   student.save!
