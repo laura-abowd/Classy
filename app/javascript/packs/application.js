@@ -15,6 +15,10 @@ $(function () {
   $('[data-toggle="popover"]').popover()
 })
 
+$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
+
 window.$ = require('jquery')
 
 const application = Application.start()
