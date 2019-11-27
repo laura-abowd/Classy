@@ -4,6 +4,7 @@ class CreateClassrooms < ActiveRecord::Migration[5.2]
       t.references :teacher, foreign_key: true
       t.references :grade, foreign_key: true
       t.integer :year
+      t.boolean :readystatus
 
       t.timestamps
     end

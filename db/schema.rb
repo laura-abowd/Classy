@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_024257) do
     t.bigint "teacher_id"
     t.bigint "grade_id"
     t.integer "year"
+    t.boolean "readystatus"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["grade_id"], name: "index_classrooms_on_grade_id"
