@@ -41,10 +41,10 @@ window.submitOnEvent = function () {
   //   input.addEventListener('change', () => Rails.fire(form, 'submit'))
   // })
 
-  $('.student-two-select').on('change', function (e) {
-    const form = getClosest(e.currentTarget, 'form')
-    Rails.fire(form, 'submit')
-  });
+  // $('.student-two-select').on('change', function (e) {
+  //   const form = getClosest(e.currentTarget, 'form')
+  //   Rails.fire(form, 'submit')
+  // });
 
   document.querySelectorAll('.container-student-cards .dnp-form').forEach((form) => {
     // console.log(form)
