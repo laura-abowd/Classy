@@ -5,7 +5,8 @@
         <div class="teacher-name">
           <%= teacher.teacher_name %>
           <h4 class="ajax-teacher" id="number-of-students-of-teacher-<%= teacher.id %>">
-            <span class="student-count" data-classroom-id="<%= teacher.classroom.id %>"><%= teacher.classroom.students.count %></span> students</h4>
+            <span class="student-count" data-classroom-id="<%= teacher.classroom.id %>">
+              <%= teacher.classroom.students.count %></span> students</h4>
          </div>
         <div class="classroom-info-container" data-classroom-id="<%= teacher.classroom.id %>">
           <%= render "shared/classroom_info", teacher: teacher %>

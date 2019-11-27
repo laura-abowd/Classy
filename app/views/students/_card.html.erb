@@ -54,7 +54,7 @@
     <div class="mr-3 ml-4 w-25">
       <div class="student-content">
         Assign to
-        <%= simple_form_for @teacher_lock, html: { class: "teacherform"},  remote: true do |f| %>
+        <%= simple_form_for student.teacher_locks&.first || TeacherLock.new, html: { class: "teacherform"},  remote: true do |f| %>
           <%= f.error_notification %>
           <%= f.input :student_id, input_html: { value: student.id }, as: :hidden %>
           <%= f.association :teacher,
