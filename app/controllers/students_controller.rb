@@ -129,7 +129,7 @@ class StudentsController < ApplicationController
       student_one = dnp.student_one
       student_two = dnp.student_two
       if student_one.current_classroom == student_two.current_classroom
-        raise
+        # raise
       end
     end
 
@@ -138,7 +138,7 @@ class StudentsController < ApplicationController
     locked_student = pair.student
     locked_teacher = pair.teacher
     if locked_student.current_classroom.teacher != locked_teacher
-        raise
+        # raise
       end
     end
 
