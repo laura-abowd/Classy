@@ -4,49 +4,11 @@
       <div class="teacher-image-card"><img src="" alt=""></div>
         <div class="teacher-name">
           <%= teacher.teacher_name %>
-           <h4> <%= teacher.classroom.students.count %> students</h4>
-          </div>
-        <div class="classroom-info-container">
-          <div class="d-flex">
-            <div class="tablet-bg-title">
-               M
-              <div class="tablet-gender-info">
-                <p><%= teacher.classroom.students.where(gender: "male").count %></p>
-              </div>
-            </div>
-            <div class="tablet-bg-title">
-              F
-              <div class="tablet-gender-info">
-                 <%= teacher.classroom.students.where(gender: "female").count %>
-              </div>
-            </div>
-          </div>
-          <div class="d-flex">
-             <div class="tablet-bg-title">
-                <i class="fas fa-globe-americas"></i>
-                   <div class="tablet-icon-info">
-                      <%= teacher.classroom.students.where(esl: "true").count %>
-                   </div>
-                </div>
-              <div class="tablet-bg-title">
-                 <i class="fas fa-hat-wizard"></i>
-                    <div class="tablet-icon-info">
-                      <%= teacher.classroom.students.where(gifted_talented: "true").count %>
-                    </div>
-              </div>
-              <div class="tablet-bg-title">
-                <i class="fas fa-star"></i>
-                    <div class="tablet-icon-info">
-                      <%= teacher.classroom.students.where(special_education: "true").count %>
-                    </div>
-              </div>
-              <div class="tablet-bg-title">
-               <i class="fas fa-plus-square"></i>
-                    <div class="tablet-icon-info">
-                      <%= teacher.classroom.students.where(medical_alert: "true").count %>
-                    </div>
-              </div>
-          </div>
+          <h4 class="ajax-teacher" id="number-of-students-of-teacher-<%= teacher.id %>">
+            <span class="student-count" data-classroom-id="<%= teacher.classroom.id %>"><%= teacher.classroom.students.count %></span> students</h4>
+         </div>
+        <div class="classroom-info-container" data-classroom-id="<%= teacher.classroom.id %>">
+          <%= render "shared/classroom_info", teacher: teacher %>
         </div>
     </div>
   </div>
