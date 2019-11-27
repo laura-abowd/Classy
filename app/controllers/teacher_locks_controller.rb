@@ -1,7 +1,7 @@
 class TeacherLocksController < ApplicationController
 
   def create
-    @teacher_lock = TeacherLock.new(teacher_lock_params)
+    @teacher_lock = TeacherLock.find_or_initialize_by(teacher_lock_params)
     if @teacher_lock.save
       redirect_to students_path
     else
