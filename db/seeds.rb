@@ -59,7 +59,7 @@ firstfive = Classroom.create!(teacher: marquez, grade: first, year: Date.today.y
 
 classrooms = Classroom.all
 
-20.times do
+50.times do
   student = Student.new(
     first_name: Faker::Name.male_first_name,
     last_name:  Faker::Name.last_name,
@@ -72,7 +72,7 @@ classrooms = Classroom.all
   student.save!
 end
 
-15.times do
+40.times do
   student = Student.new(
     first_name:    Faker::Name.female_first_name,
     last_name:    Faker::Name.last_name,
@@ -85,57 +85,57 @@ end
   student.save!
 end
 
-15.times do
-  student = Student.new(
-    first_name:    Faker::Name.male_first_name,
-    last_name:    Faker::Name.last_name,
-    schoolID: Faker::Number.between(from: 900000, to: 999999),
-    gender: 'male',
-    birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
-    photo: 'https://cdn.dribbble.com/users/458522/screenshots/2700102/cute_monster_3_rgb_dribbbler.jpg',
+# 15.times do
+#   student = Student.new(
+#     first_name:    Faker::Name.male_first_name,
+#     last_name:    Faker::Name.last_name,
+#     schoolID: Faker::Number.between(from: 900000, to: 999999),
+#     gender: 'male',
+#     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
+#     photo: 'https://cdn.dribbble.com/users/458522/screenshots/2700102/cute_monster_3_rgb_dribbbler.jpg',
 
-  )
-  student.save!
-end
+#   )
+#   student.save!
+# end
 
-15.times do
-  student = Student.new(
-    first_name:    Faker::Name.female_first_name,
-    last_name:    Faker::Name.last_name,
-    schoolID: Faker::Number.between(from: 900000, to: 999999),
-    gender: 'female',
-    birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
-    photo: 'https://cdn.dribbble.com/users/458522/screenshots/2700762/cute_monster_4_dribbbler.jpg',
+# 15.times do
+#   student = Student.new(
+#     first_name:    Faker::Name.female_first_name,
+#     last_name:    Faker::Name.last_name,
+#     schoolID: Faker::Number.between(from: 900000, to: 999999),
+#     gender: 'female',
+#     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
+#     photo: 'https://cdn.dribbble.com/users/458522/screenshots/2700762/cute_monster_4_dribbbler.jpg',
 
-  )
-  student.save!
-end
+#   )
+#   student.save!
+# end
 
-15.times do
-  student = Student.new(
-    first_name:    Faker::Name.male_first_name,
-    last_name:    Faker::Name.last_name,
-    schoolID: Faker::Number.between(from: 900000, to: 999999),
-    gender: 'male',
-    birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
-    photo: 'https://adarit.com/wp-content/uploads/2016/06/Cute-tech-monster.jpg',
+# 15.times do
+#   student = Student.new(
+#     first_name:    Faker::Name.male_first_name,
+#     last_name:    Faker::Name.last_name,
+#     schoolID: Faker::Number.between(from: 900000, to: 999999),
+#     gender: 'male',
+#     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
+#     photo: 'https://adarit.com/wp-content/uploads/2016/06/Cute-tech-monster.jpg',
 
-  )
-  student.save!
-end
+#   )
+#   student.save!
+# end
 
-10.times do
-  student = Student.new(
-    first_name:    Faker::Name.female_first_name,
-    last_name:    Faker::Name.last_name,
-    schoolID: Faker::Number.between(from: 900000, to: 999999),
-    gender: 'female',
-    birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
-    photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwqH-s8lYsDvxf12yrUj1oEpSrhDMMAMyBf_kC2UumNiMRr6fW',
+# 10.times do
+#   student = Student.new(
+#     first_name:    Faker::Name.female_first_name,
+#     last_name:    Faker::Name.last_name,
+#     schoolID: Faker::Number.between(from: 900000, to: 999999),
+#     gender: 'female',
+#     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
+#     photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwqH-s8lYsDvxf12yrUj1oEpSrhDMMAMyBf_kC2UumNiMRr6fW',
 
-  )
-  student.save!
-end
+#   )
+#   student.save!
+# end
 
 students = Student.all
 
