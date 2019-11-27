@@ -11,7 +11,7 @@ class Student < ApplicationRecord
   has_many :do_not_places, ->(student) { unscope(:where).where("student_one_id = :id OR student_two_id = :id", id: student.id)}
 
   def full_name
-    "#{first_name.capitalize} #{last_name[0].upcase}."
+    "#{first_name.capitalize} #{last_name.capitalize}"
   end
 
   def current_enrollment
