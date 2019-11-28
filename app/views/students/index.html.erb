@@ -21,33 +21,30 @@
     </li>
   </ul>
 </div>
-
 <!-- STUDENT CARD  -->
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
-<!-- STICKY HEADER  -->
-<div class="wrapper" id="header-container-sticky">
-  <div class="container">
-    <div class="sticky-header-container">
-      <div class="header-flex">
-        <%= button_to "Save and Submit", sortbutton_path, method: :post, class: "yellow-btn" %>
-        <div class="header-parameters">
-          <div class="header-content" style="padding-top: 8px;">ESL</div>
-          <div class="header-content">Gifted &<br>Talented</div>
-          <div class="header-content" style="padding-top: 8px;">SPED</div>
-          <div class="header-content">Medical <br>Alert</div>
-        </div>
-        <div class="show-notes-btn">
-          <div class="btn btn-outline-info expand-view" style="margin-left: 240px;">
-            See All Notes
+    <!-- STICKY HEADER  -->
+    <div class="wrapper" id="header-container-sticky">
+      <div class="container">
+        <div class="sticky-header-container">
+          <div class="header-flex">
+            <%= button_to "Save and Submit", sortbutton_path, method: :post, class: "yellow-btn" %>
+            <div class="header-parameters">
+              <div class="header-content" style="padding-top: 8px;">ESL</div>
+              <div class="header-content">Gifted &<br>Talented</div>
+              <div class="header-content" style="padding-top: 8px;">SPED</div>
+              <div class="header-content">Medical <br>Alert</div>
+            </div>
+            <div class="show-notes-btn">
+              <div class="btn btn-outline-info expand-view" style="margin-left: 240px;">
+                See All Notes
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
-
     <div class="section-student-cards">
       <div class="container m-auto container-student-cards">
         <% @mystudents.each_with_index  do |student, index| %>
@@ -60,28 +57,34 @@
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <!--     container div "teacher-status-container -->
     <div class="wrapper-teacher-status">
-    <div class="teacher-status-container">
-      <!-- Title-teacher-status-div -->
-      <div class="teacher-status-title">
-        <h3>Teacher status:</h3>
-      </div>
-      <!--       Teacher status div -->
-      <div class="teacher-status">
-        <div class="teacher-status-labels">
-          <% @mygradeteachers.each do |teacher| %>
-          <!-- <div class="teacher-label-submitted"> -->
-            <div class="teacher-name-status"> <%= teacher.teacher_name %></div>
-            <div class="badge badge-pill badge-success">Submitted</div>
-           <!-- <%= teacher.classroom.readystatus %> -->
-            <% end %>
+      <div class="teacher-status-container">
+        <!-- Title-teacher-status-div -->
+        <div class="teacher-status-title">
+          <h3>Teacher Status</h3>
         </div>
-      </div>
-      <div class="teacher-status-button-container">
-        <p> All students have been submitted.
-          <%= button_to "Create Classes", sortbutton_path, method: :post, class: "yellow-btn" %>
-        </p>
+        <!--       Teacher status div -->
+        <div class="teacher-status">
+          <div class="teacher-status-labels">
+            <% @mygradeteachers.each do |teacher| %>
+            <!-- <div class="teacher-label-submitted"> -->
+            <div class="teacher-name-status">
+              <%= teacher.teacher_name %>
+            </div>
+            <div class="badge badge-pill badge-success">
+              <%= teacher.classroom.readystatus? ? "Submitted" : "Pending" %>
+            </div>
+
+            <% end %>
+          </div>
+        </div>
+        <div class="teacher-status-button-container">
+          <div class="submitted-teachers">
+            All students have been submitted.
+          </div>
+          <div class="button-teacher-status">
+            <%= button_to "Create Classes", sortbutton_path, method: :post, class: "status-yellow-btn" %>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  </div>
-

@@ -262,32 +262,50 @@
 .teacher-status-container {
   width: 100%;
   max-width: 1080px;
+  background-color: white;
+  padding-bottom: 30px;
 }
 
 .teacher-status-title {
   display: flex;
   justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  h3 {
+  font-size: 32px;
+  }
 }
 
 .teacher-status {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .teacher-status-labels {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  border-radius: 4px;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  padding-bottom: 20px;
-  background-color: white;
+  padding: 30px;
 }
 
 .teacher-status-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: purple;
+  font-size: 24px;
+
+}
+
+.submitted-teachers {
+margin-left: 20%;
+}
+
+.button-teacher-status {
+margin-left: 50px;
+margin-bottom: 5px;
 }
 
 .teacher-name-status {

@@ -160,3 +160,29 @@ background:linear-gradient(to bottom, #0D4DA3 5%, #0F5EC7 100%);
   background:linear-gradient(to bottom, #0F5EC7 5%, #0D4DA3 100%);
 }
 
+// custom yellow btn
+.status-yellow-btn {
+  background-color: $classy-yellow;
+  display: inline-block;
+  cursor: pointer;
+  color: $classy-gray;
+  font-family: Comfortaa;
+  font-size:  14px;
+  font-weight: light;
+  padding: 2px 11px;
+  text-decoration:none;
+  border-radius: 2px;
+  transition: 0.2s;
+}
+.status-yellow-btn:hover {
+  text-decoration: none;
+  background-color: rgb(206, 161, 0);
+  color: $classy-gray;
+}
+.status-yellow-btn:active {
+  position: relative;
+  color: $classy-gray;
+  background-color: rgb(206, 161, 0);
+}
+
+
