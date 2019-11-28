@@ -1,6 +1,6 @@
 <div class="student-card-container" id="student-<%= student.id %>">
   <div class="student-card d-flex  flex-grow-1 justify-content-around">
-    <img class="avatar-large" alt="avatar-large" src="<%= student.photo %>" />
+    <%= image_tag student.photo, alt: "avatar-large", class: "avatar-large" %>
     <div class="student-name">
       <p>
         <%= student.first_name %>

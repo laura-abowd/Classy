@@ -65,8 +65,7 @@ firstfive = Classroom.create!(teacher: marquez, grade: first, year: Date.today.y
     schoolID: Faker::Number.between(from: 900000, to: 999999),
     gender: 'male',
     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
-    photo: 'https://cdn.dribbble.com/users/120891/screenshots/4963369/dribble_53.png',
-
+    photo: 'avatar-male.png',
   )
   student.save!
 end
@@ -78,8 +77,7 @@ end
     schoolID: Faker::Number.between(from: 900000, to: 999999),
     gender: 'female',
     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
-    photo: 'https://cdn.dribbble.com/users/1232341/screenshots/4815294/bop-07.png',
-
+    photo: 'avatar-female.png',
   )
   student.save!
 end

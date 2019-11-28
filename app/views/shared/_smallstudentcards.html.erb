@@ -4,7 +4,8 @@
   <div class="classroom-card teacher-<%= teacher.id %>" id="student-<%= student.id %>" draggable="true" data-action="dragstart->studentClassroom#student_dragstart_handler ">
     <%= render "classroom_enrollments/form", student: student, classroom_enrollment: student.current_enrollment %>
     <div class="classy-avatar-space">
-      <img class="avatar-large" alt="avatar-large" src="<%= student.photo %>" />
+      <%= image_tag student.photo, alt: "avatar-large", class: "avatar-large" %>
+      <!-- <img  class="avatar-large" alt="avatar-large"  /> -->
     </div>
     <div class="student-name-label">
       <div class="student-first">

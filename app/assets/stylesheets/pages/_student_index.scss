@@ -61,7 +61,7 @@
 
 .wrapper {
    background: $classy-blue;
-   z-index: 999;
+   z-index: 1;
 }
 
 .sticky-header-container {
@@ -249,4 +249,54 @@
 .select2-container .select2-selection--single {
   line-height: 2em;
   height: 2em !important;
+}
+
+// Review students tab
+.wrapper-teacher-status {
+  display: flex;
+  justify-content: center;
+  background-color: $light-gray;
+
+}
+
+.teacher-status-container {
+  width: 100%;
+  max-width: 1080px;
+}
+
+.teacher-status-title {
+  display: flex;
+  justify-content: center;
+}
+
+.teacher-status {
+  display: flex;
+  justify-content: center;
+}
+
+.teacher-status-labels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  padding-bottom: 20px;
+  background-color: white;
+}
+
+.teacher-status-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: purple;
+}
+
+.teacher-name-status {
+  // max-width: 200px;
+}
+
+.badge-pill {
+  max-width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
