@@ -262,35 +262,57 @@
 .teacher-status-container {
   width: 100%;
   max-width: 1080px;
+  background-color: white;
+  padding-bottom: 30px;
 }
 
 .teacher-status-title {
   display: flex;
   justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  h3 {
+  font-size: 32px;
+  }
 }
 
 .teacher-status {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .teacher-status-labels {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  padding-bottom: 20px;
-  background-color: white;
+  border-radius: 4px;
+  grid-column-gap: 50px;
+  grid-row-gap: 30px;
+  padding: 30px;
+  justify-content: center;
 }
 
 .teacher-status-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: purple;
+  font-size: 32px;
+
+}
+
+.submitted-teachers {
+  // display: flex;
+  // justify-content: center;
+  grid-column: 1 / span 2;
+}
+
+.button-teacher-status {
+// margin-left: 50px;
+margin-bottom: 5px;
 }
 
 .teacher-name-status {
+  font-size: 20px;
   // max-width: 200px;
 }
 
@@ -299,4 +321,5 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+   align-content: center;
 }
