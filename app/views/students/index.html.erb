@@ -30,7 +30,16 @@
       <div class="container">
         <div class="sticky-header-container">
           <div class="header-flex">
-            <%= button_tag "Save your class", method: :post, class: "yellow-btn", id: "saveclass-btn" %>
+            <%= button_tag "Save and submit", class: "yellow-btn", id: "saveclass-btn" %>
+
+        <div class="alert alert-success" role="alert" style="display: none">
+          <style>
+           .alert {
+            font-size: 20px;
+          </style>
+         Your class is saved. Please view the teacher status.
+        </div>
+
             <div class="header-parameters">
               <div class="header-content" style="padding-top: 8px;">ESL</div>
               <div class="header-content">Gifted &<br>Talented</div>
