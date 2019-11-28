@@ -39,12 +39,12 @@ showAllButton.addEventListener("click", () => {
     document.querySelectorAll('.student-card-container').forEach( (card) => {
       if (showAllButton.classList.contains('all-closed')) {
         card.classList.remove('active1');
-        showAllButton.innerText = "See All Notes"
+        showAllButton.innerHTML = `<i class='fad fa-angle-double-down'></i>`
       }
       else {
         console.log('firing')
         card.classList.add('active1')
-        showAllButton.innerText = "Hide All Notes"
+        showAllButton.innerHTML = `<i class='fad fa-angle-double-up'></i>`
       }
     });
     showAllButton.classList.toggle('all-closed');
