@@ -1,5 +1,7 @@
 <div class="classy-students-header">
   <div class="classy-content-header">
+
+    <% if ClassroomEnrollment.count > 100 %>
     <h2>Your class has been sorted!</h2>
     <p>Drag and drop if you need to adjust your classes and download your class sheet</p>
     <div class="blue-btn">
@@ -11,6 +13,11 @@
 <div class="classroom-container" data-controller="studentClassroom">
 <%= render 'shared/teachercards' %>
 <%= render 'shared/smallstudentcards' %>
+
+<% else %>
+<h2>Next year's students have not been sorted yet</h2>
+<% end %>
+
 </div>
 
 <!-- <#%= link_to 'Download', classrooms_path(format: :xlsx) %> -->
