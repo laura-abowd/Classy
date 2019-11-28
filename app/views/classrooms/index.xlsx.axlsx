@@ -10,10 +10,10 @@ wb = xlsx_package.workbook
 
     sheet.add_row []
 
-    sheet.add_row ["School ID", "First Name", "Last Name", "Gender", "Birthday"]
+    sheet.add_row ["School ID", "First Name", "Last Name", "Gender", "Birthday", "ESL", "Gifted Talented", "Special Education", "Medical Alert"]
 
     teacher.classroom.students.each do |student|
-      sheet.add_row [ student.schoolID, student.first_name, student.last_name, student.gender, student.birthday ]
+      sheet.add_row [ student.schoolID, student.first_name, student.last_name, student.gender, student.birthday, student.esl, student.gifted_talented, student.special_education, student.medical_alert ]
     end
 
   end
