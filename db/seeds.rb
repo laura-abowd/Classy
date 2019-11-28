@@ -57,7 +57,7 @@ Classroom.create!(teacher: meleck, grade: first, year: Date.today.year, readysta
 Classroom.create!(teacher: marquez, grade: first, year: Date.today.year, readystatus: true )
 
 
-36.times do
+34.times do
   student = Student.new(
     first_name: Faker::Name.male_first_name,
     last_name:  Faker::Name.last_name,
@@ -88,6 +88,33 @@ students.each_with_index do |student, index|
   i = index % 4
 ClassroomEnrollment.create!(student: student, classroom: classrooms[i])
 end
+
+2.times do
+kid = Student.where(laurasclass: false, esl: false, gifted_talented: false, medical_alert: false).sample
+kid.special_education = true
+kid.save!
+end
+
+7.times do
+kid = Student.where(laurasclass: false, esl: false, medical_alert: false, special_education: false).sample
+kid.gifted_talented = true
+kid.save!
+end
+
+8.times do
+kid = Student.where(laurasclass: false, medical_alert: false, gifted_talented: false, special_education: false).sample
+kid.esl = true
+kid.save!
+end
+
+
+3.times do
+kid = Student.where(laurasclass: false, esl: false, gifted_talented: false, special_education: false).sample
+kid.medical_alert = true
+kid.save!
+end
+
+
 
 
 laurasclass = Classroom.create!(teacher: abowd, grade: first, year: Date.today.year, readystatus: true )
