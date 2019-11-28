@@ -168,7 +168,7 @@ laurasboysfirst.each_with_index do |firstname, index|
     first_name: firstname,
     last_name:  laurasboyslasts[index],
     schoolID: Faker::Number.between(from: 900000, to: 999999),
-    gender: 'female',
+    gender: 'male',
     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
     photo: 'avatar-male.png',
     laurasclass: true,
