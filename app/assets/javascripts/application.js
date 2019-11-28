@@ -20,14 +20,12 @@
 //     showAllButton.classList.toggle('all-closed');
 // });
 
+function hidealert(alert) {
+ alert.style.display = "none";
+}
 function showalert(alert) {
-  // console.log(alert.style.display);
-  if (alert.style.display === "none") {
     alert.style.display = "block";
-    setTimeout(() => showalert(alert), 4000);
-  } else {
-    alert.style.display = "none";
-  }
+    setTimeout(() => hidealert(alert), 3000);
 }
 
 document.querySelectorAll('.header-flex').forEach( (save) => {
