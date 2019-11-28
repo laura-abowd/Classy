@@ -57,7 +57,7 @@ Classroom.create!(teacher: meleck, grade: first, year: Date.today.year, readysta
 Classroom.create!(teacher: marquez, grade: first, year: Date.today.year, readystatus: true )
 
 
-34.times do
+36.times do
   student = Student.new(
     first_name: Faker::Name.male_first_name,
     last_name:  Faker::Name.last_name,
