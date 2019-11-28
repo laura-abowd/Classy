@@ -1,0 +1,5 @@
+meta_product_name: "Classy"
+meta_title: "Manage class lists more effectively"
+meta_description: "With Classy, teachers can focus on what matters most. Create your class lists in less time than ever before."
+meta_image: "classymeta.png" # should exist in `app/assets/images/`
+twitter_account: # required for Twitter Cards
