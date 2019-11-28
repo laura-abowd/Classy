@@ -214,11 +214,7 @@
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
-  height: 2em;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // padding: 0 5px;
+  height: auto;
   width: 280px;
 }
 
@@ -300,6 +296,8 @@
 
 }
 
+
+
 .submitted-teachers {
   // display: flex;
   // justify-content: center;
@@ -309,6 +307,11 @@
 .button-teacher-status {
 // margin-left: 50px;
 margin-bottom: 5px;
+width: 100%;
+}
+
+.status-yellow-btn {
+  width: 100%;
 }
 
 .teacher-name-status {
@@ -317,9 +320,13 @@ margin-bottom: 5px;
 }
 
 .badge-pill {
-  max-width: 100px;
   display: flex;
   align-items: center;
   justify-content: space-around;
    align-content: center;
+}
+
+.green-status-badge {
+  background-color: $classy-green;
+  color: white;
 }

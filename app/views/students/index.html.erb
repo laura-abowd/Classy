@@ -82,8 +82,9 @@
             <div class="teacher-name-status">
               <%= teacher.teacher_name %>
             </div>
-            <div class="badge badge-pill badge-success">
-              <%= teacher.classroom.readystatus? ? "Submitted" : "Pending" %>
+            <div class="badge badge-pill w-100 green-status-badge">
+             <i class="fas fa-check"></i>
+             <%= teacher.classroom.readystatus? ? "Submitted" : "Pending" %>
             </div>
 
             <% end %>
