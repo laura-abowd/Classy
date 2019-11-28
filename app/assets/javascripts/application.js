@@ -20,6 +20,11 @@
 //     showAllButton.classList.toggle('all-closed');
 // });
 
+document.querySelectorAll('.header-flex').forEach( (save) => {
+  button = save.querySelector('#saveclass-btn');
+  button.addEventListener("click", function(){ alert("Your class is saved") });
+  });
+
 const showAllButton = document.querySelector('.show-notes-btn .expand-view')
 
 showAllButton.addEventListener("click", () => {
@@ -37,7 +42,6 @@ showAllButton.addEventListener("click", () => {
     showAllButton.classList.toggle('all-closed');
 });
 
-
 document.querySelectorAll('.student-card-container').forEach( (card) => {
   button = card.querySelector('.fa-chevron-down');
   button.addEventListener("click", () => {
@@ -45,5 +49,4 @@ document.querySelectorAll('.student-card-container').forEach( (card) => {
     card.classList.toggle('active1')
   });
 })
-
 
