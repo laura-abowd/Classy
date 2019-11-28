@@ -120,8 +120,8 @@ end
 laurasclass = Classroom.create!(teacher: abowd, grade: first, year: Date.today.year, readystatus: true )
 
 laurasboysfirst = [
-'Rob',
-'Ernest',
+'Taisei',
+'Mario',
 'Doug',
 'Conner',
 'Liam',
@@ -134,7 +134,7 @@ laurasboysfirst = [
 ]
 
 laurasboyslasts = [
-'Morain',
+'Anh',
 'Finch',
 'Bingham',
 'Prentice',
@@ -150,12 +150,12 @@ laurasboyslasts = [
 laurasgirlsfirst = [
 'Adrienne',
 'Kaitlyn',
-'Tammy',
+'Nicole',
 'Ana',
 'Hazel',
 'Emma',
 'Macey',
-'Madison',
+'Sabrina',
 'Kelsey',
 'Kiera',
 'Phuong',
