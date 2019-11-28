@@ -51,14 +51,13 @@ trouni = Teacher.create!(teacher_name: 'Mr. Trouni', grade: fifth, email: 'troun
 sylvain = Teacher.create!(teacher_name: 'Mr. Sylvain', grade: fifth, email: 'sylvain@akinelementary.com', password: 'password')
 
 
-firstone = Classroom.create!(teacher: abowd, grade: first, year: Date.today.year, readystatus: true )
-firsttwo = Classroom.create!(teacher: wright, grade: first, year: Date.today.year, readystatus: true )
-firstthree = Classroom.create!(teacher: torres, grade: first, year: Date.today.year, readystatus: true )
-firstfour = Classroom.create!(teacher: meleck, grade: first, year: Date.today.year, readystatus: true )
-firstfive = Classroom.create!(teacher: marquez, grade: first, year: Date.today.year, readystatus: true )
+Classroom.create!(teacher: wright, grade: first, year: Date.today.year, readystatus: true )
+Classroom.create!(teacher: torres, grade: first, year: Date.today.year, readystatus: true )
+Classroom.create!(teacher: meleck, grade: first, year: Date.today.year, readystatus: true )
+Classroom.create!(teacher: marquez, grade: first, year: Date.today.year, readystatus: true )
 
 
-50.times do
+34.times do
   student = Student.new(
     first_name: Faker::Name.male_first_name,
     last_name:  Faker::Name.last_name,
@@ -70,7 +69,7 @@ firstfive = Classroom.create!(teacher: marquez, grade: first, year: Date.today.y
   student.save!
 end
 
-40.times do
+34.times do
   student = Student.new(
     first_name:    Faker::Name.female_first_name,
     last_name:    Faker::Name.last_name,
@@ -82,65 +81,137 @@ end
   student.save!
 end
 
-# 15.times do
-#   student = Student.new(
-#     first_name:    Faker::Name.male_first_name,
-#     last_name:    Faker::Name.last_name,
-#     schoolID: Faker::Number.between(from: 900000, to: 999999),
-#     gender: 'male',
-#     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
-#     photo: 'https://cdn.dribbble.com/users/458522/screenshots/2700102/cute_monster_3_rgb_dribbbler.jpg',
-
-#   )
-#   student.save!
-# end
-
-# 15.times do
-#   student = Student.new(
-#     first_name:    Faker::Name.female_first_name,
-#     last_name:    Faker::Name.last_name,
-#     schoolID: Faker::Number.between(from: 900000, to: 999999),
-#     gender: 'female',
-#     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
-#     photo: 'https://cdn.dribbble.com/users/458522/screenshots/2700762/cute_monster_4_dribbbler.jpg',
-
-#   )
-#   student.save!
-# end
-
-# 15.times do
-#   student = Student.new(
-#     first_name:    Faker::Name.male_first_name,
-#     last_name:    Faker::Name.last_name,
-#     schoolID: Faker::Number.between(from: 900000, to: 999999),
-#     gender: 'male',
-#     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
-#     photo: 'https://adarit.com/wp-content/uploads/2016/06/Cute-tech-monster.jpg',
-
-#   )
-#   student.save!
-# end
-
-# 10.times do
-#   student = Student.new(
-#     first_name:    Faker::Name.female_first_name,
-#     last_name:    Faker::Name.last_name,
-#     schoolID: Faker::Number.between(from: 900000, to: 999999),
-#     gender: 'female',
-#     birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
-#     photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSwqH-s8lYsDvxf12yrUj1oEpSrhDMMAMyBf_kC2UumNiMRr6fW',
-
-#   )
-#   student.save!
-# end
-
 students = Student.all
 classrooms = Classroom.all
 
 students.each_with_index do |student, index|
-  i = index % 5
+  i = index % 4
 ClassroomEnrollment.create!(student: student, classroom: classrooms[i])
 end
+
+2.times do
+kid = Student.where(laurasclass: false, esl: false, gifted_talented: false, medical_alert: false).sample
+kid.special_education = true
+kid.save!
+end
+
+7.times do
+kid = Student.where(laurasclass: false, esl: false, medical_alert: false, special_education: false).sample
+kid.gifted_talented = true
+kid.save!
+end
+
+8.times do
+kid = Student.where(laurasclass: false, medical_alert: false, gifted_talented: false, special_education: false).sample
+kid.esl = true
+kid.save!
+end
+
+
+3.times do
+kid = Student.where(laurasclass: false, esl: false, gifted_talented: false, special_education: false).sample
+kid.medical_alert = true
+kid.save!
+end
+
+
+
+
+laurasclass = Classroom.create!(teacher: abowd, grade: first, year: Date.today.year, readystatus: true )
+
+laurasboysfirst = [
+'Rob',
+'Ernest',
+'Doug',
+'Conner',
+'Liam',
+'Heath',
+'Amman',
+'Jeremy',
+'Romeo',
+'Edward',
+'Sriram',
+]
+
+laurasboyslasts = [
+'Morain',
+'Finch',
+'Bingham',
+'Prentice',
+'French',
+'Goods',
+'Walsh',
+'Washington',
+'Tenney',
+'Flam',
+'Krishnan',
+]
+
+laurasgirlsfirst = [
+'Adrienne',
+'Kaitlyn',
+'Tammy',
+'Ana',
+'Hazel',
+'Emma',
+'Macey',
+'Madison',
+'Kelsey',
+'Kiera',
+'Phuong',
+]
+
+laurasgirlslasts = [
+'Ventura',
+'Macgarth',
+'Cousins',
+'Aikman',
+'Reeves',
+'Watts',
+'Ritter',
+'Brown',
+'Reeves',
+'Knight',
+'Nguyen,'
+]
+
+
+
+laurasgirlsfirst.each_with_index do |firstname, index|
+  student = Student.new(
+    first_name: firstname,
+    last_name:  laurasgirlslasts[index],
+    schoolID: Faker::Number.between(from: 900000, to: 999999),
+    gender: 'female',
+    birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
+    photo: 'avatar-female.png',
+    laurasclass: true,
+  )
+  student.save!
+end
+
+laurasboysfirst.each_with_index do |firstname, index|
+  student = Student.new(
+    first_name: firstname,
+    last_name:  laurasboyslasts[index],
+    schoolID: Faker::Number.between(from: 900000, to: 999999),
+    gender: 'male',
+    birthday: Faker::Date.between(from: 7.year.ago, to: 6.year.ago),
+    photo: 'avatar-male.png',
+    laurasclass: true,
+  )
+  student.save!
+end
+
+laurasstudents = Student.where(laurasclass: true)
+
+
+
+laurasstudents.each do |student|
+ClassroomEnrollment.create!(student: student, classroom: laurasclass)
+end
+
+
 
 
 # teachers = Teacher.where(grade: second)

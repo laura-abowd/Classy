@@ -12,6 +12,7 @@ class CreateStudents < ActiveRecord::Migration[5.2]
       t.boolean :special_education, default: false
       t.boolean :medical_alert, default: false
       t.text :notes, default: ''
+      t.boolean :laurasclass, default: false
 
 
       t.timestamps
