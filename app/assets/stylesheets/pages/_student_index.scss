@@ -286,29 +286,33 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   border-radius: 4px;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
+  grid-column-gap: 50px;
+  grid-row-gap: 30px;
   padding: 30px;
+  justify-content: center;
 }
 
 .teacher-status-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 24px;
+  font-size: 32px;
 
 }
 
 .submitted-teachers {
-margin-left: 20%;
+  // display: flex;
+  // justify-content: center;
+  grid-column: 1 / span 2;
 }
 
 .button-teacher-status {
-margin-left: 50px;
+// margin-left: 50px;
 margin-bottom: 5px;
 }
 
 .teacher-name-status {
+  font-size: 20px;
   // max-width: 200px;
 }
 
@@ -317,4 +321,5 @@ margin-bottom: 5px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+   align-content: center;
 }
