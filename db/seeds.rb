@@ -84,6 +84,32 @@ end
 students = Student.all
 classrooms = Classroom.all
 
+8.times do
+  kid = Student.where(laurasclass: true).sample
+  kid.esl = true
+  kid.save!
+end
+
+8.times do
+  kid = Student.where(laurasclass: true).sample
+  kid.gifted_talented = true
+  kid.save!
+end
+
+8.times do
+  kid = Student.where(laurasclass: true).sample
+  kid.medical_alert = true
+  kid.save!
+end
+
+8.times do
+  kid = Student.where(laurasclass: true).sample
+  kid.special_education = true
+  kid.save!
+end
+
+
+
 students.each_with_index do |student, index|
   i = index % 4
 ClassroomEnrollment.create!(student: student, classroom: classrooms[i])
