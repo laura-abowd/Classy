@@ -1,12 +1,14 @@
 <div class="d-flex">
-  <div class="tablet-bg-title">
-     M
+  <div class="tablet-bg-title-2">
+    <%= image_tag "avatar-circle-male.png", size: "30x30" %>
+     <!-- <image_tag ("avatar-cicle-male.png")> -->
+     <!-- <img src="assets/images/icons/avatar-cicle-male.png" alt="edit" /> -->
     <div class="tablet-gender-info">
       <p><%= teacher.classroom.students.where(gender: "male").count %></p>
     </div>
   </div>
-  <div class="tablet-bg-title">
-    F
+  <div class="tablet-bg-title-2">
+    <%= image_tag "avatar-avatar-female.png", size: "30x30" %>
     <div class="tablet-gender-info">
        <%= teacher.classroom.students.where(gender: "female").count %>
     </div>
