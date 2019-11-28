@@ -16,7 +16,11 @@ export default class extends Controller {
     const studentId = event.dataTransfer.getData("text/plain");
     const container = event.currentTarget;
     const studentCard = document.getElementById(studentId);
-    container.appendChild(studentCard)
+
+    container.prepend(studentCard)
+
+    // prependchild
+    // insertbefore
 
     // select enrollment form in student card
     const enrollmentForm = studentCard.querySelector('form');
