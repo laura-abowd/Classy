@@ -2,7 +2,7 @@ class DoNotPlacesController < ApplicationController
   def create
     @do_not_place = DoNotPlace.new(do_not_place_params)
     @grade = current_teacher.grade
-    @teacher_lock = TeacherLock.new
+    # @teacher_lock = TeacherLock.new
     @nextgradeteachers = Teacher.where(grade:  Grade.find_by(level: current_teacher.grade.level + 1) )
     @new_do_not_place = DoNotPlace.new
 

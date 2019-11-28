@@ -1,0 +1,28 @@
+console.log('I am inside of update.js')
+
+function refreshCard(classroomId, innerHTML) {
+  const teacherInfo = document.querySelector(`.classroom-info-container[data-classroom-id="${classroomId}"]`);
+  teacherInfo.innerHTML = innerHTML;
+
+}
+
+function refreshNumber(classroomId, count) {
+    const number = document.querySelector(`.student-count[data-classroom-id="${classroomId}"]`);
+    number.innerText = `${count}`
+}
+
+function refreshOldNumber() {
+    const number = document.querySelector(`.student-count[data-classroom-id="${<%= @old_classroom.id %> }"]`);
+    number.innerText = "<%= @old_classroom.students.count %>"
+}
+
+
+<% unless @classroom_enrollment.errors.any? %>
+  refreshCard(`<%= @classroom_enrollment.classroom.id %>`, '<%= j render "shared/classroom_info", teacher: @classroom_enrollment.classroom.teacher %>');
+  refreshCard(`<%= @old_classroom.id %>`, '<%= j render "shared/classroom_info", teacher: @old_classroom.teacher %>');
+  refreshNumber(`<%= @classroom_enrollment.classroom.id %>`, `<%= @classroom_enrollment.classroom.students.count %>`);
+  refreshNumber(`<%= @old_classroom.id %>`, `<%= @old_classroom.students.count %>`);
+<% end %>
+
+
+

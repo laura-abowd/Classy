@@ -1,7 +1,7 @@
 <% @nextgradeteachers.each do |teacher| %>
 <div class="classroom-student-card-container" data-action="drop->studentClassroom#student_drop_handler dragover->studentClassroom#student_dragover_handler" data-classroom-id='<%= teacher.classroom.id %>'>
   <% teacher.classroom.students.order(:last_name).each do |student|%>
-  <div class="classroom-card" id="student-<%= student.id %>" draggable="true" data-action="dragstart->studentClassroom#student_dragstart_handler ">
+  <div class="classroom-card teacher-<%= teacher.id %>" id="student-<%= student.id %>" draggable="true" data-action="dragstart->studentClassroom#student_dragstart_handler ">
     <%= render "classroom_enrollments/form", student: student, classroom_enrollment: student.current_enrollment %>
     <div class="classy-avatar-space">
       <%= image_tag student.photo, alt: "avatar-large", class: "avatar-large" %>

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :students, only: :update do
     resources :classroom_enrollments, only: :update
   end
-  resources :teacher_locks, only: :create
+  resources :teacher_locks, only: [:create, :update]
   resources :do_not_places, only: [:create, :update, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

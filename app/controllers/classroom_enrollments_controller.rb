@@ -1,6 +1,7 @@
 class ClassroomEnrollmentsController < ApplicationController
   def update
     @classroom_enrollment = ClassroomEnrollment.find(params[:id])
+    @old_classroom = @classroom_enrollment.classroom
     @classroom_enrollment.update(classroom_enrollment_paramaters)
   end
 

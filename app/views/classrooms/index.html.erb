@@ -1,6 +1,10 @@
 <div class="classy-students-header">
   <div class="classy-content-header">
-    <h1>Your class has been sorted!</h1>
+    <h2>Your class has been sorted!</h2>
+    <p>Drag and drop if you need to adjust your classes and download your class sheet</p>
+    <div class="blue-btn">
+      <%= link_to 'Download', classrooms_path(format: :xlsx), class: 'download-btn'%>
+    </div>
   </div>
 </div>
 
@@ -9,7 +13,7 @@
 <%= render 'shared/smallstudentcards' %>
 </div>
 
-<%= link_to 'Download', classrooms_path(format: :xlsx) %>
+<!-- <#%= link_to 'Download', classrooms_path(format: :xlsx) %> -->
 
 
 
