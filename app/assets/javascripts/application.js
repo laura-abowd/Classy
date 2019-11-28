@@ -20,9 +20,19 @@
 //     showAllButton.classList.toggle('all-closed');
 // });
 
+function showalert(alert) {
+  // console.log(alert.style.display);
+  if (alert.style.display === "none") {
+    alert.style.display = "block";
+    setTimeout(() => showalert(alert), 4000);
+  } else {
+    alert.style.display = "none";
+  }
+}
+
 document.querySelectorAll('.header-flex').forEach( (save) => {
   button = save.querySelector('#saveclass-btn');
-  button.addEventListener("click", function(){ alert("Your class is saved") });
+  button.addEventListener("click", function(){ showalert(document.querySelector('.alert'))});
   });
 
 const showAllButton = document.querySelector('.show-notes-btn .expand-view')

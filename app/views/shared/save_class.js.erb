@@ -1,1 +1,4 @@
-$("#flash").html('<%= j render partial: "shared/flashes", notice: flash.now[:alert] %>');
+$("body").overhang({
+  type: "success",
+  message: "Saved!"
+});
