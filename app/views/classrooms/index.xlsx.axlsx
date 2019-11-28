@@ -10,10 +10,37 @@ wb = xlsx_package.workbook
 
     sheet.add_row []
 
-    sheet.add_row ["School ID", "First Name", "Last Name", "Gender", "Birthday"]
+    sheet.add_row ["School ID", "First Name", "Last Name", "Gender", "Birthday", "ESL", "Gifted & Talented", "Special Education", "Medical Alert", "Notes" ]
 
-    teacher.classroom.students.each do |student|
-      sheet.add_row [ student.schoolID, student.first_name, student.last_name, student.gender, student.birthday ]
+
+    teacher.classroom.students.order(:last_name).each do |student|
+
+      if student.esl == true
+          esl = "yes"
+        else
+          esl = ""
+      end
+
+      if student.gifted_talented == true
+          gifted_talented = "yes"
+        else
+          gifted_talented = ""
+      end
+
+      if student.special_education == true
+        special_education = "yes"
+      else
+        special_education = ""
+      end
+
+      if student.medical_alert == true
+        medical_alert = "yes"
+      else
+        medical_alert = ""
+      end
+
+
+      sheet.add_row [ student.schoolID, student.first_name, student.last_name, student.gender, student.birthday, esl, gifted_talented, special_education, medical_alert, student.notes ]
     end
 
   end
