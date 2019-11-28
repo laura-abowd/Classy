@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_024257) do
     t.boolean "special_education", default: false
     t.boolean "medical_alert", default: false
     t.text "notes", default: ""
+    t.boolean "laurasclass", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
