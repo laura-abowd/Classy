@@ -16,12 +16,6 @@ class ApplicationController < ActionController::Base
   stored_location_for(resource) || students_path
   end
 
-  def save_class
-    respond_to do |format|
-      format.js { flash.now[:alert] = "Class save"}
-    end
-
-  end
   # before_action :authenticate_teacher!
   # include Pundit
 
