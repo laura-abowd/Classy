@@ -77,7 +77,7 @@
         <!--       Teacher status div -->
         <div class="teacher-status">
           <div class="teacher-status-labels">
-            <% @mygradeteachers.each do |teacher| %>
+            <% @mygradeteachers.first(4).each do |teacher| %>
             <!-- <div class="teacher-label-submitted"> -->
             <div class="teacher-name-status">
               <%= teacher.teacher_name %>
