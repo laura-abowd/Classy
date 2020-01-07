@@ -6,19 +6,36 @@
   cursor: pointer;
   color: $classy-gray;
   font-family: Comfortaa;
-  font-size:  16px;
+  font-size: 16px;
   font-weight: light;
   padding: 4px 22px;
-  text-decoration:none;
-  border-radius: 2px;
+  text-decoration: none;
+  border-radius: 15px;
   transition: 0.2s;
   border: none;
 }
+
+.login-btn {
+  background-color: $classy-yellow;
+  display: inline-block;
+  cursor: pointer;
+  color: $classy-blue;
+  font-family: Comfortaa;
+  font-size: 16px;
+  padding: 4px 22px;
+  text-decoration: none;
+  border-radius: 15px;
+  border: none;
+  width: 100px;
+  height: 30px;
+}
+
 .yellow-btn:hover {
   text-decoration: none;
   background-color: rgb(206, 161, 0);
   color: $classy-gray;
 }
+
 .yellow-btn:active {
   position: relative;
   color: $classy-gray;
@@ -33,7 +50,7 @@
   cursor: pointer;
   color: white;
   font-size: 16px;
-  font-weight:light;
+  font-weight: light;
   padding: 4px 22px;
   border-radius: 2px;
   transition: 0.2s;
@@ -43,15 +60,16 @@
 
 .blue-btn:hover {
   background-color: rgb(1, 53, 121);
+
   a:hover {
-  text-decoration: none;
-  color:white
+    text-decoration: none;
+    color: white
   }
 }
 
 .blue-btn:active {
   text-decoration: none;
-  position:relative;
+  position: relative;
   color: white;
   background-color: $classy-gray;
 }
@@ -60,107 +78,115 @@
 
 .outline-yellow-btn {
   background-color: white;
-  border:2px solid #F4BF00;
+  border: 2px solid #F4BF00;
   color: #F4BF00;
-  display:inline-block;
-  cursor:pointer;
-  font-family:Comfortaa;
+  display: inline-block;
+  cursor: pointer;
+  font-family: Comfortaa;
   font-size: 16px;
-  font-weight:light;
+  font-weight: light;
   padding: 4px 22px;
-  text-decoration:none;
+  text-decoration: none;
   border-radius: 4px;
 }
+
 .outline-yellow-btn:hover {
   text-decoration: none;
-  background-color:white;
-  border:2px solid #F4BF00;
+  background-color: white;
+  border: 2px solid #F4BF00;
   color: #F4BF00;
 }
+
 .outline-yellow-btn:active {
-  position:relative;
-  border:2px solid #CEA100;
+  position: relative;
+  border: 2px solid #CEA100;
   color: #CEA100;
-  background-color:white;
+  background-color: white;
 }
 
 /* Outline blue button */
 
 .outline-blue-btn {
-  background-color:white;
-  border:2px solid #0F5EC7;
+  background-color: white;
+  border: 2px solid #0F5EC7;
   color: #0F5EC7;
-  display:inline-block;
-  cursor:pointer;
-  font-family:Comfortaa;
-  font-size:  16px;
-  font-weight:light;
+  display: inline-block;
+  cursor: pointer;
+  font-family: Comfortaa;
+  font-size: 16px;
+  font-weight: light;
   padding: 4px 22px;
-  text-decoration:none;
+  text-decoration: none;
   border-radius: 4px;
 }
+
 .outline-blue-btn:hover {
   text-decoration: none;
-  background-color:white;
+  background-color: white;
   border: 2px solid #0F5EC7;
   color: #0F5EC7;
 }
+
 .outline-blue-btn:active {
-  position:relative;
-  border:2px solid #013579;
+  position: relative;
+  border: 2px solid #013579;
   color: #013579;
-  background-color:white;
+  background-color: white;
 }
 
 /* Hover effect plain yellow button */
 /* Smaller, no border. Linaer radient */
 
 .special-yellow-btn {
-  background-color:#F4BF00;
+  background-color: #F4BF00;
   background: linear-gradient(to bottom, #F4BF00 5%, #DEAE00 100%);
   display: inline-block;
   cursor: pointer;
   color: white;
   font-family: Comfortaa;
   font-size: 16px;
-  font-weight:light;
+  font-weight: light;
   padding: 4px 22px;
   text-decoration: none;
   border-radius: 4px;
-   border: none;
+  border: none;
 }
+
 .special-yellow-btn:hover {
   text-decoration: none;
-  background-color:#F4BF00;
-  background:linear-gradient(to bottom, #DEAE00 5%, #F4BF00 100%);
+  background-color: #F4BF00;
+  background: linear-gradient(to bottom, #DEAE00 5%, #F4BF00 100%);
   color: white;
 }
+
 .special-yellow-btn:active {
-  background:linear-gradient(to bottom, #F4BF00 5%, #DEAE00 100%);
+  background: linear-gradient(to bottom, #F4BF00 5%, #DEAE00 100%);
 }
 
 /* Hover effect Plain blue button */
 .special-blue-btn {
-  background-color:#0F5EC7;
-  background:linear-gradient(to bottom, #0F5EC7 5%, #0D4DA3 100%);
-  display:inline-block;
-  cursor:pointer;
+  background-color: #0F5EC7;
+  background: linear-gradient(to bottom, #0F5EC7 5%, #0D4DA3 100%);
+  display: inline-block;
+  cursor: pointer;
   color: white;
-  font-family:Comfortaa;
+  font-family: Comfortaa;
   font-size: 16px;
-  font-weight:light;
+  font-weight: light;
   padding: 4px 22px;
-  text-decoration:none;
+  text-decoration: none;
   border-radius: 4px;
 }
+
 .special-blue-btn:hover {
   text-decoration: none;
-  background-color:#0F5EC7;
-background:linear-gradient(to bottom, #0D4DA3 5%, #0F5EC7 100%);
+  background-color: #0F5EC7;
+  background: linear-gradient(to bottom, #0D4DA3 5%, #0F5EC7 100%);
   color: white;
 }
+
 .special-blue-btn:active {
-  background:linear-gradient(to bottom, #0F5EC7 5%, #0D4DA3 100%);
+  background: linear-gradient(to bottom, #0F5EC7 5%, #0D4DA3 100%);
 }
 
 // custom yellow btn
@@ -170,20 +196,22 @@ background:linear-gradient(to bottom, #0D4DA3 5%, #0F5EC7 100%);
   cursor: pointer;
   color: $classy-gray;
   font-family: Comfortaa;
-  font-size:  14px;
+  font-size: 14px;
   font-weight: light;
   padding: 4px 22px;
-  text-decoration:none;
+  text-decoration: none;
   border-radius: 2px;
   transition: 0.2s;
   border: none;
   // width: 330px;
 }
+
 .status-yellow-btn:hover {
   text-decoration: none;
   background-color: rgb(206, 161, 0);
   color: $classy-gray;
 }
+
 .status-yellow-btn:active {
   position: relative;
   color: $classy-gray;
@@ -191,59 +219,55 @@ background:linear-gradient(to bottom, #0D4DA3 5%, #0F5EC7 100%);
 }
 
 
-.nav-link {
-  border-top-left-radius: 12px!important;
-  border-top-right-radius: 12px!important;
-  color: $classy-blue!important;
-  background-color: $light-gray!important;
+// .nav-link {
+//   border-top-left-radius: 12px!important;
+//   border-top-right-radius: 12px!important;
+//   color: $classy-blue!important;
+//   background-color: $light-gray!important;
+// }
 
-}
+// a.active.nav-link{
+//   background-color: $classy-blue!important;
+//   color: white!important;
+//   border-top-left-radius: 12px;
+//   border-top-right-radius: 12px;
+//   border-color: $classy-blue!important;
+// }
 
-a.active.nav-link{
-  background-color: $classy-blue!important;
-  color: white!important;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
-  border-color: $classy-blue!important;}
 
-
-.landingviewstudents-btn{
+.landingviewstudents-btn {
   background-color: $classy-blue;
-  display: inline-block;
+  display: flex;
   cursor: pointer;
   color: white;
-  font-size: 16px;
-  font-weight:light;
-  padding: 4px 22px;
-  border-radius: 3px;
-  transition: 0.2s;
   text-decoration: none;
+  border-radius: 15px;
   height: 40px;
   width: 50%;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  vertical-align: middle;
-  margin-left: 5px;
-
-  }
+  margin: 0;
+}
 
 .landingviewstudents-btn:hover {
 
-    a:hover {
+  a:hover {
     text-decoration: none;
-    color:white
-    }
-
+    color: white
   }
 
+}
+
 .grow {
-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
 }
 
 .grow:hover {
-transform: scale(1.04);
+  transform: scale(1.04);
 }
 
-
-
-
-
+.view-list-text {
+  color: white;
+  font-size: 16px;
+}

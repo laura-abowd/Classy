@@ -2,30 +2,28 @@
   <%= link_to "/", class: "navbar-brand" do %>
   <%= image_tag("classy_logo.png", class: "img-responsive", id: "navbar-logo") %>
   <% end %>
-
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if teacher_signed_in? %>
       <li class="nav-item active">
         <!-- <#%= link_to "Home", root_path, class: "btn btn-flat mr-2" %> -->
       </li>
-
       <div style="margin-right: 30px;">
-        <a class= "nav-item">
+        <a class="nav-item">
           <%= link_to "Students", "/students" %>
         </a>
-        <a class= "nav-item">
+        <a class="nav-item">
           <%= link_to "Classrooms", "/classrooms"%>
         </a>
       </div>
-
       <% else %>
-
-      <a class="nav-item">
-        <%= link_to "Login", new_teacher_session_path %>
-      </a>
+      <button type="button" class="btn btn-lg login-btn"><%= link_to "Login", new_teacher_session_path %></button>
       <% end %>
     </ul>
   </div>
 </div>
 
+<!-- replaced below code with button tag
+  <a class="nav-item login-btn">
+        <%= link_to "Login", new_teacher_session_path %>
+  </a> -->
