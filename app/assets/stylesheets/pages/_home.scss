@@ -18,6 +18,99 @@
 //   font-size: 1.25vw;
 // }
 
+.yellow-background-container {
+   margin: 0;
+}
+
+
+.circle {
+  position: relative;
+  display: inline-block;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  // padding: 50% 0;
+  border-radius: 50%;
+}
+
+
+
+// enter J's styles
+
+.j-card-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 28px;
+  grid-row-gap: 0px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.j-card {
+  background-color: white;
+  display: grid;
+  padding: 20px;
+  border-radius: 16px;
+}
+
+.j-circle {
+  width: 80px;
+  height: 80px;
+  background-color: $classy-yellow;
+  justify-self: center;
+  display: grid;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.j-number {
+  font-size: 30px;
+  align-self: center;
+}
+
+
+// .circle {
+//   position: relative;
+//   display: block;
+//   margin: 2em 0;
+//   background-color: transparent;
+//   color: #222;
+//   text-align: center;
+// }
+
+// .circle:after {
+//   display: block;
+//   padding-bottom: 100%;
+//   width: 100%;
+//   height: 0;
+//   border-radius: 50%;
+//   background-color: #ddd;
+//   content: "";
+// }
+
+// .circle-inner {
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+// }
+
+// .circle-wrapper {
+//   display: table;
+//   width: 100%;
+//   height: 100%;
+// }
+
+// .circle-content {
+//   display: table-cell;
+//   padding: 1em;
+//   vertical-align: middle;
+// }
 
 .download-btn {
   color: white;
@@ -27,7 +120,7 @@
   width: 100%;
   background-color: $classy-yellow;
   padding: 45px 0 45px 0;
-  h3 {
+    h3 {
     font-weight: bolder;
   }
 }

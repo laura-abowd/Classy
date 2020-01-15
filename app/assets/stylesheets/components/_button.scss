@@ -241,7 +241,7 @@
   cursor: pointer;
   color: white;
   text-decoration: none;
-  border-radius: 15px;
+  border-radius: 20px;
   height: 40px;
   width: 50%;
   align-items: center;
@@ -251,20 +251,10 @@
 }
 
 .landingviewstudents-btn:hover {
-
   a:hover {
     text-decoration: none;
     color: white
   }
-
-}
-
-.grow {
-  transition: all .2s ease-in-out;
-}
-
-.grow:hover {
-  transform: scale(1.04);
 }
 
 .view-list-text {

@@ -2,9 +2,9 @@
   <div style="display: flex;">
     <div class="container-fluid text-left">
       <div class="tagline">
-        <h2 class="display-4">Helping you put the pieces together</h2>
+        <h2 class="display-4">Don’t get puzzled by class lists</h2>
         <p class="lead pb-2">Let Classy do the hard work for you. No more notecards or post-it notes.</p>
-        <div class="landingviewstudents-btn grow">
+        <div class="landingviewstudents-btn">
           <%= link_to 'Learn More', students_path, class: 'view-list-text'%>
         </div>
       </div>
@@ -15,47 +15,99 @@
   </div>
 </header>
 <div id="container-sub-banner" class="container-fluid margintop">
+  <div class="puzzle-piece">
+    <svg width="58" height="56" viewBox="0 0 58 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="58" height="56">
+        <rect width="58" height="56" fill="#C4C4C4" />
+      </mask>
+      <g mask="url(#mask0)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M58 -2C58 -3.10457 57.1046 -4 56 -4H2C0.895431 -4 0 -3.10457 0 -2C0 -0.895431 0.895429 0 2 0H7.84021C10.0491 0 11.1176 4.06211 9.48416 5.54904C3.65729 10.8534 0 18.4996 0 27C0 43.0163 12.9837 56 29 56C45.0163 56 58 43.0163 58 27C58 18.4996 54.3427 10.8534 48.5158 5.54904C46.8824 4.06211 47.951 0 50.1598 0H56C57.1046 0 58 -0.895431 58 -2Z" fill="white" />
+      </g>
+    </svg>
+  </div>
   <div class="sub-banner classy-sub-banner mt-3 text-center margintop">
     <h3>Simplify building class lists in three easy steps.</h3>
-    <div id="row-cards" class="row justify-content-center">
+    <div class="j-card-section">
+      <div class="j-card">
+        <div class="j-circle">
+          <div class="j-number">1</div>
+        </div>
+        <h4>Upload</h4>
+        <p>Upload your student and teacher infomation</p>
+      </div>
+      <div class="j-card">
+        <div class="j-circle">
+          <div class="j-number">2</div>
+        </div>
+        <h4>Update</h4>
+        <p>Upload your student and teacher infomation</p>
+      </div>
+      <div class="j-card">
+        <div class="j-circle">
+          <div class="j-number">3</div>
+        </div>
+        <h4>Sort</h4>
+        <p>Upload your student and teacher infomation</p>
+      </div>
+    </div>
+<!--     <div id="row-cards" class="row justify-content-center yellow-background-container">
       <div class="col-sm-3">
         <div class="card  h-100">
           <a class="classy-card-img card-img-top" alt="Card image cap">
-            <%= image_tag("step-1-img.png") %>
+            <svg width="100" height="100" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="300" cy="300" r="297.5" fill="#F2F2F2" stroke="#0B5EC5" stroke-width="5" />
+              <path d="M321.2 469C317.733 469 314.8 467.933 312.4 465.8C310 463.4 308.8 460.467 308.8 457V185.4L261.2 201C259.333 201.8 257.6 202.2 256 202.2C252.533 202.2 249.6 201.133 247.2 199C245.067 196.6 244 193.667 244 190.2C244 187.8 244.533 185.533 245.6 183.4C246.933 181.267 248.933 179.667 251.6 178.6L312.8 158.2C314.133 157.667 315.6 157.267 317.2 157C318.8 156.467 320.133 156.2 321.2 156.2C324.667 156.2 327.467 157.4 329.6 159.8C332 161.933 333.2 164.733 333.2 168.2V457C333.2 460.467 332 463.4 329.6 465.8C327.467 467.933 324.667 469 321.2 469Z" fill="black" />
+            </svg>
           </a>
           <div class="card-body">
-            <h5 class="card-title classy-card-title">1. Upload Students</h5>
-            <p class="card-text">Create your class lists in less time than ever before.</p>
+            <h5 class="card-title classy-card-title">Upload</h5>
+            <p class="card-text">Upload students and teachers.</p>
           </div>
         </div>
       </div>
       <div class="col-sm-3">
         <div class="card h-100">
           <a class=" classy-card-img card-img-top" alt="Card image cap">
-            <%= image_tag("step-2-img.png") %>
+            <svg width="100" height="100" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="300" cy="300" r="297.5" fill="#F2F2F2" stroke="#0B5EC5" stroke-width="5" />
+              <path d="M226.798 469C223.332 469 220.398 467.933 217.998 465.8C215.598 463.4 214.398 460.467 214.398 457C214.398 453.8 215.598 450.867 217.998 448.2L344.398 297.8C349.998 291.933 354.665 284.467 358.398 275.4C362.398 266.067 364.398 257.4 364.398 249.4C364.398 236.333 361.465 224.6 355.598 214.2C349.998 203.8 342.265 195.667 332.398 189.8C322.798 183.667 311.865 180.6 299.598 180.6C287.332 180.6 276.265 183.667 266.398 189.8C256.798 195.667 249.065 203.8 243.198 214.2C237.598 224.6 234.798 236.333 234.798 249.4C234.798 252.867 233.598 255.8 231.198 258.2C229.065 260.333 226.265 261.4 222.798 261.4C219.332 261.4 216.398 260.333 213.998 258.2C211.598 255.8 210.398 252.867 210.398 249.4C210.398 231.533 214.265 215.667 221.998 201.8C229.998 187.667 240.665 176.6 253.998 168.6C267.598 160.333 282.798 156.2 299.598 156.2C316.665 156.2 331.865 160.333 345.198 168.6C358.532 176.6 369.065 187.667 376.798 201.8C384.798 215.667 388.798 231.533 388.798 249.4C388.798 262.467 386.132 274.333 380.798 285C375.732 295.4 368.932 305.533 360.398 315.4L250.398 444.6H384.798C388.265 444.6 391.065 445.8 393.198 448.2C395.598 450.6 396.798 453.533 396.798 457C396.798 460.467 395.598 463.4 393.198 465.8C391.065 467.933 388.265 469 384.798 469H226.798Z" fill="black" />
+            </svg>
           </a>
           <div class="card-body">
-            <h5 class="card-title classy-card-title">2. Mark Criteria</h5>
-            <p class="card-text">Let Classy sort students for you.</p>
+            <h5 class="card-title classy-card-title">Add Criteria</h5>
+            <p class="card-text">Update yor studuent information by marking the appropriate criteria.</p>
           </div>
         </div>
       </div>
       <div class="col-sm-3">
         <div class="card h-100">
           <a class="classy-card-img card-img-top" alt="Card image cap">
-            <%= image_tag("step-3-img.png") %>
+            <svg width="100" height="100" viewBox="0 0 600 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="300" cy="300" r="297.5" fill="#F2F2F2" stroke="#0B5EC5" stroke-width="5" />
+              <path d="M300.798 472.6C283.198 472.6 267.198 468.6 252.798 460.6C238.665 452.6 227.332 441.667 218.798 427.8C210.532 413.667 206.398 397.933 206.398 380.6C206.398 376.867 207.465 373.8 209.598 371.4C211.732 368.733 214.798 367.4 218.798 367.4C222.532 367.4 225.465 368.733 227.598 371.4C229.732 373.8 230.798 376.867 230.798 380.6C230.798 393.4 233.865 405 239.998 415.4C246.398 425.533 254.798 433.667 265.198 439.8C275.865 445.667 287.732 448.6 300.798 448.6C323.732 448.6 341.332 442.2 353.598 429.4C366.132 416.333 372.398 400.2 372.398 381C372.398 366.6 369.332 354.333 363.198 344.2C357.065 333.8 348.665 325.933 337.998 320.6C327.598 315 315.865 312.2 302.798 312.2C299.332 312.2 296.398 311.133 293.998 309C291.865 306.6 290.798 303.667 290.798 300.2C290.798 296.733 291.865 293.933 293.998 291.8C296.398 289.4 299.332 288.2 302.798 288.2C313.465 288.2 322.932 285.667 331.198 280.6C339.732 275.267 346.398 268.333 351.198 259.8C356.265 251.267 358.798 242.067 358.798 232.2C358.798 216.467 353.732 203.4 343.598 193C333.465 182.333 319.465 177 301.598 177C283.732 177 269.198 182.067 257.998 192.2C246.798 202.067 241.198 214.467 241.198 229.4C241.198 232.867 239.998 235.8 237.598 238.2C235.465 240.333 232.532 241.4 228.798 241.4C225.065 241.4 222.132 240.2 219.998 237.8C217.865 235.4 216.798 232.6 216.798 229.4C216.798 215 220.398 202.067 227.598 190.6C234.798 179.133 244.798 170.067 257.598 163.4C270.398 156.733 285.065 153.4 301.598 153.4C317.065 153.4 330.932 156.867 343.198 163.8C355.465 170.733 365.198 180.2 372.398 192.2C379.598 203.933 383.198 217.267 383.198 232.2C383.198 240.2 381.065 248.733 376.798 257.8C372.798 266.6 367.198 274.733 359.998 282.2C352.798 289.4 344.665 295 335.598 299C349.198 302.467 360.532 308.467 369.598 317C378.665 325.267 385.465 335 389.998 346.2C394.532 357.4 396.798 369 396.798 381C396.798 398.333 392.665 413.933 384.398 427.8C376.132 441.667 364.798 452.6 350.398 460.6C335.998 468.6 319.465 472.6 300.798 472.6Z" fill="black" />
+            </svg>
           </a>
           <div class="card-body">
-            <h5 class="card-title classy-card-title">3. Submit your class for sorting</h5>
-            <p class="card-text">Ensure that all students and their needs are met.</p>
+            <h5 class="card-title classy-card-title">Create Classes</h5>
+            <p class="card-text">Classy generates balanced classes for you.</p>
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </div>
 <div class="d-flex flex-row classy-bottom-container margintop">
-<!--   <div style="position: relative; left: 0; top: 0;">
+  <!-- created a div circle -->
+  <!--       <div class="circle step-1">
+              <div class="circle-inner">
+                <div class="circle-wrapper">
+                  <div class="circle-content">
+                    1.
+                  </div>
+                </div>
+              </div>
+            </div> -->
+  <!--   <div style="position: relative; left: 0; top: 0;">
     <%= image_tag "Picture1.png", class: "img-fluid demopicture", alt: "Classy Demo Picture"%>
     <iframe width="756" height="425.25" src="https://www.youtube.com/embed/xCwz9o7SlZU" class="demovideo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div> -->
