@@ -14,10 +14,10 @@
 <div class="classy-tabs">
   <ul class="nav nav-tabs  ml-4 classy-ul-tabs" id="myTab" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="tru" style="font-size: 20px;">My Students</a>
+      <a class="nav-link tab-small active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="tru" style="font-size: 20px;">My Students</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" style="font-size: 20px;">View Status</a>
+      <a class="nav-link tab-small" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" style="font-size: 20px;">View Team Status</a>
     </li>
   </ul>
 </div>
@@ -88,13 +88,6 @@
             </div>
 
             <% end %>
-
-
-        <!-- <div class="teacher-status-button-container"> -->
-
-       <!--  </div> -->
-
-
            <div class="submitted-teachers">
              <div class="button-teacher-status">
             <%= button_to "Create Classes", sortbutton_path, method: :post, class: "status-yellow-btn" %>

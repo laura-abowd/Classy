@@ -4,7 +4,7 @@
 
 .student-card {
   position: relative;
-  background-color: $classy-background-color;
+  background-color: $classy-background-white;
   overflow: hidden;
   width: 1080px;
   padding: 10px;
@@ -163,7 +163,7 @@
   // border: 1px solid;
   border-radius: 4px;
   box-shadow: 0 5px 8px rgba(206,206,206, 0.5);
-  background-color: $classy-background-color;
+  background-color: $classy-background-white;
 }
 
 .classroom-info-container {
@@ -232,7 +232,7 @@
   // border-left: 1px solid $classy-less-important-text-shade;
   // border-right: 1px solid $classy-less-important-text-shade;
   // border-bottom: 1px solid $classy-less-important-text-shade;
-  background-color: $classy-background-color;
+  background-color: $classy-background-white;
   box-shadow: 0 5px 8px rgba(206,206,206, 0.5);
   margin-top: 5px;
   margin-bottom: 5px;

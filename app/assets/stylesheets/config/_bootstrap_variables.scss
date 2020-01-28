@@ -6,7 +6,7 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $classy-background-color;
+$body-bg:                 $classy-background-white;
 $font-size-base: 1rem;
 
 // Colors
@@ -15,12 +15,11 @@ $primary:    rgb(15, 94, 199);
 $success:    rgb(15, 94, 199);
 $info:       white;
 $danger:     rgb(241, 23, 9);
-$warning:    $orange;
-
+// $warning:    $orange;
 
 // Buttons & inputs' radius
 $border-radius:    2px;
 $border-radius-lg: 4px;
 $border-radius-sm: 1px;
 
-// Override other variables below!
+

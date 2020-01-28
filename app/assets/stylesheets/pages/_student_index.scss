@@ -3,6 +3,7 @@
 .students-header-container {
   position: relative;
 }
+
 .classy-students-header {
   margin: auto auto 20px auto;
   height: 150px;
@@ -44,24 +45,25 @@
   height: 60px;
   margin: 1px;
   background-color: $classy-blue;
+
   // opacity: .35;
   p {
-    color: $classy-background-color;
+    color: $classy-background-white;
     padding: 18px;
   }
 }
+
 // needs to be $classy-blue when active and classy-blue opacity .35 when not active
 
 .student-nav-link {
   border: 0 !important; //border is inherited from bootstrap
 }
 
-
 /* student header */
 
 .wrapper {
-   background: $classy-blue;
-   z-index: 1;
+  background: $classy-blue;
+  z-index: 1;
 }
 
 .sticky-header-container {
@@ -72,7 +74,7 @@
 
 /* GRID HEADER */
 
- #student-header {
+#student-header {
   display: grid;
   max-width: 1080px;
   grid-template-columns: repeat(16, 2fr);
@@ -89,7 +91,7 @@
 .icon-text {
   grid-column: span 1;
   font-size: 12px;
-  color: $classy-background-color;
+  color: $classy-background-white;
 }
 
 .show-notes-btn {
@@ -113,17 +115,15 @@
   top: 0;
 }
 
-/* Add some top padding to the page content to prevent sudden quick movement (as the header gets a new position at the top of the page (position:fixed and top:0) */
-.sticky + .content {
+.sticky+.content {
   padding-top: 102px;
 }
 
 /* CUSTOM STICKY HEADER */
-
 .header-flex {
   display: flex;
   margin: auto;
-  color: $classy-background-color;
+  color: $classy-background-white;
   font-size: 12px;
 }
 
@@ -147,7 +147,6 @@
   text-align: center;
 }
 
-
 /* Tab Component  */
 
 .classy-tabs {
@@ -160,49 +159,49 @@
   width: 100%;
 }
 
-.tabs {
-  clear: both;
-  position: relative;
-  margin: 0 auto;
-   /* you can either manually set a min-height here or do it via JS ---> */
-}
+// .tabs {
+//   clear: both;
+//   position: relative;
+//   margin: 0 auto;
+// }
 
-.tab label {
-  opacity: .35;
-  position: relative;
-  top: 0;
-  cursor: pointer;
-  color: #333;
-  text-transform: uppercase;
-  transition: 0.15s ease-out;
-   &:hover {
-    opacity: 1;
-   }
-}
+// .tab label {
+//   opacity: .35;
+//   position: relative;
+//   top: 0;
+//   cursor: pointer;
+//   color: #333;
+//   text-transform: uppercase;
+//   transition: 0.15s ease-out;
 
-.tab [type=radio] {
-  display: none;
-}
+//   &:hover {
+//     opacity: 1;
+//   }
+// }
 
-.tab__content {
-  position: relative;
-  top: 40px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  transition: opacity .2s cubic-bezier(.42,0,.34,1.01);
-  opacity: 0;
-}
+// .tab [type=radio] {
+//   display: none;
+// }
 
-[type=radio]:checked ~ label {
-  opacity: 1;
-  z-index: 2;
-}
+// .tab__content {
+//   position: relative;
+//   top: 40px;
+//   left: 0;
+//   right: 0;
+//   bottom: 0;
+//   transition: opacity .2s cubic-bezier(.42, 0, .34, 1.01);
+//   opacity: 0;
+// }
 
-[type=radio]:checked ~ label .tab__content {
-  z-index: 1;
-  opacity: 1;
-}
+// [type=radio]:checked~label {
+//   opacity: 1;
+//   z-index: 2;
+// }
+
+// [type=radio]:checked~label .tab__content {
+//   z-index: 1;
+//   opacity: 1;
+// }
 
 // do not place badge
 .do-not-place {
@@ -218,7 +217,8 @@
   width: 280px;
 }
 
-.do_not_place_student_one, .do_not_place_student_two {
+.do_not_place_student_one,
+.do_not_place_student_two {
   margin: 0 !important;
 }
 
@@ -236,6 +236,7 @@
 .delete-dnp {
   line-height: 1.8em;
   font-size: 1.3em;
+
   a {
     text-decoration: none;
     color: inherit;
@@ -267,8 +268,9 @@
   justify-content: center;
   margin-top: 30px;
   margin-bottom: 10px;
+
   h3 {
-  font-size: 32px;
+    font-size: 32px;
   }
 }
 
@@ -293,10 +295,7 @@
   align-items: center;
   justify-content: center;
   font-size: 32px;
-
 }
-
-
 
 .submitted-teachers {
   // display: flex;
@@ -305,9 +304,9 @@
 }
 
 .button-teacher-status {
-// margin-left: 50px;
-margin-bottom: 5px;
-width: 100%;
+  // margin-left: 50px;
+  margin-bottom: 5px;
+  width: 100%;
 }
 
 .status-yellow-btn {
@@ -323,7 +322,7 @@ width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-around;
-   align-content: center;
+  align-content: center;
 }
 
 .green-status-badge {

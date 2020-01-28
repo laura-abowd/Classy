@@ -219,27 +219,11 @@
 }
 
 
-// .nav-link {
-//   border-top-left-radius: 12px!important;
-//   border-top-right-radius: 12px!important;
-//   color: $classy-blue!important;
-//   background-color: $light-gray!important;
-// }
-
-// a.active.nav-link{
-//   background-color: $classy-blue!important;
-//   color: white!important;
-//   border-top-left-radius: 12px;
-//   border-top-right-radius: 12px;
-//   border-color: $classy-blue!important;
-// }
-
-
 .landingviewstudents-btn {
   background-color: $classy-blue;
   display: flex;
   cursor: pointer;
-  color: white;
+  color: $classy-background-white;
   text-decoration: none;
   border-radius: 20px;
   height: 40px;
@@ -260,4 +244,19 @@
 .view-list-text {
   color: white;
   font-size: 16px;
+}
+
+.tab-small {
+  border-top-left-radius: 12px !important;
+  border-top-right-radius: 12px !important;
+  color: $classy-blue;
+  background-color: $light-gray;
+}
+
+a.active.tab-small {
+  background-color: $classy-blue !important;
+  color: white !important;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-color: $classy-blue !important;
 }
