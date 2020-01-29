@@ -205,14 +205,9 @@ end
 
 laurasstudents = Student.where(laurasclass: true)
 
-
-
 laurasstudents.each do |student|
 ClassroomEnrollment.create!(student: student, classroom: laurasclass)
 end
-
-
-
 
 # teachers = Teacher.where(grade: second)
 

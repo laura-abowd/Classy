@@ -142,9 +142,8 @@
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: 50px;
   grid-template-rows: auto;
-  grid-gap: 0px;
+  // grid-gap: 0px;
   justify-items: center;
-
 }
 
 .teacher-name {
@@ -161,8 +160,7 @@
   left: 20px;
   font-size: 24px;
   font-weight: bolder;
-  //remove set height and width after code works
-  width: 300px;
+
   // border: 1px solid;
   border-radius: 4px;
   // box-shadow: 0 5px 8px rgba(206,206,206, 0.5);
@@ -178,7 +176,7 @@
   width: 60px;
   height: 25px;
   border-radius: 4px;
-  background-color: #F0F7FF;
+  background-color: $classy-header-gray;
   position: relative;
   margin: 5px 10px 10px 0;
   padding: 2px 0px 5px 10px;
@@ -188,32 +186,33 @@
   width: 60px;
   height: 25px;
   border-radius: 4px;
-  background-color: white;
   position: relative;
   margin: 5px 10px 10px 0;
   padding: 2px 0px 5px 10px;
 }
 
 .tablet-gender-info {
+  background-color: $classy-background-white;
+  color: $classy-gray;
   position: absolute;
   font-size: 13px;
-  color: white;
   right: 0;
   top: 0;
   width: 25px;
   height: 20px;
-  background-color: $classy-gray;
   border-radius: 4px;
   padding: 2px 0px 5px 7px;
 }
 
 .tablet-icon-info {
+  background-color: $classy-yellow;
+  color: $classy-gray;
   position: absolute;
   right: 0;
   top: 0;
   width: 30px;
   height: 25px;
-  background-color: #F2DC97;
+
   border-radius: 4px;
   padding: 2px 0px 5px 10px;
 }
