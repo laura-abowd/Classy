@@ -1,10 +1,9 @@
 /* Style the header */
-
-.students-header-container {
+.header-container {
   position: relative;
 }
 
-.classy-students-header {
+.yellow-header-container {
   margin: auto auto 100px auto;
   height: 150px;
   width: 85%;
@@ -12,31 +11,32 @@
   text-align: center;
   color: $classy-gray;
   background-color: $classy-yellow;
-  border-radius: 50px;
+  border-radius: 60px 20px 60px 60px;
 }
 
-.classy-students-header::after,
-.classy-students-header::before {
+.yellow-header-container::after,
+
+ {
   position: absolute;
   content: '';
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   background: $classy-yellow;
-  bottom: -.5em;
+  bottom: -.1em;
   z-index: -100;
 }
 
-.classy-students-header::before {
-  right: 75%;
-  transform: skew(0, 30deg);
+// .yellow-header-container::before {
+//   right: 80%;
+//   transform: skew(0, 50deg);
+// }
+
+.yellow-header-container::after {
+  left: 20%;
+  transform: skew(0, -50deg);
 }
 
-.classy-students-header::after {
-  left: 25%;
-  transform: skew(0, -30deg);
-}
-
-.classy-content-header {
+.yellow-header-message {
   display: inline-block;
   vertical-align: middle;
   line-height: normal;
@@ -48,20 +48,17 @@
 }
 
 .student-tab {
+  background-color: $classy-blue;
   border-radius: 24px 24px 0px 0px;
   width: 575px;
   height: 60px;
   margin: 1px;
-  background-color: $classy-blue;
-
   // opacity: .35;
   p {
     color: $classy-background-white;
     padding: 18px;
   }
 }
-
-// needs to be $classy-blue when active and classy-blue opacity .35 when not active
 
 .student-nav-link {
   border: 0 !important; //border is inherited from bootstrap
@@ -112,11 +109,11 @@
 }
 
 /* The sticky class is added to the header with JS when it reaches its scroll position */
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%
-}
+// .sticky {
+//   position: fixed;
+//   top: 0;
+//   width: 100%
+// }
 
 #header-container-sticky {
   position: sticky;
@@ -129,9 +126,9 @@
 
 /* CUSTOM STICKY HEADER */
 .header-flex {
+  color: $classy-background-white;
   display: flex;
   margin: auto;
-  color: $classy-background-white;
   font-size: 12px;
 }
 
@@ -166,50 +163,6 @@
   max-width: 1080px;
   width: 100%;
 }
-
-// .tabs {
-//   clear: both;
-//   position: relative;
-//   margin: 0 auto;
-// }
-
-// .tab label {
-//   opacity: .35;
-//   position: relative;
-//   top: 0;
-//   cursor: pointer;
-//   color: #333;
-//   text-transform: uppercase;
-//   transition: 0.15s ease-out;
-
-//   &:hover {
-//     opacity: 1;
-//   }
-// }
-
-// .tab [type=radio] {
-//   display: none;
-// }
-
-// .tab__content {
-//   position: relative;
-//   top: 40px;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   transition: opacity .2s cubic-bezier(.42, 0, .34, 1.01);
-//   opacity: 0;
-// }
-
-// [type=radio]:checked~label {
-//   opacity: 1;
-//   z-index: 2;
-// }
-
-// [type=radio]:checked~label .tab__content {
-//   z-index: 1;
-//   opacity: 1;
-// }
 
 // do not place badge
 .do-not-place {
