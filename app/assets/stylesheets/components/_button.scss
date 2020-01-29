@@ -221,13 +221,13 @@
 
 .landingviewstudents-btn {
   background-color: $classy-blue;
-  display: flex;
-  cursor: pointer;
   color: $classy-background-white;
+  display: flex;
   text-decoration: none;
+  cursor: pointer;
   border-radius: 20px;
   height: 40px;
-  width: 50%;
+  width: 25%;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -241,7 +241,7 @@
   }
 }
 
-.view-list-text {
+.learn-more-text {
   color: white;
   font-size: 16px;
 }
