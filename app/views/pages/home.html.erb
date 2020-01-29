@@ -1,50 +1,40 @@
-<header style="background:transparent !important" class="classy-banner jumbotron jumbotron-fluid">
-  <div style="display: flex;">
-    <div class="container-fluid text-left">
-      <div class="tagline">
-        <h2 class="display-4">Don’t get puzzled by class lists</h2>
-        <p class="lead pb-2">Let Classy do the hard work for you. No more notecards or post-it notes.</p>
-        <div class="landingviewstudents-btn">
-          <%= link_to 'Learn More', students_path, class: 'view-list-text'%>
-        </div>
+<!-- start hero text and image -->
+<header>
+  <div class="hero-container">
+    <div class="hero-content">
+      <h1 style="font-size:64px">Don’t get puzzled<br> by class lists</h1>
+      <p>Let Classy do the hard work for you.<br> No more notecards or post-it notes.</p>
+      <div class="landingviewstudents-btn">
+        <%= link_to 'Learn More', students_path, class: 'view-list-text'%>
       </div>
     </div>
-    <div class="container-fluid text-right">
-      <%= image_tag "hero-image.png", class: "img-fluid", alt: "hero image"%>
+    <div class="hero-img">
+      <%= image_tag "hero-image.png", alt: "hero image"%>
     </div>
   </div>
 </header>
+<!-- end hero text and image -->
 <div id="container-sub-banner" class="container-fluid margintop">
-  <div class="puzzle-piece">
-    <svg width="58" height="56" viewBox="0 0 58 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="58" height="56">
-        <rect width="58" height="56" fill="#C4C4C4" />
-      </mask>
-      <g mask="url(#mask0)">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M58 -2C58 -3.10457 57.1046 -4 56 -4H2C0.895431 -4 0 -3.10457 0 -2C0 -0.895431 0.895429 0 2 0H7.84021C10.0491 0 11.1176 4.06211 9.48416 5.54904C3.65729 10.8534 0 18.4996 0 27C0 43.0163 12.9837 56 29 56C45.0163 56 58 43.0163 58 27C58 18.4996 54.3427 10.8534 48.5158 5.54904C46.8824 4.06211 47.951 0 50.1598 0H56C57.1046 0 58 -0.895431 58 -2Z" fill="white" />
-      </g>
-    </svg>
-  </div>
   <div class="sub-banner classy-sub-banner mt-3 text-center margintop">
     <h3>Simplify building class lists in three easy steps.</h3>
-    <div class="j-card-section">
-      <div class="j-card">
-        <div class="j-circle">
-          <div class="j-number">1</div>
+    <div class="card-section">
+      <div class="white-card">
+        <div class="yellow-circle-sm">
+          <div class="circle-number-sm">1</div>
         </div>
         <h4>Upload</h4>
         <p>Upload your student and teacher infomation</p>
       </div>
-      <div class="j-card">
-        <div class="j-circle">
-          <div class="j-number">2</div>
+      <div class="white-card">
+        <div class="yellow-circle-sm">
+          <div class="circle-number-sm">2</div>
         </div>
         <h4>Update</h4>
         <p>Upload your student and teacher infomation</p>
       </div>
-      <div class="j-card">
-        <div class="j-circle">
-          <div class="j-number">3</div>
+      <div class="white-card">
+        <div class="yellow-circle-sm">
+          <div class="circle-number-sm">3</div>
         </div>
         <h4>Sort</h4>
         <p>Upload your student and teacher infomation</p>
@@ -52,19 +42,4 @@
     </div>
   </div>
 </div>
-<div class="d-flex flex-row classy-bottom-container margintop">
-  <!-- created a div circle -->
-  <!--       <div class="circle step-1">
-              <div class="circle-inner">
-                <div class="circle-wrapper">
-                  <div class="circle-content">
-                    1.
-                  </div>
-                </div>
-              </div>
-            </div> -->
-  <!--   <div style="position: relative; left: 0; top: 0;">
-    <%= image_tag "Picture1.png", class: "img-fluid demopicture", alt: "Classy Demo Picture"%>
-    <iframe width="756" height="425.25" src="https://www.youtube.com/embed/xCwz9o7SlZU" class="demovideo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div> -->
-</div>
+

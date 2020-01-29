@@ -10,7 +10,7 @@ $body-bg:                 $classy-background-white;
 $font-size-base: 1rem;
 
 // Colors
-$body-color: rgb(55,55,55);
+$body-color: $classy-header-gray;
 $primary:    rgb(15, 94, 199);
 $success:    rgb(15, 94, 199);
 $info:       white;
@@ -21,5 +21,3 @@ $danger:     rgb(241, 23, 9);
 $border-radius:    2px;
 $border-radius-lg: 4px;
 $border-radius-sm: 1px;
-
-
