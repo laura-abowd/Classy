@@ -63,3 +63,38 @@
   font-size: 32px;
   align-self: center;
 }
+
+// apply styles if 1400px or less
+@media screen and (max-width: 1200px) {
+  .landingviewstudents-btn {
+    height: 42px;
+    width: 144px;
+  }
+  .learn-more-text {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .hero-container {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 100%;
+  }
+  .landingviewstudents-btn {
+    // display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-img {
+    width: 100%;
+  }
+}
