@@ -8,9 +8,13 @@
 .hero-content {
   width: 50%;
   padding-left: 100px;
+  h1 {
+    font-size: 64px;
+  }
     p {
       font-size: 18px;
     }
+    
 }
 
 .hero-img {
@@ -77,7 +81,7 @@
 }
 
 @media screen and (max-width: 860px) {
- 
+
   .hero-container {
     display: flex;
     flex-direction: column-reverse;
@@ -86,11 +90,17 @@
   .hero-content {
     display: flex;
     flex-direction: column;
-    // justify-content: center;
     align-items: center;
     padding: 0;
     width: 100%;
   }
+  .hero-content h1 {
+    font-size: 48px;
+  }
+  .hero-content p {
+    font-size: 14px;
+  }
+
   .landingviewstudents-btn {
     // display: block;
     margin-left: auto;
