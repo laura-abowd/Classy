@@ -7,6 +7,7 @@
 
 .hero-content {
   width: 50%;
+  
   h1 {
     font-size: 64px;
   }
@@ -18,7 +19,6 @@
 .puzzle-img {
   width: 100%;
 }
-
 
 .container-sub-banner {
   width: 100%;
@@ -32,6 +32,7 @@
   padding: 45px 0 45px 0;
     h3 {
     font-weight: bolder;
+    padding-bottom: 20px;
   }
 }
 
@@ -117,7 +118,11 @@
     // grid-template-rows: 1fr;
   }
   .white-card {
+    background-color: transparent;
     border-radius: 0px;
+  }
+  .yellow-circle-sm {
+    background-color: $classy-background-white;
   }
 }
 
