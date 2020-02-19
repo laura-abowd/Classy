@@ -1,17 +1,13 @@
-<!-- replaced below code with button tag
-  <a class="nav-item login-btn">
-        <%= link_to "Login", new_teacher_session_path %>
-  </a> -->
 <!-- Image and text -->
-<div class="classy-nav-bar">
-  <div class="navbar-content">
-    <div class="logo">
+<%# <div class="classy-nav-bar"> %>
+  <nav class="classy-nav-bar">
+     <%# <div class="navbar-content"> %>
+    <%# <div class="logo"> %>
       <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag("classy_logo.png", class: "img-responsive", id: "navbar-logo") %>
+      <%= image_tag("classy_logo.png", class: "navbar-logo", id: "navbar-logo") %>
       <% end %>
-    </div>
-    <nav>
-    <ul >
+    <%# </div> %>
+    <ul>
       <% if teacher_signed_in? %>
       <!-- <div class="nav-links"> -->
        <li><a class="nav-item">
@@ -20,13 +16,14 @@
         <li><a class="nav-item">
           <%= link_to "Classrooms", "/classrooms"%>
         </a></li>
+        </ul>
         <% else %>
-        <button type="button" class="btn btn-lg login-btn">
+        <button type="button" class="btn btn-lg login-btn"> 
           <%= link_to "Login", new_teacher_session_path %></button>
         <% end %>
+  
       <!-- </div> -->
-    </ul>
+    <%# </div> %>
   </nav>
-</div>
-</div>
+<%# </div> %>
 <!-- collapse  -->
