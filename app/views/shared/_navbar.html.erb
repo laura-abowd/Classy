@@ -1,8 +1,5 @@
 <!-- Image and text -->
-<%# <div class="classy-nav-bar"> %>
-  <nav class="classy-nav-bar">
-     <%# <div class="navbar-content"> %>
-    <%# <div class="logo"> %>
+<nav class="classy-nav-bar">
       <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag("classy_logo.png", class: "navbar-logo", id: "navbar-logo") %>
       <% end %>
@@ -21,9 +18,5 @@
         <button type="button" class="btn btn-lg login-btn"> 
           <%= link_to "Login", new_teacher_session_path %></button>
         <% end %>
-  
-      <!-- </div> -->
-    <%# </div> %>
-  </nav>
-<%# </div> %>
-<!-- collapse  -->
+</nav>
+
