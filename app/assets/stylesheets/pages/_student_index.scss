@@ -26,11 +26,6 @@
   z-index: -100;
 }
 
-// .yellow-header-container::before {
-//   right: 80%;
-//   transform: skew(0, 50deg);
-// }
-
 .yellow-header-container::after {
   left: 20%;
   transform: skew(0, -50deg);
