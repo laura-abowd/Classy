@@ -4,9 +4,7 @@
     <% if ClassroomEnrollment.count > 100 %>
     <h2>Your class has been sorted!</h2>
     <p>Drag and drop if you need to adjust your classes and download your class sheet</p>
-    <div class="blue-btn">
-      <%= link_to 'Download', classrooms_path(format: :xlsx), class: 'download-btn'%>
-    </div>
+      <%= link_to 'Download', classrooms_path(format: :xlsx), class: 'blue-btn'%>
   </div>
 </div>
 

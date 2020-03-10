@@ -40,9 +40,9 @@
 }
 
 .yellow-btn:hover {
+  color: $classy-gray;
   text-decoration: none;
   background-color: rgb(206, 161, 0);
-  color: $classy-gray;
 }
 
 .yellow-btn:active {
@@ -69,25 +69,14 @@
 /* Plain blue button */
 .blue-btn {
   background-color: $classy-blue;
-  display: inline-block;
   color: white;
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: light;
-  padding: 4px 22px;
-  border-radius: 2px;
-  transition: 0.2s;
+  padding: 4px 20px;
+  border-radius: 20px;
   text-decoration: none;
   border: none;
   cursor: pointer;
-}
-
-.blue-btn:hover {
-  background-color: rgb(1, 53, 121);
-
-  a:hover {
-    text-decoration: none;
-    color: white
-  }
 }
 
 .blue-btn:active {
@@ -97,59 +86,32 @@
   background-color: $classy-gray;
 }
 
-
-/* Hover effect plain yellow button */
-/* Smaller, no border. Linear gradient */
-
-
-// custom yellow btn
-.status-yellow-btn {
-  background-color: $classy-yellow;
-  display: inline-block;
-  cursor: pointer;
-  color: $classy-gray;
-  font-family: Comfortaa;
-  font-size: 14px;
-  font-weight: light;
-  padding: 4px 22px;
-  text-decoration: none;
-  border-radius: 2px;
-  transition: 0.2s;
-  border: none;
-  // width: 330px;
-}
-
-.status-yellow-btn:hover {
-  text-decoration: none;
-  background-color: rgb(206, 161, 0);
-  color: $classy-gray;
-}
-
-.status-yellow-btn:active {
-  position: relative;
-  color: $classy-gray;
-  background-color: rgb(206, 161, 0);
-}
-
-
-
-
-.tab-small {
-  border-top-left-radius: 12px !important;
-  border-top-right-radius: 12px !important;
+#home-tab {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
   color: $classy-blue;
   background-color: $light-gray;
 }
 
-a.active.tab-small {
-  background-color: $classy-blue !important;
-  color: white !important;
+#profile-tab {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  border-color: $classy-blue !important;
+  color: $classy-blue;
+  background-color: $light-gray;
 }
 
-.download-btn {
+a#home-tab.active {
+  background-color: $classy-blue;
   color: white;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-color: $classy-blue;
 }
 
+a#profile-tab.active {
+  background-color: $classy-blue;
+  color: white;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-color: $classy-blue;
+}
